@@ -1,0 +1,553 @@
+/*!
+Theme Name: Amply
+Theme URI: https://github.com/wprig/wprig/
+Author: Morten Rand-Hendriksen et.al.
+Author URI: https://github.com/wprig/wprig/
+Description: A progressive theme development rig for WordPress.
+Version: 1.0.0
+License: GNU General Public License v3 or later
+License URI: LICENSE
+Text Domain: amply
+Tags: translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share
+what you've learned with others.
+
+CSS normalization based in part on normalize.css by
+Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Accessibility
+# Layout
+# Typography
+# Elements
+# Links
+# Forms
+# Header
+  # Main navigation menu
+# Content navigation
+# Footer
+# Infinite scroll
+--------------------------------------------------------------*/
+
+
+
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+/* stylelint-disable */
+html {
+	box-sizing: border-box;
+}
+/* stylelint-enable */
+
+/**
+ * Inherit box-sizing to make it easier to change the property for
+ * components that leverage other behavior; see
+ * http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+/* stylelint-disable */
+body {
+	background: #fff;
+	/* Fallback for when there is no custom background color defined. */
+}
+/* stylelint-enable */
+
+blockquote,
+q {
+	quotes: "" "";
+}
+
+/* stylelint-disable */
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+/* stylelint-enable */
+
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+/* stylelint-disable */
+img {
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+/* stylelint-enable */
+
+/* Extra wide images within figure tags don't overflow the content area. */
+figure {
+	margin: 0.5em 0;
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Links
+--------------------------------------------------------------*/
+/* stylelint-disable */
+a {
+	color: #0073aa;
+}
+/* stylelint-enable */
+
+a:visited {
+	color: #333;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: #00a0d2;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+/* stylelint-disable */
+textarea {
+	width: 100%;
+}
+/* stylelint-enable */
+
+/* stylelint-disable */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px solid;
+	border-color: #ccc #ccc #bbb;
+	border-radius: 3px;
+	background: #e6e6e6;
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 0.75rem;
+	line-height: 1;
+	padding: 0.6em 1em 0.4em;
+	cursor: pointer;
+}
+/* stylelint-enable */
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	border-color: #ccc #bbb #aaa;
+}
+
+button:active,
+button:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
+	border-color: #aaa #bbb #bbb;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: #666;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 3px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+	color: #111;
+}
+
+select {
+	border: 1px solid #ccc;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+
+.site-header {
+	padding-bottom: 1em;
+}
+
+.header-image {
+	margin: 0 auto;
+}
+
+.header-image img {
+	display: block;
+	margin: 0 auto;
+}
+
+.custom-logo-link {
+	display: inline-block;
+	margin: 0 auto 1em;
+}
+
+.site-branding {
+	text-align: center;
+	padding: 60px 0 1.75em;
+}
+
+.site-title {
+	margin: 0 1em;
+	font-family: var(--highlight-font-family);
+	font-size: 38px;
+	font-weight: 700;
+	line-height: 1.2;
+	color: #333332;
+}
+
+.site-title a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.site-description {
+	margin: 0.4375em 0 0;
+	font-family: var(--highlight-font-family);
+	font-size: 17px;
+	font-weight: inherit;
+	line-height: 1.4;
+	word-wrap: break-word;
+	color: #757575;
+}
+
+/*--------------------------------------------------------------
+## Main navigation menu
+--------------------------------------------------------------*/
+.main-navigation {
+	clear: both;
+	display: block;
+	margin: 0 auto 2em;
+	padding: 0 1em;
+	/* stylelint-disable */
+	max-width: var(--content-width)rem;
+	/* stylelint-enable */
+	font-family: var(--highlight-font-family);
+}
+
+.menu-toggle {
+	display: block;
+	margin: 1.2em auto;
+	padding: 0.6em 1.2em 0.5em;
+	font-family: var(--highlight-font-family);
+	font-size: 80%;
+	text-transform: uppercase;
+	border: 2px solid #000;
+	border-radius: 0;
+	background: transparent;
+}
+
+.main-navigation a {
+	display: block;
+	width: 100%;
+	padding: 0.5em 1em 0.5em 0;
+	text-decoration: none;
+	color: #000;
+}
+
+.main-navigation a:hover,
+.main-navigation a:focus {
+	text-decoration: underline;
+}
+
+.main-navigation ul {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.main-navigation li {
+	position: relative;
+}
+
+.main-navigation ul ul li {
+	padding-left: 1em;
+}
+
+.main-navigation .dropdown,
+.main-navigation button.dropdown-toggle {
+	display: none;
+}
+
+.main-navigation .menu {
+	display: none;
+}
+
+@media (--narrow-menu-query) {
+
+	.main-navigation.toggled-on .menu {
+		display: block;
+	}
+}
+
+@media (--wide-menu-query) {
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation ul li a {
+		padding: 0.4em 0.5em;
+	}
+
+	.main-navigation ul li {
+		margin: 0 0 0 0.5em;
+	}
+
+	.main-navigation ul li:first-child {
+		margin-left: 0;
+	}
+
+	.main-navigation ul ul {
+		display: none;
+		position: absolute;
+		top: 100%;
+		flex-direction: column;
+		background: #fff;
+		margin-left: 0;
+		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+	}
+
+	.main-navigation ul ul a {
+		width: 200px;
+	}
+
+	/* stylelint-disable */
+	.main-navigation ul ul li {
+		padding-left: 0;
+		margin-left: 0;
+	}
+	/* stylelint-enable */
+
+	.main-navigation ul ul li a {
+		width: 218px;
+		background: none;
+	}
+
+	.main-navigation ul ul ul {
+		top: 0;
+		left: 100%;
+		min-height: 100%;
+	}
+
+	.main-navigation .menu {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.main-navigation .menu-item-has-children,
+	.main-navigation .page_item_has_children {
+		padding-right: var(--dropdown-symbol-width);
+	}
+
+	.main-navigation .dropdown,
+	.main-navigation button.dropdown-toggle {
+		display: block;
+		background: transparent;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		width: var(--dropdown-symbol-width);
+		height: var(--dropdown-symbol-width);
+		font-size: inherit;
+		line-height: inherit;
+		margin: 0;
+		padding: 0;
+		border: none;
+		border-radius: 0;
+		transform: translateY(-50%);
+		overflow: visible;
+	}
+
+	.main-navigation .dropdown-symbol {
+		display: block;
+		background: transparent;
+		position: absolute;
+		right: 20%;
+		top: 35%;
+		width: 60%;
+		height: 60%;
+		border: solid #000;
+		border-width: 0 2px 2px 0;
+		transform: translateY(-50%) rotate(45deg);
+	}
+
+	.main-navigation ul ul .dropdown,
+	.main-navigation ul ul button.dropdown-toggle {
+		top: 40%;
+		right: 0.2em;
+	}
+
+	.main-navigation ul ul .dropdown-symbol {
+		transform: rotate(-45deg);
+	}
+
+	/*
+	 * If the dropdown toggle is active with JS, then
+	 * we'll take care of showing the submenu with JS.
+	 *
+	 * "focus-within" is an alternative to focus class for
+	 * supporting browsers (all but IE/Edge) for no-JS context
+	 * (e.g. AMP) See https://caniuse.com/#feat=css-focus-within
+	 */
+	.main-navigation li:hover > ul,
+	.main-navigation li.toggled-on > ul,
+	.main-navigation:not(.has-dropdown-toggle) li:focus > ul,
+	.main-navigation:not(.has-dropdown-toggle) li:focus-within > ul {
+		display: block;
+	}
+}
+
+
+/*--------------------------------------------------------------
+# Content navigation
+--------------------------------------------------------------*/
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+	border-bottom: 1px solid #111;
+	margin: 0 auto 2em;
+	max-width: 720px;
+	overflow: hidden;
+	padding-bottom: 2em;
+	font-family: var(--highlight-font-family);
+}
+
+.nav-links {
+	display: flex;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	width: 50%;
+	flex: 1 0 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	text-align: end;
+	flex: 1 0 50%;
+}
+
+.post-navigation-sub span {
+	color: var(--global-font-color);
+	text-decoration: none;
+	display: inline-block;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.site-footer {
+	margin: 1em 0 0;
+	padding: 2em 0;
+	font-family: var(--highlight-font-family);
+}
+
+.site-info {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+
+	/* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that
+were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
