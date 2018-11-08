@@ -1,0 +1,24 @@
+/* stylelint-disable */
+a {
+	color: $links-color;
+}
+/* stylelint-enable */
+
+a:visited {
+	color: $links-visited-color;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: $links-hover-color;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}

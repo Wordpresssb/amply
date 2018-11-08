@@ -1,21 +1,14 @@
 /*!
 Theme Name: Amply
-Theme URI: https://github.com/wprig/wprig/
-Author: Morten Rand-Hendriksen et.al.
-Author URI: https://github.com/wprig/wprig/
+Theme URI: https://github.com/teva-dev/amply/
+Author: Teva
+Author URI: https://github.com/teva-dev/
 Description: A progressive theme development rig for WordPress.
 Version: 1.0.0
 License: GNU General Public License v3 or later
 License URI: LICENSE
 Text Domain: amply
 Tags: translation-ready
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share
-what you've learned with others.
-
-CSS normalization based in part on normalize.css by
-Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 */
 
 /*--------------------------------------------------------------
@@ -35,210 +28,41 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Infinite scroll
 --------------------------------------------------------------*/
 
-
-
-
 /*--------------------------------------------------------------
-# Elements
+# Layouts
 --------------------------------------------------------------*/
-/* stylelint-disable */
-html {
-	box-sizing: border-box;
-}
-/* stylelint-enable */
-
-/**
- * Inherit box-sizing to make it easier to change the property for
- * components that leverage other behavior; see
- * http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
- */
-*,
-*::before,
-*::after {
-	box-sizing: inherit;
-}
-
-/* stylelint-disable */
-body {
-	background: #fff;
-	/* Fallback for when there is no custom background color defined. */
-}
-/* stylelint-enable */
-
-blockquote,
-q {
-	quotes: "" "";
-}
-
-/* stylelint-disable */
-hr {
-	background-color: #ccc;
-	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
-}
-/* stylelint-enable */
-
-ul,
-ol {
-	margin: 0 0 1.5em 3em;
-}
-
-ul {
-	list-style: disc;
-}
-
-ol {
-	list-style: decimal;
-}
-
-li > ul,
-li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
-}
-
-dt {
-	font-weight: 700;
-}
-
-dd {
-	margin: 0 1.5em 1.5em;
-}
-
-/* stylelint-disable */
-img {
-	display: block;
-	height: auto;
+.site {
+	margin: 0 auto;
 	max-width: 100%;
 }
-/* stylelint-enable */
 
-/* Extra wide images within figure tags don't overflow the content area. */
-figure {
-	margin: 0.5em 0;
-}
+@media (--sidebar-query) {
 
-table {
-	margin: 0 0 1.5em;
-	width: 100%;
-}
+	.has-sidebar .site {
+		margin: 0 1em;
+		display: grid;
+		grid-template-columns: 3fr 1fr;
+		grid-gap: 2rem;
+		justify-content: center;
+	}
 
-/*--------------------------------------------------------------
-# Links
---------------------------------------------------------------*/
-/* stylelint-disable */
-a {
-	color: #0073aa;
-}
-/* stylelint-enable */
+	.site-header {
+		grid-column: span 2;
+	}
 
-a:visited {
-	color: #333;
-}
+	.site-main {
+		grid-column: 1;
+		min-width: 0;
+	}
 
-a:hover,
-a:focus,
-a:active {
-	color: #00a0d2;
-}
+	.primary-sidebar {
+		grid-column: 2;
+		min-width: 0;
+	}
 
-a:focus {
-	outline: thin dotted;
-}
-
-a:hover,
-a:active {
-	outline: 0;
-}
-
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
-/* stylelint-disable */
-textarea {
-	width: 100%;
-}
-/* stylelint-enable */
-
-/* stylelint-disable */
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
-	background: #e6e6e6;
-	color: rgba(0, 0, 0, 0.8);
-	font-size: 0.75rem;
-	line-height: 1;
-	padding: 0.6em 1em 0.4em;
-	cursor: pointer;
-}
-/* stylelint-enable */
-
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
-}
-
-button:active,
-button:focus,
-input[type="button"]:active,
-input[type="button"]:focus,
-input[type="reset"]:active,
-input[type="reset"]:focus,
-input[type="submit"]:active,
-input[type="submit"]:focus {
-	border-color: #aaa #bbb #bbb;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"],
-textarea {
-	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: 3px;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-input[type="number"]:focus,
-input[type="tel"]:focus,
-input[type="range"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="week"]:focus,
-input[type="time"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="color"]:focus,
-textarea:focus {
-	color: #111;
-}
-
-select {
-	border: 1px solid #ccc;
+	.site-footer {
+		grid-column: span 2;
+	}
 }
 
 /*--------------------------------------------------------------

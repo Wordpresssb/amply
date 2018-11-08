@@ -1,9 +1,13 @@
 $body-font-color: #333;
+$body-background-color: #fff;
 $body-font-family: Montserrat, 'Crimson Text', serif;
 $body-font-size: 16px;
 $body-font-line-height: 1.4;
 $headings-font-color: #32373c;
-$highlight-font-family: 'Roboto Condensed', sans-serif;
+$headings-font-family: 'Roboto Condensed', sans-serif;
+$links-color: #0073aa;
+$links-visited-color: #333;
+$links-hover-color: #00a0d2;
 
 // Small tablets and large smartphones (landscape view)
 $screen-sm: 37.5em; // 600px
@@ -44,8 +48,6 @@ $screen-xl: 75em; // 1200px
 			@content;
 	}
 }
-
-
 
 // Custom devices
 @mixin custom($screen) {

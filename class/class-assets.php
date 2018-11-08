@@ -60,7 +60,7 @@ class Assets {
 		}
 
 		// Enqueue main stylesheet.
-		wp_enqueue_style( 'amply-base-style', get_stylesheet_uri(), array(), AMPLY_THEME_VERSION );
+		// wp_enqueue_style( 'amply-base-style', get_stylesheet_uri(), array(), AMPLY_THEME_VERSION ); // @codingStandardsIgnoreLine
 		wp_enqueue_style( 'amply-main-style', get_theme_file_uri( '/assets/css/main.css' ), array(), AMPLY_THEME_VERSION );
 
 		// Register component styles that are printed as needed.
