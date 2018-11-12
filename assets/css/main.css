@@ -7,9 +7,13 @@
  * -------------------------------------------------------------- *
  # Normalize
  # Accessibility
+ # Typography
+ # Layouts
  # Elements
  # Links
  # Forms
+ # Content navigation
+ # Infinite scroll
  * -------------------------------------------------------------- */
 
 /* -------------------------------------------------------------- *
@@ -516,6 +520,15 @@ big {
 }
 
 /* -------------------------------------------------------------- *
+ # Layouts
+ * -------------------------------------------------------------- */
+
+.site {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* -------------------------------------------------------------- *
  # Elements
  * -------------------------------------------------------------- */
 
@@ -710,5 +723,69 @@ textarea:focus {
 
 select {
   border: 1px solid #ccc;
+}
+
+/* -------------------------------------------------------------- *
+ # Content navigation
+ * -------------------------------------------------------------- */
+
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+  border-bottom: 1px solid #111;
+  margin: 0 auto 2em;
+  max-width: 720px;
+  overflow: hidden;
+  padding-bottom: 2em;
+  font-family: var(--highlight-font-family);
+}
+
+.nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+  width: 50%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+  text-align: end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+}
+
+.post-navigation-sub span {
+  color: var(--global-font-color);
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* -------------------------------------------------------------- *
+ # Infinite scroll
+ * -------------------------------------------------------------- */
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+  /* Theme Footer (when set to scrolling) */
+  display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that
+were hidden (via .neverending) before. */
+
+.infinity-end.neverending .site-footer {
+  display: block;
 }
 

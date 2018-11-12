@@ -12,9 +12,8 @@
 // Core contants.
 define( 'AMPLY_MINIMUM_WP_VERSION', '4.5' );
 define( 'AMPLY_MINIMUM_PHP_VERSION', '7.0' );
-define( 'AMPLY_THEME_DIR', plugin_dir_path( __FILE__ ) );
-define( 'AMPLY_THEME_URI', get_template_directory_uri() );
-define( 'AMPLY_THEME_CLASSPATH', AMPLY_THEME_DIR . 'class/' );
+define( 'AMPLY_THEME_DIR', trailingslashit( get_template_directory() ) );
+define( 'AMPLY_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
 /**
  * Bail if requirements are not met.
@@ -25,27 +24,49 @@ if ( version_compare( $GLOBALS['wp_version'], AMPLY_MINIMUM_WP_VERSION, '<' ) ||
 }
 
 /**
- * Optional: Load Jetpack compatibility, if plugin is active.
+ * Core features.
  */
+
+// Functions used throughout the theme.
+require_once get_parent_theme_file_path( 'inc/common-functions.php' );
+
+// Sanitize callbacks.
+require_once get_parent_theme_file_path( 'inc/sanitization-callbacks.php' );
+
+// Custom template tags used throughout the theme.
+require_once get_parent_theme_file_path( 'inc/template-tags.php' );
+
+// Setup configurations.
+require_once get_parent_theme_file_path( 'inc/class-amply-setup.php' );
+
+// Core hooks.
+require_once get_parent_theme_file_path( 'inc/class-amply-general-hooks.php' );
+require_once get_parent_theme_file_path( 'inc/class-amply-image-sizes.php' );
+
+// Widgets.
+require_once get_parent_theme_file_path( 'inc/class-amply-widgets.php' );
+
+// Customizer additions.
+require_once get_parent_theme_file_path( 'inc/class-amply-customizer.php' );
+
+// Main assets management.
+require_once get_parent_theme_file_path( 'inc/class-amply-assets.php' );
+
+/**
+ * Compatibility.
+ */
+
+// Load Jetpack compatibility, if plugin is active.
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_parent_theme_file_path( 'inc/jetpack-compat.php' );
 }
 
-require get_parent_theme_file_path( 'inc/common-functions.php' );
+/**
+ * Pluggable
+ */
 
-require get_parent_theme_file_path( 'inc/sanitization-callbacks.php' );
+// Add theme support for lazyloading images.
+require_once get_parent_theme_file_path( 'pluggable/lazyload/class-amply-lazyload-images.php' );
 
-require get_parent_theme_file_path( 'inc/template-tags.php' );
-
-require get_parent_theme_file_path( 'inc/class-autoloader.php' );
-
-$autoloader = new Autoloader(
-	array(
-		'directory'        => __DIR__,       // Directory of your project. It can be your theme or plugin. __DIR__ is probably your best bet.
-		'namespace_prefix' => 'Amply', // Main namespace of your project. E.g My_Project\Admin\Tests should be My_Project. Probably if you just pass the constant __NAMESPACE__ it should work.
-		'classes_dir'      => 'class',         // (optional). It is where your namespaced classes are located inside your project. If your classes are in the root level, leave this empty. If they are located on 'src' folder, write 'src' here.
-	)
-);
-$autoloader->init();
-
-Amply\Init::get_instance();
+// Add Custom Header feature.
+require_once get_parent_theme_file_path( 'pluggable/custom-header/class-amply-custom-header.php' );

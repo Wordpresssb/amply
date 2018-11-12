@@ -1,0 +1,173 @@
+<?php
+/**
+ * General hooks : functions which enhance the theme by hooking into WordPress
+ *
+ * @package amply
+ */
+
+/**
+ * Amply_General_Hooks class
+ */
+if ( ! class_exists( 'Amply_General_Hooks' ) ) {
+
+	/**
+	 * Amply_General_Hooks class
+	 */
+	class Amply_General_Hooks {
+
+		/**
+		 * Instance
+		 *
+		 * @var object $instance
+		 */
+		private static $instance;
+
+		/**
+		 * Getter
+		 *
+		 * @return Init
+		 */
+		public static function get_instance() {
+
+			if ( null === static::$instance ) {
+					static::$instance = new static();
+			}
+			return static::$instance;
+
+		}
+
+		/**
+		 * Constructor
+		 */
+		private function __construct() {
+
+			add_filter( 'body_class', array( $this, 'body_classes' ) );
+			add_action( 'wp_head', array( $this, 'pingback_header' ) );
+			add_filter( 'embed_defaults', array( $this, 'embed_dimensions' ) );
+			add_filter( 'script_loader_tag', array( $this, 'filter_script_loader_tag' ), 10, 2 );
+			add_filter( 'walker_nav_menu_start_el', array( $this, 'add_primary_menu_dropdown_symbol' ), 10, 4 );
+			add_filter( 'nav_menu_link_attributes', array( $this, 'add_nav_menu_aria_current' ), 10, 2 );
+			add_filter( 'page_menu_link_attributes', array( $this, 'add_nav_menu_aria_current' ), 10, 2 );
+
+		}
+
+		/**
+		 * Adds custom classes to the array of body classes.
+		 *
+		 * @param array $classes Classes for the body element.
+		 * @return array
+		 */
+		public function body_classes( $classes ) {
+			// Adds a class of hfeed to non-singular pages.
+			if ( ! is_singular() ) {
+				$classes[] = 'hfeed';
+			}
+
+			return $classes;
+		}
+
+		/**
+		 * Add a pingback url auto-discovery header for singularly identifiable articles.
+		 */
+		public function pingback_header() {
+			if ( is_singular() && pings_open() ) {
+				echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
+			}
+		}
+
+		/**
+		 * Set the embed width in pixels, based on the theme's design and stylesheet.
+		 *
+		 * @param array $dimensions An array of embed width and height values in pixels (in that order).
+		 * @return array
+		 */
+		public function embed_dimensions( array $dimensions ) {
+			$dimensions['width'] = 720;
+			return $dimensions;
+		}
+
+		/**
+		 * Adds async/defer attributes to enqueued / registered scripts.
+		 * If #12009 lands in WordPress, this function can no-op since it would be handled in core.
+		 *
+		 * @link https://core.trac.wordpress.org/ticket/12009
+		 *
+		 * @param string $tag    The script tag.
+		 * @param string $handle The script handle.
+		 * @return array
+		 */
+		public function filter_script_loader_tag( $tag, $handle ) {
+
+			foreach ( array( 'async', 'defer' ) as $attr ) {
+				if ( ! wp_scripts()->get_data( $handle, $attr ) ) {
+					continue;
+				}
+
+				// Prevent adding attribute when already added in #12009.
+				if ( ! preg_match( ":\s$attr(=|>|\s):", $tag ) ) {
+					$tag = preg_replace( ':(?=></script>):', " $attr", $tag, 1 );
+				}
+
+				// Only allow async or defer, not both.
+				break;
+			}
+
+			return $tag;
+		}
+
+		/**
+		 * Add dropdown symbol to nav menu items with children.
+		 * Javascript converts the symbol to a toggle button.
+		 *
+		 * @param string   $item_output The menu item's starting HTML output.
+		 * @param WP_Post  $item        Menu item data object.
+		 * @param int      $depth       Depth of menu item. Used for padding.
+		 * @param stdClass $args        An object of wp_nav_menu() arguments.
+		 * @return string Modified nav menu HTML.
+		 */
+		public function add_primary_menu_dropdown_symbol( $item_output, $item, $depth, $args ) {
+
+			// Only for primary menu location.
+			if ( empty( $args->theme_location ) || 'primary' != $args->theme_location ) {
+				return $item_output;
+			}
+
+			// Add the dropdown for items that have children.
+			if ( ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+				return $item_output . '<span class="dropdown"><i class="dropdown-symbol"></i></span>';
+			}
+
+			return $item_output;
+		}
+
+		/**
+		 * Filters the HTML attributes applied to a menu item's anchor element.
+		 * Checks if the menu item is the current menu item and adds the aria "current" attribute.
+		 *
+		 * @param array   $atts   The HTML attributes applied to the menu item's `<a>` element.
+		 * @param WP_Post $item  The current menu item.
+		 * @return array Modified HTML attributes
+		 */
+		public function add_nav_menu_aria_current( $atts, $item ) {
+			/*
+			* First, check if "current" is set, which means the item is a nav menu item.
+			* Otherwise, it's a post item so check if the item is the current post.
+			*/
+			if ( isset( $item->current ) ) {
+				if ( $item->current ) {
+					$atts['aria-current'] = 'page';
+				}
+			} elseif ( ! empty( $item->ID ) ) {
+				global $post;
+				if ( ! empty( $post->ID ) && $post->ID == $item->ID ) {
+					$atts['aria-current'] = 'page';
+				}
+			}
+
+			return $atts;
+		}
+
+	}
+
+}
+Amply_General_Hooks::get_instance();
