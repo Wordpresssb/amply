@@ -242,6 +242,18 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 
 			// Enqueue main stylesheet.
 			wp_enqueue_style( 'amply-editor-style', get_theme_file_uri( 'assets/css/editor-styles.css' ), array(), AMPLY_THEME_VERSION );
+
+			/** TO DO : check issue: @link: https://github.com/WordPress/gutenberg/issues/7776.
+			// Unregister core block and theme styles.
+			wp_deregister_style( 'wp-block-library' );
+			wp_deregister_style( 'wp-block-library-theme' );
+
+			// Re-register core block and theme styles with an empty string. This is
+			// necessary to get styles set up correctly.
+			wp_register_style( 'wp-block-library', '' ); //phpcs:ignore
+			wp_register_style( 'wp-block-library-theme', '' ); //phpcs:ignore
+			*/
+
 		}
 
 	}

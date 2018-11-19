@@ -44,6 +44,7 @@ if ( ! class_exists( 'Amply_Custom_Header' ) ) {
 		private function __construct() {
 
 			add_action( 'after_setup_theme', array( $this, 'custom_header_theme_support' ) );
+			add_action( 'customize_register', array( $this, 'options' ) );
 			add_action( 'customize_preview_init', array( $this, 'custom_header_customize_preview_js' ) );
 
 		}
@@ -67,6 +68,17 @@ if ( ! class_exists( 'Amply_Custom_Header' ) ) {
 					)
 				)
 			);
+
+		}
+
+		/**
+		 * Modify options
+		 *
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		public function options( $wp_customize ) {
+
+			$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 		}
 

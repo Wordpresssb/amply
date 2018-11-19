@@ -6,8 +6,12 @@ optgroup,
 textarea {
 	color: $body-font-color;
 	font-family: $body-font-family;
-	font-size: $body-font-size;
+	font-size: $body-font-size-sm;
 	line-height: $body-font-line-height;
+
+	@media (min-width:$screen-md) {
+		font-size: $body-font-size;
+	}
 }
 
 h1,

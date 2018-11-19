@@ -453,9 +453,20 @@ select,
 optgroup,
 textarea {
   color: #333;
-  font-family: Montserrat, "Crimson Text", serif;
-  font-size: 16px;
+  font-family: "Open Sans", Arial, Tahoma, sans-serif;
+  font-size: 14px;
   line-height: 1.4;
+}
+
+@media (min-width: 48em) {
+  body,
+  button,
+  input,
+  select,
+  optgroup,
+  textarea {
+    font-size: 16px;
+  }
 }
 
 h1,
