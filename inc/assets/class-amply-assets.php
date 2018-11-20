@@ -64,14 +64,14 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 
 			// Load main stylesheet.
 			// wp_enqueue_style( 'amply-base-style', get_stylesheet_uri(), array(), AMPLY_THEME_VERSION ); // phpcs:ignore.
-			wp_enqueue_style( 'amply-main-style', get_theme_file_uri( '/assets/css/main.css' ), array(), AMPLY_THEME_VERSION );
+			wp_enqueue_style( 'amply-main-style', get_theme_file_uri( '/dist/css/main/main.css' ), array(), AMPLY_THEME_VERSION );
 
 			// Register component styles that are printed as needed.
-			wp_register_style( 'amply-comments', get_theme_file_uri( 'assets/css/comments.css' ), array(), AMPLY_THEME_VERSION );
-			wp_register_style( 'amply-content', get_theme_file_uri( 'assets/css/content.css' ), array(), AMPLY_THEME_VERSION );
-			wp_register_style( 'amply-sidebar', get_theme_file_uri( 'assets/css/sidebar.css' ), array(), AMPLY_THEME_VERSION );
-			wp_register_style( 'amply-widgets', get_theme_file_uri( 'assets/css/widgets.css' ), array(), AMPLY_THEME_VERSION );
-			wp_register_style( 'amply-front-page', get_theme_file_uri( 'assets/css/front-page.css' ), array(), AMPLY_THEME_VERSION );
+			wp_register_style( 'amply-comments', get_theme_file_uri( 'dist/css/comments.css' ), array(), AMPLY_THEME_VERSION );
+			wp_register_style( 'amply-content', get_theme_file_uri( 'dist/css/content.css' ), array(), AMPLY_THEME_VERSION );
+			wp_register_style( 'amply-sidebar', get_theme_file_uri( 'dist/css/sidebar.css' ), array(), AMPLY_THEME_VERSION );
+			wp_register_style( 'amply-widgets', get_theme_file_uri( 'dist/css/widgets.css' ), array(), AMPLY_THEME_VERSION );
+			wp_register_style( 'amply-front-page', get_theme_file_uri( 'dist/css/front-page.css' ), array(), AMPLY_THEME_VERSION );
 		}
 
 		/**
@@ -203,11 +203,11 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 			}
 
 			// Enqueue skip-link-focus script.
-			wp_enqueue_script( 'amply-skip-link-focus-fix', get_theme_file_uri( 'assets/js/skip-link-focus-fix.js' ), array(), AMPLY_THEME_VERSION, false );
+			wp_enqueue_script( 'amply-skip-link-focus-fix', get_theme_file_uri( 'dist/js/skip-link-focus-fix.js' ), array(), AMPLY_THEME_VERSION, false );
 			wp_script_add_data( 'amply-skip-link-focus-fix', 'defer', true );
 
 			// Enqueue the navigation script.
-			wp_enqueue_script( 'amply-all-js', get_theme_file_uri( 'assets/js/all.js' ), array(), AMPLY_THEME_VERSION, false );
+			wp_enqueue_script( 'amply-all-js', get_theme_file_uri( 'dist/js/all.js' ), array(), AMPLY_THEME_VERSION, false );
 			wp_script_add_data( 'amply-all-js', 'async', true );
 			wp_localize_script(
 				'amply-all-js',
@@ -241,7 +241,7 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 			}
 
 			// Enqueue main stylesheet.
-			wp_enqueue_style( 'amply-editor-style', get_theme_file_uri( 'assets/css/editor-styles.css' ), array(), AMPLY_THEME_VERSION );
+			wp_enqueue_style( 'amply-editor-style', get_theme_file_uri( 'dist/css/editor-styles.css' ), array(), AMPLY_THEME_VERSION );
 
 			/** TO DO : check issue: @link: https://github.com/WordPress/gutenberg/issues/7776.
 			// Unregister core block and theme styles.

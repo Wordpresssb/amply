@@ -5,10 +5,10 @@ let mix = require( 'laravel-mix' );
  * Compile unminified assets ( npm run dev )
  */
 
-mix.sass( 'assets/src/css/main/main.scss', 'assets/css/main.css' );
-mix.sass( 'assets/src/css/admin/customizer-style.scss', 'assets/css/admin/customizer-style.css' );
+mix.sass( 'assets/scss/admin/customizer-style.scss', 'dist/css/admin/customizer-style.css' );
+mix.sass( 'assets/scss/main/main.scss', 'dist/css/main/main.css' );
 
-mix.js( 'assets/src/js/skip-link-focus-fix.js', 'assets/js/skip-link-focus-fix.js');
+mix.js( 'assets/js/skip-link-focus-fix.js', 'dist/js/skip-link-focus-fix.js');
 mix.scripts([
 	
-], 'assets/js/all.js');
+], 'dist/js/all.js');
