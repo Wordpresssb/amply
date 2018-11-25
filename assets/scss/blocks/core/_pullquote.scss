@@ -1,0 +1,13 @@
+////
+/// Pullquote block.
+////
+
+.wp-block-pullquote {
+	padding:    3em 0;
+	text-align: center;
+
+	cite,
+	footer {
+		position: relative;
+	}
+}

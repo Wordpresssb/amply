@@ -60,72 +60,32 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(1);
-__webpack_require__(2);
-__webpack_require__(3);
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(6);
 
 
 /***/ }),
-/* 1 */
+
+/***/ 6:
 /***/ (function(module, exports) {
 
 /**
- * File skip-link-focus-fix.js.
- *
- * Helps with accessibility for keyboard only users.
- *
- * Learn more: https://git.io/vWdr2
+ * File customizer-control.js.
  */
-(function () {
-	var isIe = /(trident|msie)/i.test(navigator.userAgent);
 
-	if (isIe && document.getElementById && window.addEventListener) {
-		window.addEventListener('hashchange', function () {
-			var id = location.hash.substring(1),
-			    element;
+(function ($) {
+  var api = wp.customize;
 
-			if (!/^[A-z0-9_-]+$/.test(id)) {
-				return;
-			}
-
-			element = document.getElementById(id);
-
-			if (element) {
-				if (!/^(?:a|select|input|button|textarea)$/i.test(element.tagName)) {
-					element.tabIndex = -1;
-				}
-
-				element.focus();
-			}
-		}, false);
-	}
-})();
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+  api.bind('ready', function () {});
+})(jQuery);
 
 /***/ })
-/******/ ]);
+
+/******/ });

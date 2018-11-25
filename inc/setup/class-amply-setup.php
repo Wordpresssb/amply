@@ -119,16 +119,18 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 			);
 
 			// Set up the WordPress core custom background feature.
-			add_theme_support(
-				'custom-background',
-				apply_filters(
-					'amply_custom_background_args',
-					array(
-						'default-color' => 'ffffff',
-						'default-image' => '',
-					)
-				)
-			);
+			// phpcs:disable
+			// add_theme_support(
+			// 	'custom-background',
+			// 	apply_filters(
+			// 		'amply_custom_background_args',
+			// 		array(
+			// 			'default-color' => 'ffffff',
+			// 			'default-image' => '',
+			// 		)
+			// 	)
+			// );
+			// phpcs:enable
 
 			// Add theme support for selective refresh for widgets.
 			add_theme_support( 'customize-selective-refresh-widgets' );
@@ -167,49 +169,24 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 				'editor-color-palette',
 				array(
 					array(
-						'name'  => __( 'Dusty orange', 'amply' ),
-						'slug'  => 'dusty-orange',
-						'color' => '#ed8f5b',
+						'name'  => __( 'Primary', 'amply' ),
+						'slug'  => 'primary',
+						'color' => get_theme_mod( 'amply_primary_color', '#5C6BC0' ),
 					),
 					array(
-						'name'  => __( 'Dusty red', 'amply' ),
-						'slug'  => 'dusty-red',
-						'color' => '#e36d60',
+						'name'  => __( 'Secondary', 'amply' ),
+						'slug'  => 'secondary',
+						'color' => get_theme_mod( 'amply_secondary_color', '#FF5252' ),
 					),
 					array(
-						'name'  => __( 'Dusty wine', 'amply' ),
-						'slug'  => 'dusty-wine',
-						'color' => '#9c4368',
+						'name'  => __( 'Black', 'amply' ),
+						'slug'  => 'black',
+						'color' => get_theme_mod( 'amply_black_color', '#000000' ),
 					),
 					array(
-						'name'  => __( 'Dark sunset', 'amply' ),
-						'slug'  => 'dark-sunset',
-						'color' => '#33223b',
-					),
-					array(
-						'name'  => __( 'Almost black', 'amply' ),
-						'slug'  => 'almost-black',
-						'color' => '#0a1c28',
-					),
-					array(
-						'name'  => __( 'Dusty water', 'amply' ),
-						'slug'  => 'dusty-water',
-						'color' => '#41848f',
-					),
-					array(
-						'name'  => __( 'Dusty sky', 'amply' ),
-						'slug'  => 'dusty-sky',
-						'color' => '#72a7a3',
-					),
-					array(
-						'name'  => __( 'Dusty daylight', 'amply' ),
-						'slug'  => 'dusty-daylight',
-						'color' => '#97c0b7',
-					),
-					array(
-						'name'  => __( 'Dusty sun', 'amply' ),
-						'slug'  => 'dusty-sun',
-						'color' => '#eee9d1',
+						'name'  => __( 'White', 'amply' ),
+						'slug'  => 'white',
+						'color' => get_theme_mod( 'amply_white_color', '#ffffff' ),
 					),
 				)
 			);
@@ -233,13 +210,13 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 					array(
 						'name'      => __( 'small', 'amply' ),
 						'shortName' => __( 'S', 'amply' ),
-						'size'      => 16,
+						'size'      => 12,
 						'slug'      => 'small',
 					),
 					array(
 						'name'      => __( 'regular', 'amply' ),
 						'shortName' => __( 'M', 'amply' ),
-						'size'      => 20,
+						'size'      => 16,
 						'slug'      => 'regular',
 					),
 					array(

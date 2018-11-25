@@ -1,0 +1,41 @@
+////
+/// Define colors.
+////
+
+$colors : (
+	white : #fff,
+	black : #000,
+	dark-grey : #5f5f66,
+	light-grey : #dbe4f0,
+);
+
+$block-colors : (
+	primary   : #5C6BC0,
+	secondary : #FF5252
+);
+
+/// Returns a map of block colors in name-value format. 
+/// Colors defined via the `editor-color-palette` setting in `class-amply-setup.php` for the WordPress editor.
+/// @return {map} Map of block colors.
+@function block-colors() {
+	@return $block-colors;
+}
+
+// Returns a map of colors in name-value format. 
+// Merges with the `block-colors()` map to create a map of all colors.
+/// @return {map} Map of defined colors.
+@function colors() {
+	@return map-merge( $colors, block-colors() );
+}
+
+/// Returns a single color value by name.
+/// @return {string} Color value.
+@function color( $name ) {
+	@return map-get( colors(), $name );
+}
+
+/// Returns a single block color value by name.
+/// @return {string} Color value.
+@function block-color( $name ) {
+	@return map-get( block-colors(), $name );
+}

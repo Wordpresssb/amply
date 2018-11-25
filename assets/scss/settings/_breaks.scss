@@ -1,0 +1,21 @@
+////
+/// Media query page break settings.
+////
+
+$breakpoints : (
+	mobile : 480px,
+	small  : 600px,
+	medium : 782px
+);
+
+/// Returns an map of page breaks in name-value format.
+/// @return {map}  Map of page breaks.
+@function breaks() {
+	@return $breakpoints;
+}
+
+/// Returns a single page break value by name.
+/// @return {string} Page break value in pixels
+@function break( $name ) {
+	@return map-get( breaks(), $name );
+}

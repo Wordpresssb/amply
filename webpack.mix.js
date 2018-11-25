@@ -1,14 +1,20 @@
 
 let mix = require( 'laravel-mix' );
 
-/**
- * Compile unminified assets ( npm run dev )
- */
+// Customizer
+mix.sass( 'assets/scss/customize-controls.scss', 'dist/css/customize-controls.css' );
+mix.js( 'assets/js/customize-controls.js', 'dist/js/customize-controls.js');
 
-mix.sass( 'assets/scss/admin/customizer-style.scss', 'dist/css/admin/customizer-style.css' );
-mix.sass( 'assets/scss/main/main.scss', 'dist/css/main/main.css' );
+// Main css
+mix.sass( 'assets/scss/main.scss', 'dist/css/main.css' );
 
+// Infinite scroll css
+mix.sass( 'inc/compatibility/css/infinite-scroll.scss', 'inc/compatibility/css/infinite-scroll.css' );
+
+// skip-link-focus-fix.js
 mix.js( 'assets/js/skip-link-focus-fix.js', 'dist/js/skip-link-focus-fix.js');
+
+//
 mix.scripts([
 	
 ], 'dist/js/all.js');

@@ -14,48 +14,19 @@
 
 get_header(); ?>
 
-	<main id="primary" class="site-main">
+<div id="content" class="site-content">
 
-	<?php
+	<?php do_action( 'amply_before_main' ); ?>
 
-	if ( have_posts() ) :
+	<main id="main" class="site-main">
 
-		/**
-		 * Include the component stylesheet for the content.
-		 * This call runs only once on index and archive pages.
-		 * At some point, override functionality should be built in similar to the template part below.
-		 */
-		wp_print_styles( array( 'amply-content' ) ); // Note: If this was already done it will be skipped.
+		<?php do_action( 'amply_main' ); ?>
 
-		/* Display the appropriate header when required. */
-		amply_index_header();
+	</main><!-- #main -->
 
-		/* Start the Loop. */
-		while ( have_posts() ) :
-			the_post();
+	<?php do_action( 'amply_after_main' ); ?>
 
-			/*
-			 * Include the Post-Type-specific template for the content.
-			 * If you want to override this in a child theme, then include a file
-			 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-			 */
-			get_template_part( 'template-parts/content', get_post_type() );
-
-		endwhile;
-
-		if ( ! is_singular() ) :
-			the_posts_navigation();
-		endif;
-
-	else :
-
-		get_template_part( 'template-parts/content', 'none' );
-
-	endif;
-	?>
-
-	</main><!-- #primary -->
+</div><!-- #content -->
 
 <?php
-get_sidebar();
 get_footer();

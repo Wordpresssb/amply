@@ -63,15 +63,8 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 			}
 
 			// Load main stylesheet.
-			// wp_enqueue_style( 'amply-base-style', get_stylesheet_uri(), array(), AMPLY_THEME_VERSION ); // phpcs:ignore.
-			wp_enqueue_style( 'amply-main-style', get_theme_file_uri( '/dist/css/main/main.css' ), array(), AMPLY_THEME_VERSION );
+			wp_enqueue_style( 'amply-main-style', get_theme_file_uri( '/dist/css/main.css' ), array(), AMPLY_THEME_VERSION );
 
-			// Register component styles that are printed as needed.
-			wp_register_style( 'amply-comments', get_theme_file_uri( 'dist/css/comments.css' ), array(), AMPLY_THEME_VERSION );
-			wp_register_style( 'amply-content', get_theme_file_uri( 'dist/css/content.css' ), array(), AMPLY_THEME_VERSION );
-			wp_register_style( 'amply-sidebar', get_theme_file_uri( 'dist/css/sidebar.css' ), array(), AMPLY_THEME_VERSION );
-			wp_register_style( 'amply-widgets', get_theme_file_uri( 'dist/css/widgets.css' ), array(), AMPLY_THEME_VERSION );
-			wp_register_style( 'amply-front-page', get_theme_file_uri( 'dist/css/front-page.css' ), array(), AMPLY_THEME_VERSION );
 		}
 
 		/**
@@ -162,26 +155,6 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 
 			$preloads = array();
 
-			// Preload content.css.
-			$preloads['amply-content'] = amply_get_preload_stylesheet_uri( $wp_styles, 'amply-content' );
-
-			// Preload sidebar.css and widget.css.
-			if ( is_active_sidebar( 'sidebar-1' ) ) {
-				$preloads['amply-sidebar'] = amply_get_preload_stylesheet_uri( $wp_styles, 'amply-sidebar' );
-				$preloads['amply-widgets'] = amply_get_preload_stylesheet_uri( $wp_styles, 'amply-widgets' );
-			}
-
-			// Preload comments.css.
-			if ( ! post_password_required() && is_singular() && ( comments_open() || get_comments_number() ) ) {
-				$preloads['amply-comments'] = amply_get_preload_stylesheet_uri( $wp_styles, 'amply-comments' );
-			}
-
-			// Preload front-page.css.
-			global $template;
-			if ( 'front-page.php' === basename( $template ) ) {
-				$preloads['amply-front-page'] = amply_get_preload_stylesheet_uri( $wp_styles, 'amply-front-page' );
-			}
-
 			// Output the preload markup in <head>.
 			foreach ( $preloads as $handle => $src ) {
 				echo '<link rel="preload" id="' . esc_attr( $handle ) . '-preload" href="' . esc_url( $src ) . '" as="style" />';
@@ -243,16 +216,14 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 			// Enqueue main stylesheet.
 			wp_enqueue_style( 'amply-editor-style', get_theme_file_uri( 'dist/css/editor-styles.css' ), array(), AMPLY_THEME_VERSION );
 
-			/** TO DO : check issue: @link: https://github.com/WordPress/gutenberg/issues/7776.
 			// Unregister core block and theme styles.
+			// see: https://github.com/WordPress/gutenberg/issues/7776.
 			wp_deregister_style( 'wp-block-library' );
 			wp_deregister_style( 'wp-block-library-theme' );
 
-			// Re-register core block and theme styles with an empty string. This is
-			// necessary to get styles set up correctly.
-			wp_register_style( 'wp-block-library', '' ); //phpcs:ignore
-			wp_register_style( 'wp-block-library-theme', '' ); //phpcs:ignore
-			*/
+			// Re-register core block and theme styles with an empty string. This is necessary to get styles set up correctly.
+			wp_register_style( 'wp-block-library', '' ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			wp_register_style( 'wp-block-library-theme', '' ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 
 		}
 

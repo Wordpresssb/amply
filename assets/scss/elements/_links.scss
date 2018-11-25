@@ -1,0 +1,26 @@
+////
+/// Links.
+////
+
+a {
+	color: color(black);
+}
+
+a:visited {
+	color: color(black);
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: color(black);
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}

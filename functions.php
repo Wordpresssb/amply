@@ -56,7 +56,7 @@ if ( current_user_can( 'manage_options' ) ) {
 
 // Load Jetpack compatibility, if plugin is active.
 if ( defined( 'JETPACK__VERSION' ) ) {
-	require_once get_parent_theme_file_path( 'inc/compatibility/jetpack-compat.php' );
+	require_once get_parent_theme_file_path( 'inc/compatibility/class-amply-jetpack-compat.php' );
 }
 
 /**
@@ -67,22 +67,23 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 require_once get_parent_theme_file_path( 'pluggable/lazyload/class-amply-lazyload-images.php' );
 
 // Add Custom Header feature.
-require_once get_parent_theme_file_path( 'pluggable/custom-header/class-amply-custom-header.php' );
+// require_once get_parent_theme_file_path( 'pluggable/custom-header/class-amply-custom-header.php' ); // phpcs:ignore
 
 
 
 
+// phpcs:disable
 
 /**
  * Tests
  */
 function tests() {
 
-	var_dump( 'Theme Path: ' . get_template_directory() );
-	var_dump( 'Theme URL: ' . get_template_directory_uri() );
-	var_dump( 'Kirki Path: ' . Kirki::$path );
-	var_dump( 'Kirki URL: ' . Kirki::$url );
-	var_dump( get_option( 'active_plugins' ) );
+	// var_dump( 'Theme Path: ' . get_template_directory() );
+	// var_dump( 'Theme URL: ' . get_template_directory_uri() );
+	// var_dump( 'Kirki Path: ' . Kirki::$path );
+	// var_dump( 'Kirki URL: ' . Kirki::$url );
+	// var_dump( get_option( 'active_plugins' ) );
 
 }
 add_action( 'wp_footer', 'tests' );
