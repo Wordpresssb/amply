@@ -15,6 +15,9 @@ function amply_core_options( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
+	// Remove custom header text color control.
+	$wp_customize->remove_control( 'header_textcolor' );
+
 	// Add partials.
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(

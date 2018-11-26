@@ -66,8 +66,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 // Add theme support for lazyloading images.
 require_once get_parent_theme_file_path( 'pluggable/lazyload/class-amply-lazyload-images.php' );
 
-// Add Custom Header feature.
-// require_once get_parent_theme_file_path( 'pluggable/custom-header/class-amply-custom-header.php' ); // phpcs:ignore
 
 
 
