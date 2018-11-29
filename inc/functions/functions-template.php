@@ -1,8 +1,9 @@
 <?php
 /**
- * Custom template tags for this theme
+ * Template tags
  *
- * Eventually, some of the functionality here could be replaced by core features.
+ * This file holds template tags for the theme. Template tags are PHP functions
+ * meant for use within theme templates.
  *
  * @package amply
  */

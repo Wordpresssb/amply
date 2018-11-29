@@ -43,6 +43,7 @@ if ( ! class_exists( 'Amply_General_Hooks' ) ) {
 
 			add_filter( 'body_class', array( $this, 'body_classes' ) );
 			add_action( 'wp_head', array( $this, 'pingback_header' ) );
+			add_action( 'wp_head', array( $this, 'head_custom_css' ), PHP_INT_MAX );
 			add_filter( 'embed_defaults', array( $this, 'embed_dimensions' ) );
 			add_filter( 'script_loader_tag', array( $this, 'filter_script_loader_tag' ), 10, 2 );
 			add_filter( 'walker_nav_menu_start_el', array( $this, 'add_primary_menu_dropdown_symbol' ), 10, 4 );
@@ -73,6 +74,23 @@ if ( ! class_exists( 'Amply_General_Hooks' ) ) {
 			if ( is_singular() && pings_open() ) {
 				echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 			}
+		}
+
+		/**
+		 * Outputs custom CSS to the head.
+		 *
+		 * @param string $output The custom css.
+		 */
+		public function head_custom_css( $output = null ) {
+
+			// Add filter for adding custom css.
+			$output = apply_filters( 'amply_head_custom_css', $output );
+
+			// Minify and output CSS in the wp_head.
+			if ( ! empty( $output ) ) {
+				echo "<!-- Custom CSS -->\n<style type=\"text/css\">\n" . wp_strip_all_tags( amply_minify_css( $output ) ) . "\n</style>"; // WPCS: XSS ok.
+			}
+
 		}
 
 		/**

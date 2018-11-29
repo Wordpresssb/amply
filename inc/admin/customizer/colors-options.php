@@ -35,8 +35,6 @@ Kirki::add_field(
 	)
 );
 
-// phpcs:disable
-
 Kirki::add_field(
 	'amply_config',
 	array(
@@ -49,25 +47,24 @@ Kirki::add_field(
 		'choices'   => array(
 			'colors' => Kirki_Helper::get_material_design_colors( 'all' ),
 			'size'   => 27,
-			//'style'  => 'round',
 		),
 		'transport' => 'auto',
-    'output'    => array(
+		'output'    => array(
 			array(
 				'element'  => '#primary',
 				'property' => 'background-color',
 			),
 			array(
-				'element'  => '#primary-dark',
-				'property' => 'background-color',
+				'element'           => '#primary-dark',
+				'property'          => 'background-color',
 				'sanitize_callback' => 'sanitize_color_darker',
 			),
 			array(
-				'element'  => '#primary-light',
-				'property' => 'background-color',
+				'element'           => '#primary-light',
+				'property'          => 'background-color',
 				'sanitize_callback' => 'sanitize_color_lighter',
 			),
-	),
+		),
 	)
 );
 
@@ -86,19 +83,25 @@ Kirki::add_field(
 			'style'  => 'round',
 		),
 		'transport' => 'auto',
-    'output'      => array(
+		'output'    => array(
 			array(
-					'element'           => '#btn',
-					'property'          => 'border-color',
+				'element'  => '#btn',
+				'property' => 'border-color',
 			),
 			array(
-				'element'           => '#btn',
-				'property'          => 'background-color',
+				'element'  => '#btn',
+				'property' => 'background-color',
+			),
 		),
-	),
 	)
 );
 
+/**
+ * Undocumented function
+ *
+ * @param string $value Initial color.
+ * @return string
+ */
 function sanitize_color_darker( $value ) {
 
 	if ( is_front_page() ) {
@@ -107,6 +110,12 @@ function sanitize_color_darker( $value ) {
 
 }
 
+/**
+ * Undocumented function
+ *
+ * @param string $value Initial color.
+ * @return string
+ */
 function sanitize_color_lighter( $value ) {
 
 	if ( is_front_page() ) {

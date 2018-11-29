@@ -48,9 +48,7 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 		}
 
 		/**
-		 * Undocumented function
-		 *
-		 * @return void
+		 * Define constants
 		 */
 		public function constants() {
 

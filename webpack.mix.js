@@ -14,7 +14,10 @@ mix.sass( 'inc/compatibility/css/infinite-scroll.scss', 'inc/compatibility/css/i
 // skip-link-focus-fix.js
 mix.js( 'assets/js/skip-link-focus-fix.js', 'dist/js/skip-link-focus-fix.js');
 
-//
+// all scripts
 mix.scripts([
 	
 ], 'dist/js/all.js');
+
+// Views
+mix.sass( 'views/header/header1/header1.scss', 'views/header/header1/header1.css' );

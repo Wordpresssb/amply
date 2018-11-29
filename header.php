@@ -31,6 +31,18 @@
 
 	<?php do_action( 'amply_header' ); ?>
 
+
+
+
+
+
+<?php
+/**
+ * Tests
+ */
+if ( is_front_page() ) :
+	?>
+
 <h1>TESTS</h1>
 
 <div id="primary-dark" style="height:100px;"></div>
@@ -38,3 +50,5 @@
 	<span id="btn" style="font-size: 30px;padding: 15px 20px;border-style: solid;border-width: 3px;;border-radius: 50px;">+</span>
 </div>
 <div id="primary-light" style="height:100px;"></div>
+
+<?php endif ?>

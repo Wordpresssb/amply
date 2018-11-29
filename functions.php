@@ -24,13 +24,12 @@ if ( version_compare( $GLOBALS['wp_version'], AMPLY_MINIMUM_WP_VERSION, '<' ) ||
 }
 
 /**
- * Core features.
+ * Core features
  */
 
 // Functions used throughout the theme.
-require_once get_parent_theme_file_path( 'inc/functions/common-functions.php' );
-require_once get_parent_theme_file_path( 'inc/functions/sanitization-callbacks.php' );
-require_once get_parent_theme_file_path( 'inc/functions/template-tags.php' );
+require_once get_parent_theme_file_path( 'inc/functions/functions-common.php' );
+require_once get_parent_theme_file_path( 'inc/functions/functions-template.php' );
 
 // Setup configurations.
 require_once get_parent_theme_file_path( 'inc/setup/class-amply-setup.php' );
@@ -46,12 +45,17 @@ require_once get_parent_theme_file_path( 'inc/widgets/class-amply-widgets.php' )
 require_once get_parent_theme_file_path( 'inc/assets/class-amply-assets.php' );
 
 // Admin.
-if ( current_user_can( 'manage_options' ) ) {
-	require_once get_parent_theme_file_path( 'inc/admin/admin-init.php' );
-}
+require_once get_parent_theme_file_path( 'inc/admin/admin-init.php' );
 
 /**
- * Compatibility.
+ * Extra features
+ */
+
+// Default header.
+require_once get_parent_theme_file_path( 'extra/default-header/class-amply-default-header.php' );
+
+/**
+ * Compatibility
  */
 
 // Load Jetpack compatibility, if plugin is active.
@@ -72,6 +76,11 @@ require_once get_parent_theme_file_path( 'pluggable/lazyload/class-amply-lazyloa
 
 // phpcs:disable
 
+// add /?reset-theme-mods=1 to a URL to reset all theme_mods
+if ( isset( $_GET['reset-theme-mods'] ) && '1' === $_GET['reset-theme-mods'] ) {
+	remove_theme_mods();
+}
+
 /**
  * Tests
  */
@@ -82,6 +91,10 @@ function tests() {
 	// var_dump( 'Kirki Path: ' . Kirki::$path );
 	// var_dump( 'Kirki URL: ' . Kirki::$url );
 	// var_dump( get_option( 'active_plugins' ) );
+	// var_dump( wp_styles()->registered['amply-header1'] );
+	$test = get_theme_mod( 'theme_options' );
+	var_dump($test);
+
 
 }
 add_action( 'wp_footer', 'tests' );
