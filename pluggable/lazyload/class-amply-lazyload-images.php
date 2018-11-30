@@ -51,7 +51,7 @@ if ( ! class_exists( 'Amply_Lazyload_Images' ) ) {
 			}
 
 			// If lazy-load is disabled in Customizer, do nothing.
-			if ( 'no-lazyload' === get_theme_mod( 'lazy_load_media', 'lazyload' ) ) {
+			if ( false === get_theme_mod( 'amply_lazy_load_images', true ) ) {
 				return;
 			}
 

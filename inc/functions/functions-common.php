@@ -54,3 +54,36 @@ function amply_minify_css( $css = '' ) {
 	return $css;
 
 }
+
+/**
+ * Get default theme options
+ *
+ * @param string $option Option key.
+ * @return mixed Option default value.
+ */
+function amply_defaults( $option = '' ) {
+
+	$default = array();
+
+	// Pass array through filter.
+	$default = apply_filters( 'amply_default_options_filter', $default );
+
+	$value = '';
+
+	$value = ( isset( $default[ $option ] ) && '' !== $default[ $option ] ) ? $default[ $option ] : $value;
+
+	return $value;
+
+}
+
+/**
+ * Wrapper function for get_theme_mod()
+ *
+ * @param string $option Option name.
+ * @return mixed Option value.
+ */
+function amply_option( $option ) {
+
+	return get_theme_mod( $option, amply_defaults( $option ) );
+
+}

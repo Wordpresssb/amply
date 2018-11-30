@@ -92,9 +92,18 @@ function tests() {
 	// var_dump( 'Kirki URL: ' . Kirki::$url );
 	// var_dump( get_option( 'active_plugins' ) );
 	// var_dump( wp_styles()->registered['amply-header1'] );
-	$test = get_theme_mod( 'theme_options' );
-	var_dump($test);
 
+	// $test1 = amply_defaults( 'amply_default_header_type' );
+	// var_dump($test1);
+	// echo '<br>';
+	// $test3 = amply_option('amply_default_header_type');
+	// var_dump($test3);
+	// echo '<br>';
+	// $test4 = locate_template( 'views/header/header1/header1.css', false, false );
+	// var_dump( $test4 );
 
+	// echo '<pre>';
+	// var_dump( wp_styles()->registered[ 'amply-header2' ] );
+	// echo '</pre>';
 }
 add_action( 'wp_footer', 'tests' );

@@ -5,6 +5,37 @@
  * @package amply
  */
 
+/**
+ * Filter the defaults array to add default header settings default values
+ *
+ * @param array $defaults Defaults values.
+ * @return array
+ */
+function amply_add_default_header_defaults( $defaults ) {
+
+	$extra_defaults = array(
+
+		'amply_default_header_type'             => 'header1',
+
+		'amply_default_header_header1_elements' => array(
+			'mobile-menu-trigger',
+		),
+		'amply_default_header_header2_elements' => array(
+			'site-logo',
+		),
+
+	);
+
+	$defaults = array_merge( $extra_defaults, $defaults );
+
+	return $defaults;
+}
+add_filter( 'amply_default_options_filter', 'amply_add_default_header_defaults' );
+
+/**
+ * Add settings
+ */
+
 Kirki::add_section(
 	'amply_default_header_section',
 	array(
@@ -29,7 +60,7 @@ Kirki::add_field(
 		'settings' => 'amply_default_header_type',
 		'label'    => esc_html__( 'Choose header type', 'amply' ),
 		'section'  => 'amply_default_header_outer_section',
-		'default'  => 'header1',
+		'default'  => amply_defaults( 'amply_default_header_type' ),
 		'priority' => 10,
 		'choices'  => array(
 			'header1' => get_template_directory_uri() . '/assets/images/header1.png',
@@ -52,9 +83,7 @@ Kirki::add_field(
 			'mobile-menu-trigger' => esc_html__( 'Mobile Menu Trigger', 'amply' ),
 			'search'              => esc_html__( 'Search', 'amply' ),
 		),
-		'default'         => array(
-			'mobile-menu-trigger',
-		),
+		'default'         => amply_defaults( 'amply_default_header_header1_elements' ),
 		'active_callback' => array(
 			array(
 				'setting'  => 'amply_default_header_type',
@@ -79,36 +108,7 @@ Kirki::add_field(
 			'mobile-menu-trigger' => esc_html__( 'Mobile Menu Trigger', 'amply' ),
 			'search'              => esc_html__( 'Search', 'amply' ),
 		),
-		'default'         => array(
-			'mobile-menu-trigger',
-		),
-		'active_callback' => array(
-			array(
-				'setting'  => 'amply_default_header_type',
-				'operator' => '==',
-				'value'    => 'header2',
-			),
-		),
-	)
-);
-
-Kirki::add_field(
-	'amply_config',
-	array(
-		'type'            => 'sortable',
-		'settings'        => 'theme_options[test-1]',
-		'label'           => esc_html__( 'Test', 'ubik' ),
-		'section'         => 'amply_default_header_section',
-		'priority'        => 10,
-		'choices'         => array(
-			'site-logo'           => esc_html__( 'Site Logo', 'amply' ),
-			'site-name'           => esc_html__( 'Site Name', 'amply' ),
-			'mobile-menu-trigger' => esc_html__( 'Mobile Menu Trigger', 'amply' ),
-			'search'              => esc_html__( 'Search', 'amply' ),
-		),
-		'default'         => array(
-			'mobile-menu-trigger',
-		),
+		'default'         => amply_defaults( 'amply_default_header_header2_elements' ),
 		'active_callback' => array(
 			array(
 				'setting'  => 'amply_default_header_type',

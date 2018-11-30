@@ -62,7 +62,7 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 		 */
 		public function get_header_type() {
 
-			$this->header = get_theme_mod( 'amply_default_header_type', 'header1' );
+			$this->header = amply_option( 'amply_default_header_type' );
 
 		}
 
@@ -71,11 +71,11 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 		 */
 		public function default_header_partial() {
 
-			$header_elements = get_theme_mod( 'amply_default_header_' . $this->header . '_elements', array( 'mobile-menu-trigger' ) );
+			$header_elements = amply_option( 'amply_default_header_' . $this->header . '_elements' );
 
 			if ( $header_elements ) {
-				$data            = $header_elements;
-				set_query_var( 'data_var', $data );
+				$data = $header_elements;
+				set_query_var( 'amply_header_var', $data );
 			}
 
 			get_template_part( 'views/header/' . $this->header . '/' . $this->header, 'partial' );
@@ -87,7 +87,11 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 		 */
 		public function register_header_style() {
 
-			wp_register_style( 'amply-' . $this->header, get_theme_file_uri( '/views/header/' . $this->header . '/' . $this->header . '.css' ), array(), '20180514' );
+			$file = locate_template( 'views/header/' . $this->header . '/' . $this->header . '.css', true, false );
+
+			if ( $file ) {
+				wp_register_style( 'amply-' . $this->header, get_theme_file_uri( '/views/header/' . $this->header . '/' . $this->header . '.css' ), array(), '20180514' );
+			}
 
 		}
 
@@ -106,6 +110,10 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 
 			// Get registered styles.
 			$wp_styles = wp_styles();
+
+			if ( ! $wp_styles->registered[ 'amply-' . $this->header ] ) {
+				return;
+			}
 
 			// Preload header1 css.
 			$src = amply_get_preload_stylesheet_uri( $wp_styles, 'amply-' . $this->header );
