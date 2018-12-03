@@ -37,10 +37,31 @@ add_filter( 'amply_default_options_filter', 'amply_add_default_header_defaults' 
  */
 
 Kirki::add_section(
+	'amply_section_options_expanded_section',
+	array(
+		'title'    => esc_html__( 'Section Options' ),
+		'priority' => 301,
+		'type'     => 'expanded',
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'     => 'custom',
+		'settings' => 'amply_empty_separator_section_options_expanded_section',
+		'label'    => '',
+		'section'  => 'amply_section_options_expanded_section',
+		'default'  => esc_html__( 'test', 'amply' ),
+		'priority' => 10,
+	)
+);
+
+Kirki::add_section(
 	'amply_default_header_section',
 	array(
 		'title'    => esc_html__( 'Header', 'amply' ),
-		'priority' => 301,
+		'priority' => 302,
 	)
 );
 
