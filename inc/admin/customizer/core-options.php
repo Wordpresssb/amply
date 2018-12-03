@@ -40,19 +40,5 @@ function amply_core_options( $wp_customize ) {
 		);
 	}
 
-	// Inline editable partials.
-	if ( class_exists( 'Customize_Inline_Editing' ) ) {
-		$partials = array(
-			$wp_customize->selective_refresh->get_partial( 'blogname' ),
-			$wp_customize->selective_refresh->get_partial( 'blogdescription' ),
-		);
-		foreach ( $partials as $partial ) {
-			if ( 'default' !== $partial->type ) {
-				continue;
-			}
-			$partial->type = 'inline_editable';
-		}
-	}
-
 }
 add_action( 'customize_register', 'amply_core_options' );

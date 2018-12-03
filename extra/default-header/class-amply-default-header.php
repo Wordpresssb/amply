@@ -61,7 +61,7 @@ if ( ! class_exists( 'Amply_Default_Header' ) ) {
 		 */
 		public function customize_default_header_controls_pane() {
 
-			wp_enqueue_script( 'wprig-default-header-controls-pane-js', get_theme_file_uri( '/extra/default-header/js/customizer-control.js' ), array( 'customize-controls', 'jquery' ), '20151215', true );
+			wp_enqueue_script( 'amply-default-header-controls-pane-js', get_theme_file_uri( '/extra/default-header/js/customize-control.js' ), array( 'customize-controls', 'jquery' ), '20151215', true );
 
 		}
 

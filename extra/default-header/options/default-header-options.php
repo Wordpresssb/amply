@@ -40,18 +40,27 @@ Kirki::add_section(
 	'amply_default_header_section',
 	array(
 		'title'    => esc_html__( 'Header', 'amply' ),
-		'priority' => 160,
+		'priority' => 301,
 	)
 );
 
-Kirki::add_section(
-	'amply_default_header_outer_section',
-	array(
-		'title'    => esc_html__( 'Header type', 'amply' ),
-		'priority' => 0,
-		'type'     => 'outer',
-	)
-);
+/**
+ * Add outer section for amply_default_header_type
+ * Triggered by amply_default_header_type_trigger
+ *
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+ */
+function amply_register_default_header_outer_section( $wp_customize ) {
+	$wp_customize->add_section(
+		'amply_default_header_outer_section',
+		array(
+			'title'    => esc_html__( 'Header type', 'amply' ),
+			'priority' => 0,
+			'type'     => 'outer',
+		)
+	);
+}
+add_action( 'customize_register', 'amply_register_default_header_outer_section' );
 
 Kirki::add_field(
 	'amply_config',

@@ -9,6 +9,7 @@ Kirki::add_section(
 	'amply_images',
 	array(
 		'title'    => __( 'Images', 'amply' ),
+		'panel'    => 'amply_general_panel',
 		'priority' => 161,
 	)
 );

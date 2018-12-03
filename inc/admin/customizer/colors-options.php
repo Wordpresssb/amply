@@ -32,7 +32,8 @@ add_filter( 'amply_default_options_filter', 'amply_add_colors_defaults' );
 Kirki::add_section(
 	'amply_colors',
 	array(
-		'title'    => __( 'Colors', 'amply' ),
+		'title'    => esc_html__( 'Colors', 'amply' ),
+		'panel'    => 'amply_general_panel',
 		'priority' => 160,
 	)
 );

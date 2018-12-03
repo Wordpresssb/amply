@@ -116,20 +116,22 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 				)
 			);
 
-			add_theme_support(
-				'custom-header',
-				apply_filters(
-					'amply_custom_header_args',
-					array(
-						'default-image' => '',
-						'header-text'   => false,
-						'width'         => 1600,
-						'height'        => 250,
-						'flex-height'   => true,
-						'video'         => false,
-					)
-				)
-			);
+			// phpcs:disable
+			// add_theme_support(
+			// 	'custom-header',
+			// 	apply_filters(
+			// 		'amply_custom_header_args',
+			// 		array(
+			// 			'default-image' => '',
+			// 			'header-text'   => false,
+			// 			'width'         => 1600,
+			// 			'height'        => 250,
+			// 			'flex-height'   => true,
+			// 			'video'         => false,
+			// 		)
+			// 	)
+			// );
+			// phpcs:enable
 
 			// Set up the WordPress core custom background feature.
 			// phpcs:disable
