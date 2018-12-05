@@ -62,6 +62,9 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 				wp_enqueue_style( 'amply-fonts', $fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			}
 
+			// Load Font Awesome.
+			wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.5.0/css/all.css', array(), AMPLY_THEME_VERSION );
+
 			// Load main stylesheet.
 			wp_enqueue_style( 'amply-main-style', get_theme_file_uri( '/dist/css/main.css' ), array(), AMPLY_THEME_VERSION );
 

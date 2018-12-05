@@ -14,3 +14,7 @@ $my_query_var = get_query_var( 'amply_header_var' );
 if ( $my_query_var ) {
 	var_dump( $my_query_var );
 }
+?>
+
+<i class="fa fa-camera-retro"></i>
+<i class="fa fa-home fa-fw"></i>
