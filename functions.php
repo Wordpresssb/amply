@@ -70,7 +70,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 // Add theme support for lazyloading images.
 require_once get_parent_theme_file_path( 'pluggable/lazyload/class-amply-lazyload-images.php' );
 
-
+// Add theme option for retina logo.
+require_once get_parent_theme_file_path( 'pluggable/logo-additions/logo-additions.php' );
 
 
 
@@ -105,5 +106,7 @@ function tests() {
 	// echo '<pre>';
 	// var_dump( wp_styles()->registered[ 'amply-header2' ] );
 	// echo '</pre>';
+
+	var_dump( get_theme_mod( 'amply_retina_logo', '' ) );
 }
 add_action( 'wp_footer', 'tests' );

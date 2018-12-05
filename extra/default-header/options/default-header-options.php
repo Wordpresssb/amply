@@ -52,7 +52,6 @@ Kirki::add_field(
 		'settings' => 'amply_empty_separator_section_options_expanded_section',
 		'label'    => '',
 		'section'  => 'amply_section_options_expanded_section',
-		'default'  => esc_html__( 'test', 'amply' ),
 		'priority' => 10,
 	)
 );

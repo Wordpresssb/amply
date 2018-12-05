@@ -154,8 +154,8 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 			add_theme_support(
 				'custom-logo',
 				array(
-					'height'      => 250,
-					'width'       => 250,
+					'height'      => 150,
+					'width'       => 60,
 					'flex-width'  => false,
 					'flex-height' => false,
 				)
