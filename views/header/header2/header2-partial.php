@@ -15,6 +15,3 @@ if ( $my_query_var ) {
 	var_dump( $my_query_var );
 }
 ?>
-
-<i class="fa fa-camera-retro"></i>
-<i class="fa fa-home fa-fw"></i>

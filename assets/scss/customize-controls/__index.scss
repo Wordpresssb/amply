@@ -3,3 +3,69 @@
 ///
 /// Styles should focus on the customize controls panel. This covers panels,
 /// sections, and controls.
+
+// Seperator sections
+#sub-accordion-section-amply_section_options_expanded_section {
+	height: 60px !important;
+	margin-top: 10px !important;
+}
+
+// Trigger for outer sections
+.outer-trigger-wrap {
+
+	span {
+		font-size: 14px;
+    line-height: 26px;
+    font-weight: 600;
+	}
+
+	button {
+		float: right;
+		cursor: pointer;
+		margin: 0 0 0 10px;
+		padding: 0 10px 1px;
+		outline: 0;
+		color: #555;
+    border-color: #ccc;
+		background: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 26px;
+    height: 28px;
+    border-width: 1px;
+    border-style: solid;
+		border-radius: 3px;
+		
+		&:after {
+			content: "\f132";
+			font: 400 20px/1 dashicons;
+			display: inline-block;
+			position: relative;
+			right: -4px;
+			top: 0;
+			vertical-align: middle;
+			transition: all .2s;
+		}
+	}
+
+}
+
+.outer-trigger-wrap.outer-open {
+	button:after {
+		transform: rotate(45deg);
+	}
+}
+
+#sub-accordion-section-amply_default_header_outer_section .customize-section-back {
+	display: none;
+}
+
+// Title custom fields
+h1.title-custom-field {
+	background: #555;
+	color: #fff;
+	margin: 10px -12px 0 -12px;
+	padding: 10px;
+	text-align: center;
+	font-size: 16px;
+}

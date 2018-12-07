@@ -37,11 +37,10 @@ add_filter( 'amply_default_options_filter', 'amply_add_default_header_defaults' 
  */
 
 Kirki::add_section(
-	'amply_section_options_expanded_section',
+	'amply_default_header_section',
 	array(
-		'title'    => esc_html__( 'Section Options' ),
-		'priority' => 301,
-		'type'     => 'expanded',
+		'title'    => esc_html__( 'Header', 'amply' ),
+		'priority' => 302,
 	)
 );
 
@@ -49,18 +48,10 @@ Kirki::add_field(
 	'amply_config',
 	array(
 		'type'     => 'custom',
-		'settings' => 'amply_empty_separator_section_options_expanded_section',
-		'label'    => '',
-		'section'  => 'amply_section_options_expanded_section',
+		'settings' => 'amply_default_header_type_trigger',
+		'section'  => 'amply_default_header_section',
+		'default'  => '<div class="outer-trigger-wrap"><span>Choose the Header Type</span><button id="amply_default_header_type_trigger_button" type="button" value="Choose the Header Type">Change</button></div>',
 		'priority' => 10,
-	)
-);
-
-Kirki::add_section(
-	'amply_default_header_section',
-	array(
-		'title'    => esc_html__( 'Header', 'amply' ),
-		'priority' => 302,
 	)
 );
 
@@ -98,52 +89,5 @@ Kirki::add_field(
 	)
 );
 
-Kirki::add_field(
-	'amply_config',
-	array(
-		'type'            => 'sortable',
-		'settings'        => 'amply_default_header_header1_elements',
-		'label'           => esc_html__( 'Header1 Elements', 'ubik' ),
-		'section'         => 'amply_default_header_section',
-		'priority'        => 10,
-		'choices'         => array(
-			'site-logo'           => esc_html__( 'Site Logo', 'amply' ),
-			'site-name'           => esc_html__( 'Site Name', 'amply' ),
-			'mobile-menu-trigger' => esc_html__( 'Mobile Menu Trigger', 'amply' ),
-			'search'              => esc_html__( 'Search', 'amply' ),
-		),
-		'default'         => amply_defaults( 'amply_default_header_header1_elements' ),
-		'active_callback' => array(
-			array(
-				'setting'  => 'amply_default_header_type',
-				'operator' => '==',
-				'value'    => 'header1',
-			),
-		),
-	)
-);
-
-Kirki::add_field(
-	'amply_config',
-	array(
-		'type'            => 'sortable',
-		'settings'        => 'amply_default_header_header2_elements',
-		'label'           => esc_html__( 'Header2 Elements', 'ubik' ),
-		'section'         => 'amply_default_header_section',
-		'priority'        => 10,
-		'choices'         => array(
-			'site-logo'           => esc_html__( 'Site Logo', 'amply' ),
-			'site-name'           => esc_html__( 'Site Name', 'amply' ),
-			'mobile-menu-trigger' => esc_html__( 'Mobile Menu Trigger', 'amply' ),
-			'search'              => esc_html__( 'Search', 'amply' ),
-		),
-		'default'         => amply_defaults( 'amply_default_header_header2_elements' ),
-		'active_callback' => array(
-			array(
-				'setting'  => 'amply_default_header_type',
-				'operator' => '==',
-				'value'    => 'header2',
-			),
-		),
-	)
-);
+require_once get_template_directory() . '/extra/default-header/options/header1-options.php';
+require_once get_template_directory() . '/extra/default-header/options/header2-options.php';

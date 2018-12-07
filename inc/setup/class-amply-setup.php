@@ -44,6 +44,7 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 			add_action( 'after_setup_theme', array( $this, 'constants' ) );
 			add_action( 'after_setup_theme', array( $this, 'textdomain' ) );
 			add_action( 'after_setup_theme', array( $this, 'theme_support' ) );
+			add_action( 'after_setup_theme', array( $this, 'register_primary_menu' ) );
 
 		}
 
@@ -75,8 +76,6 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 		/**
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 *
-		 * @return void
 		 */
 		public function textdomain() {
 
@@ -256,6 +255,19 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 				'amp',
 				array(
 					'comments_live_list' => true,
+				)
+			);
+
+		}
+
+		/**
+		 * Register primary nav menu
+		 */
+		public function register_primary_menu() {
+
+			register_nav_menus(
+				array(
+					'primary' => esc_html__( 'Primary', 'amply' ),
 				)
 			);
 

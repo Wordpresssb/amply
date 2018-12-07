@@ -58,7 +58,7 @@ if ( ! class_exists( 'Amply_Default_Header' ) ) {
 		}
 
 		/**
-		 * Css for default header controls.
+		 * CSS for default header controls.
 		 */
 		public function customize_controls_pane_css() {
 
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Amply_Default_Header' ) ) {
 		}
 
 		/**
-		 * Js for default header controls.
+		 * JS for default header controls.
 		 */
 		public function customize_controls_pane_js() {
 
