@@ -18,10 +18,17 @@ function amply_add_default_header_defaults( $defaults ) {
 		'amply_default_header_type'             => 'header1',
 
 		'amply_default_header_header1_elements' => array(
+			'site-logo',
+			'social-nav',
+			'primary-nav',
 			'mobile-menu-trigger',
 		),
+
 		'amply_default_header_header2_elements' => array(
 			'site-logo',
+			'social-nav',
+			'primary-nav',
+			'mobile-menu-trigger',
 		),
 
 	);

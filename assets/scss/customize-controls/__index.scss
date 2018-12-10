@@ -56,7 +56,8 @@
 	}
 }
 
-#sub-accordion-section-amply_default_header_outer_section .customize-section-back {
+// Hide outer section close button
+.control-section-outer .customize-section-back {
 	display: none;
 }
 

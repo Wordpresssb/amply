@@ -74,7 +74,7 @@ require_once get_parent_theme_file_path( 'pluggable/lazyload/lazyload.php' );
 require_once get_parent_theme_file_path( 'pluggable/logo-additions/logo-additions.php' );
 
 // Add svg icons functions.
-require_once get_parent_theme_file_path( 'pluggable/svg-icons/functions-svg-icons.php' );
+require_once get_parent_theme_file_path( 'pluggable/svg-icons/class-amply-svg-icons.php' );
 
 // Add social nav menu.
 require_once get_parent_theme_file_path( 'pluggable/social-nav-menu/class-amply-social-nav-menu.php' );

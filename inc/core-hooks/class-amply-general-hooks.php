@@ -46,7 +46,7 @@ if ( ! class_exists( 'Amply_General_Hooks' ) ) {
 			add_action( 'wp_head', array( $this, 'head_custom_css' ), PHP_INT_MAX );
 			add_filter( 'embed_defaults', array( $this, 'embed_dimensions' ) );
 			add_filter( 'script_loader_tag', array( $this, 'filter_script_loader_tag' ), 10, 2 );
-			add_filter( 'walker_nav_menu_start_el', array( $this, 'add_primary_menu_dropdown_symbol' ), 10, 4 );
+			add_filter( 'walker_nav_menu_start_el', array( $this, 'add_primary_menu_dropdown_icon' ), 10, 4 );
 			add_filter( 'nav_menu_link_attributes', array( $this, 'add_nav_menu_aria_current' ), 10, 2 );
 			add_filter( 'page_menu_link_attributes', array( $this, 'add_nav_menu_aria_current' ), 10, 2 );
 
@@ -134,28 +134,33 @@ if ( ! class_exists( 'Amply_General_Hooks' ) ) {
 		}
 
 		/**
-		 * Add dropdown symbol to nav menu items with children.
-		 * Javascript converts the symbol to a toggle button.
+		 * Add a dropdown icon to top-level items of the primary menu.
 		 *
-		 * @param string   $item_output The menu item's starting HTML output.
-		 * @param WP_Post  $item        Menu item data object.
-		 * @param int      $depth       Depth of menu item. Used for padding.
-		 * @param stdClass $args        An object of wp_nav_menu() arguments.
-		 * @return string Modified nav menu HTML.
+		 * @param string $output Nav menu item start element.
+		 * @param object $item   Nav menu item.
+		 * @param int    $depth  Depth.
+		 * @param object $args   Nav menu args.
+		 * @return string Nav menu item start element.
 		 */
-		public function add_primary_menu_dropdown_symbol( $item_output, $item, $depth, $args ) {
+		public function add_primary_menu_dropdown_icon( $output, $item, $depth, $args ) {
 
-			// Only for primary menu location.
-			if ( empty( $args->theme_location ) || 'primary' != $args->theme_location ) {
-				return $item_output;
+			// Only add class to 'top level' items on the 'primary' menu.
+			if ( ! isset( $args->theme_location ) || 'primary' !== $args->theme_location ) {
+				return $output;
 			}
 
-			// Add the dropdown for items that have children.
-			if ( ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
-				return $item_output . '<span class="dropdown"><i class="dropdown-symbol"></i></span>';
+			if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
+
+				// Add SVG icon to parent items.
+				$icon = amply_get_icon_svg( 'keyboard_arrow_down', 24 );
+
+				$output .= sprintf(
+					'<span class="submenu-expand" tabindex="-1">%s</span>',
+					$icon
+				);
 			}
 
-			return $item_output;
+			return $output;
 		}
 
 		/**

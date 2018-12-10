@@ -44,7 +44,7 @@
           transform: rotate(45deg);
 }
 
-#sub-accordion-section-amply_default_header_outer_section .customize-section-back {
+.control-section-outer .customize-section-back {
   display: none;
 }
 

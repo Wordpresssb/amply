@@ -65,8 +65,28 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 			// Load Font Awesome.
 			wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.5.0/css/all.css', array(), AMPLY_THEME_VERSION );
 
-			// Load main stylesheet.
-			wp_enqueue_style( 'amply-main-style', get_theme_file_uri( '/dist/css/main.css' ), array(), AMPLY_THEME_VERSION );
+			// enqueue main style and register component styles that are called conditionally on an as-needed basis.
+			$css_uri   = get_theme_file_uri( '/dist/css/' );
+			$css_files = $this->get_css_files();
+
+			foreach ( $css_files as $css_file ) {
+
+				if ( 'main' === $css_file ) {
+					wp_enqueue_style(
+						'amply-' . $css_file,
+						$css_uri . $css_file . '.css',
+						array(),
+						AMPLY_THEME_VERSION
+					);
+				} else {
+					wp_register_style(
+						'amply-' . $css_file,
+						$css_uri . $css_file . '.css',
+						array(),
+						AMPLY_THEME_VERSION
+					);
+				}
+			}
 
 		}
 
@@ -139,6 +159,25 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 				);
 			}
 			return $urls;
+		}
+
+		/**
+		 * Returns the theme CSS files.
+		 *
+		 * @return array List of CSS file names.
+		 */
+		public function get_css_files() {
+
+			$css_files = array(
+				'main',
+			);
+
+			/**
+			 * Filters default CSS files.
+			 *
+			 * @param array $css_files List of CSS file names to register and enqueue with WordPress.
+			 */
+			return apply_filters( 'amply_css_files', $css_files );
 		}
 
 		/**

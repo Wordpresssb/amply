@@ -71,13 +71,6 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 		 */
 		public function default_header_partial() {
 
-			$header_elements = amply_option( 'amply_default_header_' . $this->header . '_elements' );
-
-			if ( $header_elements ) {
-				$data = $header_elements;
-				set_query_var( 'amply_header_var', $data );
-			}
-
 			get_template_part( 'views/header/' . $this->header . '/' . $this->header, 'partial' );
 
 		}
