@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -616,14 +618,159 @@ select {
   max-width: 100%;
 }
 
-.site-primary-nav ul {
-  list-style: none;
+.site-primary-nav > div {
+  display: inline;
+}
+
+.site-primary-nav .primary-menu {
+  display: inline-block;
   margin: 0;
   padding: 0;
 }
 
-.site-primary-nav li {
+.site-primary-nav .primary-menu > li {
+  display: inline;
+  position: relative;
+}
+
+.site-primary-nav .primary-menu > li > a {
+  color: #111111;
+  margin-right: 0.5rem;
+}
+
+.site-primary-nav .primary-menu > li > a + svg {
+  margin-right: 0.5rem;
+}
+
+.site-primary-nav .primary-menu > li > a:hover,
+.site-primary-nav .primary-menu > li > a:hover + svg {
+  opacity: 0.6;
+}
+
+.site-primary-nav .primary-menu > li.menu-item-has-children {
   display: inline-block;
+  position: relative;
+}
+
+.site-primary-nav .primary-menu > li.menu-item-has-children > a {
+  margin-right: 0.125rem;
+}
+
+.site-primary-nav .primary-menu > li.menu-item-has-children .submenu-expand {
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
+.site-primary-nav .primary-menu > li.menu-item-has-children .submenu-expand svg {
+  position: relative;
+  top: 0.3rem;
+}
+
+.site-primary-nav .sub-menu {
+  position: absolute;
+  opacity: 0;
+  left: -9999px;
+  z-index: 99999;
+  background: #cacaca;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.site-primary-nav .sub-menu > li > a {
+  display: block;
+  line-height: 1.2;
+  padding: calc( .5 * 1rem) calc( 24px + 1rem) calc( .5 * 1rem) 1rem;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+.site-primary-nav .sub-menu > li > a:hover,
+.site-primary-nav .sub-menu > li > a:focus {
+  background: #dadada;
+}
+
+.site-primary-nav .primary-menu .menu-item-has-children:focus-within > .sub-menu {
+  display: block;
+  margin-top: 0;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  height: auto;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  -webkit-transform: none;
+          transform: none;
+}
+
+.site-primary-nav .primary-menu .menu-item-has-children:focus-within > .sub-menu .submenu-expand {
+  display: none;
+}
+
+.site-primary-nav .primary-menu .menu-item-has-children:focus-within > .sub-menu .sub-menu {
+  display: block;
+  margin-top: inherit;
+  position: relative;
+  width: 100%;
+  left: 0;
+  opacity: 1;
+}
+
+.site-primary-nav .primary-menu .menu-item-has-children:focus-within > .sub-menu .sub-menu {
+  counter-reset: submenu;
+}
+
+.site-primary-nav .primary-menu .menu-item-has-children:focus-within > .sub-menu .sub-menu > li > a::before {
+  content: "\2013\A0" counters(submenu, "\2013\A0", none);
+  counter-increment: submenu;
+}
+
+.site-primary-nav .primary-menu .menu-item-has-children:hover > .sub-menu,
+.site-primary-nav .primary-menu .menu-item-has-children:focus > .sub-menu {
+  display: block;
+  margin-top: 0;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  height: auto;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  -webkit-transform: none;
+          transform: none;
+}
+
+.site-primary-nav .primary-menu .menu-item-has-children:hover > .sub-menu .submenu-expand,
+.site-primary-nav .primary-menu .menu-item-has-children:focus > .sub-menu .submenu-expand {
+  display: none;
+}
+
+.site-primary-nav .primary-menu .menu-item-has-children:hover > .sub-menu .sub-menu,
+.site-primary-nav .primary-menu .menu-item-has-children:focus > .sub-menu .sub-menu {
+  display: block;
+  margin-top: inherit;
+  position: relative;
+  width: 100%;
+  left: 0;
+  opacity: 1;
+}
+
+.site-primary-nav .primary-menu .menu-item-has-children:hover > .sub-menu .sub-menu,
+.site-primary-nav .primary-menu .menu-item-has-children:focus > .sub-menu .sub-menu {
+  counter-reset: submenu;
+}
+
+.site-primary-nav .primary-menu .menu-item-has-children:hover > .sub-menu .sub-menu > li > a::before,
+.site-primary-nav .primary-menu .menu-item-has-children:focus > .sub-menu .sub-menu > li > a::before {
+  content: "\2013\A0" counters(submenu, "\2013\A0", none);
+  counter-increment: submenu;
 }
 
 .wp-block-audio {

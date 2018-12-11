@@ -218,7 +218,7 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 			}
 
 			// Enqueue skip-link-focus script.
-			wp_enqueue_script( 'amply-skip-link-focus-fix', get_theme_file_uri( 'dist/js/skip-link-focus-fix.js' ), array(), AMPLY_THEME_VERSION, false );
+			wp_enqueue_script( 'amply-skip-link-focus-fix', get_theme_file_uri( 'dist/js/skip-link-focus-fix.js' ), array(), '20151215', false );
 			wp_script_add_data( 'amply-skip-link-focus-fix', 'defer', true );
 
 			// Enqueue the navigation script.

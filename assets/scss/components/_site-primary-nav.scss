@@ -4,14 +4,175 @@
 
 .site-primary-nav {
 
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
+	> div {
+
+		display: inline;
+
 	}
 
-	li {
+	.primary-menu {
+
 		display: inline-block;
+		margin: 0;
+		padding: 0;
+
+		> li {
+			display: inline;
+			position: relative;
+
+			> a {
+
+				color: #111111;
+				margin-right: 0.5rem;
+
+				+ svg {
+					margin-right: 0.5rem;
+				}
+
+				&:hover,
+				&:hover + svg {
+					opacity: 0.6;
+				}
+
+			}
+
+			&.menu-item-has-children {
+
+				display: inline-block;
+				position: relative;
+
+				> a {
+					margin-right: 0.125rem;
+				}
+
+				.submenu-expand {
+
+					display: inline-block;
+					margin-right: 0.25rem;
+
+					svg {
+						position: relative;
+						top: 0.3rem;
+					}
+
+				}
+
+			}
+
+		}
+	}
+
+	.sub-menu {
+
+		position: absolute;
+		opacity: 0;
+		left: -9999px;
+		z-index: 99999;
+
+		background: #cacaca;
+		list-style: none;
+		margin-left: 0;
+		padding-left: 0;
+
+		> li {
+
+			> a {
+
+				display: block;
+				line-height: 1.2;
+    		padding: calc( .5 * 1rem) calc( 24px + 1rem) calc( .5 * 1rem) 1rem;
+				white-space: nowrap;
+				color: #ffffff;
+
+				&:hover,
+				&:focus {
+					background: #dadada;
+				}
+
+			}
+
+		}
+
+	}
+
+	// Sub-menu styles -- :focus-within needs its own selector so other similar selectors don’t get ignored if a browser doesn’t recognize it
+	.primary-menu .menu-item-has-children:focus-within > .sub-menu {
+
+		display: block;
+		margin-top: 0;
+		opacity: 1;
+		position: absolute;
+		right: 0;
+		left: auto;
+		top: auto;
+		bottom: auto;
+		height: auto;
+		min-width: max-content;
+		transform: none;
+
+		.submenu-expand {
+			display: none;
+		}
+
+		.sub-menu {
+			display: block;
+			margin-top: inherit;
+			position: relative;
+			width: 100%;
+			left: 0;
+			opacity: 1;
+		}
+
+		// Nested sub-menu dashes
+		.sub-menu {
+			counter-reset: submenu;
+		}
+
+		.sub-menu > li > a::before {
+			content: "\2013\00a0" counters(submenu, "\2013\00a0", none);
+			counter-increment: submenu
+		}
+
+	 }
+
+	.primary-menu .menu-item-has-children:hover > .sub-menu,
+	.primary-menu .menu-item-has-children:focus > .sub-menu {
+
+		display: block;
+		margin-top: 0;
+		opacity: 1;
+		position: absolute;
+		right: 0;
+		left: auto;
+		top: auto;
+		bottom: auto;
+		height: auto;
+		min-width: max-content;
+		transform: none;
+
+		.submenu-expand {
+			display: none;
+		}
+
+		.sub-menu {
+			display: block;
+			margin-top: inherit;
+			position: relative;
+			width: 100%;
+			left: 0;
+			opacity: 1;
+		}
+
+		// Nested sub-menu dashes
+		.sub-menu {
+			counter-reset: submenu;
+		}
+
+		.sub-menu > li > a::before {
+			content: "\2013\00a0" counters(submenu, "\2013\00a0", none);
+			counter-increment: submenu
+		}
+
 	}
 
 }
