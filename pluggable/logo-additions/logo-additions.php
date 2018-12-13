@@ -71,11 +71,15 @@ function amply_get_logo() {
 			$attachment = get_post( $custom_logo_id );
 
 			$attr = array(
-				'class'    => 'site-logo',
+				'class'    => 'logo-img',
 				'itemprop' => 'logo',
 				'src'      => $src,
 				'alt'      => wp_strip_all_tags( get_post_meta( $custom_logo_id, '_wp_attachment_image_alt', true ) ),
 			);
+
+			if ( amply_is_amp() ) {
+				$attr['display'] = 'responsive';
+			}
 
 			// Generate 'srcset' for retina devices.
 			$logo_url        = $logo[0];

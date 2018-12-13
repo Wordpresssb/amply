@@ -8,4 +8,4 @@
 ?>
 
 <?php
-echo amply_get_icon_svg( 'arrow_drop_down_ellipsis' ); // wpcs: xss ok.
+echo amply_get_icon_svg( 'hamburger' ); // wpcs: xss ok.

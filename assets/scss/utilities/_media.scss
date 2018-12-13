@@ -2,18 +2,21 @@
 /// Media-related utility styles.
 ////
 
-/// Outputs the emoji and smiley classes. These are to make sure that the images
-/// stay the same size as the surrounding text.
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
 
-img.wp-smiley,
-img.emoji {
-	display:        inline;
-	width:          1em;
-	height:         1em;
-	margin:         0 .07em;
-	padding:        0;
-	vertical-align: -0.1em;
-	background:     none;
-	border:         none;
-	box-shadow:     none;
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+svg {
+	fill: currentColor;
 }
