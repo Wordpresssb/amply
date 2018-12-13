@@ -76,6 +76,7 @@ Kirki::add_field(
 			'social-nav'          => esc_html__( 'Social Navigation', 'amply' ),
 			'primary-nav'         => esc_html__( 'Primary Navigation', 'amply' ),
 			'mobile-menu-trigger' => esc_html__( 'Mobile Menu Trigger', 'amply' ),
+			'search-form'         => esc_html__( 'Search Form', 'amply' ),
 		),
 		'default'         => amply_defaults( 'amply_default_header_header2_elements' ),
 		'active_callback' => array(

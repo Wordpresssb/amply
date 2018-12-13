@@ -29,6 +29,7 @@ function amply_add_default_header_defaults( $defaults ) {
 			'social-nav',
 			'primary-nav',
 			'mobile-menu-trigger',
+			'seach-form',
 		),
 
 	);

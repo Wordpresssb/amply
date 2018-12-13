@@ -46,6 +46,13 @@ if ( $elements ) :
 		?>
 
 		<?php
+		// Search form.
+		if ( 'search-form' === $element ) {
+			get_template_part( 'views/site/search-form' );
+		}
+		?>
+
+		<?php
 	endforeach;
 
 endif;

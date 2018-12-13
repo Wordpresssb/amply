@@ -607,6 +607,30 @@ input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
   color: #111;
+  outline: 0;
+}
+
+/* clears the 'X' from Internet Explorer */
+
+input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* clears the 'X' from Chrome */
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
 }
 
 select {
@@ -820,6 +844,32 @@ select {
 
 .site-logo img {
   display: inline-block;
+}
+
+.site-search-form .search-form {
+  position: relative;
+  max-width: 250px;
+}
+
+.site-search-form .search-field {
+  height: 35px;
+  width: 100%;
+  font-size: 16px;
+  padding: 7px;
+  margin: 0;
+  background-color: #ffffff;
+  color: #111111;
+}
+
+.site-search-form .search-submit {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+  padding: 0 10px;
+  cursor: pointer;
 }
 
 .wp-block-audio {

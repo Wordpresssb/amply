@@ -1,6 +1,6 @@
 <?php
 /**
- * Header 1
+ * Site Logo
  *
  * @package amply
  */
