@@ -80,7 +80,7 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 		 */
 		public function register_header_style() {
 
-			$file = locate_template( 'views/header/' . $this->header . '/' . $this->header . '.css', true, false );
+			$file = locate_template( 'views/header/' . $this->header . '/' . $this->header . '.css', false, false );
 
 			if ( $file ) {
 				wp_register_style( 'amply-' . $this->header, get_theme_file_uri( '/views/header/' . $this->header . '/' . $this->header . '.css' ), array(), '20180514' );
