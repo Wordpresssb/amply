@@ -20,7 +20,7 @@ $elements = amply_option( 'amply_default_header_header1_elements' );
 
 	</div>
 
-	<div class="site-header__collapse">
+	<div class="site-header__elements">
 
 		<?php
 		if ( $elements ) :
@@ -51,15 +51,18 @@ $elements = amply_option( 'amply_default_header_header1_elements' );
 				?>
 
 				<?php
+				// Mobile menu trigger.
+				if ( 'mobile-menu-trigger' === $element ) {
+					get_template_part( 'views/site/mobile-menu-trigger' );
+				}
+				?>
+
+				<?php
 			endforeach;
 
 		endif;
 		?>
 
 	</div>
-
-	<?php
-	get_template_part( 'views/site/mobile-menu-trigger' );
-	?>
 
 </header>

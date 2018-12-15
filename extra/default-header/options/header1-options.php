@@ -72,9 +72,10 @@ Kirki::add_field(
 		'section'         => 'amply_default_header_header1_elements_outer_section',
 		'priority'        => 10,
 		'choices'         => array(
-			'primary-nav' => esc_html__( 'Primary Navigation', 'amply' ),
-			'social-nav'  => esc_html__( 'Social Navigation', 'amply' ),
-			'search-form' => esc_html__( 'Search Form', 'amply' ),
+			'primary-nav'         => esc_html__( 'Primary Navigation', 'amply' ),
+			'social-nav'          => esc_html__( 'Social Navigation', 'amply' ),
+			'search-form'         => esc_html__( 'Search Form', 'amply' ),
+			'mobile-menu-trigger' => esc_html__( 'Mobile Menu Trigger', 'amply' ),
 		),
 		'default'         => amply_defaults( 'amply_default_header_header1_elements' ),
 		'active_callback' => array(
@@ -86,3 +87,291 @@ Kirki::add_field(
 		),
 	)
 );
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'radio-buttonset',
+		'settings'        => 'amply_default_header_header1_logo_position',
+		'label'           => esc_html__( 'Logo Position', 'amply' ),
+		'section'         => 'amply_default_header_section',
+		'default'         => 'left',
+		'priority'        => 10,
+		'transport'       => 'auto',
+		'choices'         => array(
+			'left'  => esc_html__( 'Left', 'amply' ),
+			'right' => esc_html__( 'Right', 'amply' ),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+		),
+		'output'          => array(
+			array(
+				'element'           => '#header1.site-header',
+				'property'          => 'flex-direction',
+				'sanitize_callback' => 'sanitize_logo_position',
+			),
+			array(
+				'element'           => '#header1 .site-header__brand',
+				'property'          => 'flex-direction',
+				'sanitize_callback' => 'sanitize_logo_position',
+			),
+		),
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'custom',
+		'settings'        => 'amply_default_header_header1_primary_nav_title',
+		'section'         => 'amply_default_header_section',
+		'default'         => '<h1 class="subtitle-custom-field">Primary Navivation</h1>',
+		'priority'        => 10,
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+			array(
+				'setting'  => 'amply_default_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'primary-nav',
+			),
+		),
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'switch',
+		'settings'        => 'amply_default_header_header1_primary_nav_visibility',
+		'label'           => esc_html__( 'Show on Mobile/Tablet', 'amply' ),
+		'section'         => 'amply_default_header_section',
+		'default'         => '0',
+		'priority'        => 10,
+		'transport'       => 'auto',
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+			array(
+				'setting'  => 'amply_default_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'primary-nav',
+			),
+		),
+		'output'          => array(
+			array(
+				'element'           => '#header1 .site-primary-nav',
+				'property'          => 'display',
+				'sanitize_callback' => 'sanitize_visibility',
+			),
+		),
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'custom',
+		'settings'        => 'amply_default_header_header1_social_nav_title',
+		'section'         => 'amply_default_header_section',
+		'default'         => '<h1 class="subtitle-custom-field">Social Navivation</h1>',
+		'priority'        => 10,
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+			array(
+				'setting'  => 'amply_default_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'social-nav',
+			),
+		),
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'switch',
+		'settings'        => 'amply_default_header_header1_social_nav_visibility',
+		'label'           => esc_html__( 'Show on Mobile/Tablet', 'amply' ),
+		'section'         => 'amply_default_header_section',
+		'default'         => '0',
+		'priority'        => 10,
+		'transport'       => 'auto',
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+			array(
+				'setting'  => 'amply_default_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'social-nav',
+			),
+		),
+		'output'          => array(
+			array(
+				'element'           => '#header1 .site-social-nav',
+				'property'          => 'display',
+				'sanitize_callback' => 'sanitize_visibility',
+			),
+		),
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'custom',
+		'settings'        => 'amply_default_header_header1_search_form_title',
+		'section'         => 'amply_default_header_section',
+		'default'         => '<h1 class="subtitle-custom-field">Search Form</h1>',
+		'priority'        => 10,
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+			array(
+				'setting'  => 'amply_default_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'search-form',
+			),
+		),
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'switch',
+		'settings'        => 'amply_default_header_header1_search_form_visibility',
+		'label'           => esc_html__( 'Show on Mobile/Tablet', 'amply' ),
+		'section'         => 'amply_default_header_section',
+		'default'         => '0',
+		'priority'        => 10,
+		'transport'       => 'auto',
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+			array(
+				'setting'  => 'amply_default_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'search-form',
+			),
+		),
+		'output'          => array(
+			array(
+				'element'           => '#header1 .site-search-form',
+				'property'          => 'display',
+				'sanitize_callback' => 'sanitize_visibility',
+			),
+		),
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'custom',
+		'settings'        => 'amply_default_header_header1_mobile_menu_trigger_title',
+		'section'         => 'amply_default_header_section',
+		'default'         => '<h1 class="subtitle-custom-field">Mobile Menu Trigger</h1>',
+		'priority'        => 10,
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+			array(
+				'setting'  => 'amply_default_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'mobile-menu-trigger',
+			),
+		),
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'switch',
+		'settings'        => 'amply_default_header_header1_mobile_menu_trigger_visibility',
+		'label'           => esc_html__( 'Show on Desktop', 'amply' ),
+		'section'         => 'amply_default_header_section',
+		'default'         => '0',
+		'priority'        => 10,
+		'transport'       => 'auto',
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+			array(
+				'setting'  => 'amply_default_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'mobile-menu-trigger',
+			),
+		),
+		'output'          => array(
+			array(
+				'element'           => '#header1 .site-mobile-menu-trigger',
+				'property'          => 'display',
+				'sanitize_callback' => 'sanitize_visibility',
+			),
+		),
+	)
+);
+
+/**
+ * Sanitize logo position
+ *
+ * @param string $value Initial value.
+ * @return mixed
+ */
+function sanitize_logo_position( $value ) {
+
+	if ( 'right' === $value ) {
+		return 'row-reverse';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize visibility
+ *
+ * @param string $value Initial value.
+ * @return mixed
+ */
+function sanitize_visibility( $value ) {
+
+	if ( $value ) {
+		return 'flex';
+	} else {
+		return false;
+	}
+
+}

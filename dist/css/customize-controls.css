@@ -57,3 +57,47 @@ h1.title-custom-field {
   font-size: 16px;
 }
 
+h1.subtitle-custom-field {
+  background: #fff;
+  color: #555d66;
+  margin: 10px -12px 0 -12px;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.customize-control-kirki-switch .switch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.customize-control-kirki-switch .switch input + label {
+  margin: 0;
+}
+
+.customize-control-kirki-switch .switch .switch-on {
+  padding: 6px;
+  font-size: 10.5px;
+  line-height: 13.5px;
+}
+
+.customize-control-kirki-switch .switch .switch-off {
+  padding: 6px;
+  font-size: 10.5px;
+  line-height: 13.5px;
+}
+
+.customize-control-kirki-switch .switch label:after {
+  left: 3.75px;
+  top: 3.75px;
+  width: calc(.65rem + 7.5px);
+  height: calc(.65rem + 7.5px);
+}
+

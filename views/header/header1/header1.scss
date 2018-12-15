@@ -26,9 +26,9 @@
 	align-items: center;
 }
 
-.site-header__collapse {
+.site-header__elements {
 
-	display: none;
+	display: flex;
 	flex: 0 0 auto;
 	height: 100%;
 
@@ -36,23 +36,36 @@
 		margin-right: 20px;
 	}
 
-	@include media(desktop) {
-		display: flex;		
-	}
-
 	.site-primary-nav {
-		height: 100%;
+
+		display: none;
+
+		@include media(desktop) {
+			display: flex;		
+		}
+
 	}
 
 	.site-social-nav {
-		height: 100%;
-		display: flex;
-    align-items: center;
+
+		display: none;
+		align-items: center;
+
+		@include media(desktop) {
+			display: flex;		
+		}
+
 	}
 
 	.site-search-form {
-		display: flex;
-    align-items: center;
+
+		display: none;
+		align-items: center;
+		
+		@include media(desktop) {
+			display: flex;		
+		}
+
 	}
 
 }

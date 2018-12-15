@@ -19,6 +19,7 @@ function amply_add_default_header_defaults( $defaults ) {
 
 		'amply_default_header_header1_elements' => array(
 			'primary-nav',
+			'mobile-menu-trigger',
 		),
 
 		'amply_default_header_header2_elements' => array(

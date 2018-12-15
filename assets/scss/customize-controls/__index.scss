@@ -70,3 +70,43 @@ h1.title-custom-field {
 	text-align: center;
 	font-size: 16px;
 }
+
+// Subtitle custom fields
+h1.subtitle-custom-field {
+	background: #fff;
+	color: #555d66;
+	margin: 10px -12px 0 -12px;
+	padding: 10px;
+	text-align: center;
+	font-size: 16px;
+}
+
+// Kirki switch control customization
+.customize-control-kirki-switch {
+	.switch {
+		display: flex;
+    align-items: center;
+		justify-content: space-between;
+		
+		input + label {
+			margin: 0;
+		}
+
+		.switch-on {
+			padding: 6px;
+			font-size: 10.5px;
+			line-height: 13.5px;
+		}
+		.switch-off {
+			padding: 6px;
+			font-size: 10.5px;
+			line-height: 13.5px;
+		}
+		label:after {
+			left: 3.75px;
+			top: 3.75px;
+			width: calc(.65rem + 7.5px);
+			height: calc(.65rem + 7.5px);
+		}
+	}
+}
