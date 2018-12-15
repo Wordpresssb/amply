@@ -72,10 +72,9 @@ Kirki::add_field(
 		'section'         => 'amply_default_header_header1_elements_outer_section',
 		'priority'        => 10,
 		'choices'         => array(
-			'site-logo'           => esc_html__( 'Site Logo', 'amply' ),
-			'social-nav'          => esc_html__( 'Social Navigation', 'amply' ),
-			'primary-nav'         => esc_html__( 'Primary Navigation', 'amply' ),
-			'mobile-menu-trigger' => esc_html__( 'Mobile Menu Trigger', 'amply' ),
+			'primary-nav' => esc_html__( 'Primary Navigation', 'amply' ),
+			'social-nav'  => esc_html__( 'Social Navigation', 'amply' ),
+			'search-form' => esc_html__( 'Search Form', 'amply' ),
 		),
 		'default'         => amply_defaults( 'amply_default_header_header1_elements' ),
 		'active_callback' => array(

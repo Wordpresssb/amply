@@ -3,7 +3,9 @@
 ////
 
 @import 'site';
+// @import 'site-primary-nav__inline(deprecated)';
 @import 'site-primary-nav';
 @import 'site-social-nav';
 @import 'site-logo';
 @import 'site-search-form';
+@import 'site-mobile-menu-trigger';

@@ -642,55 +642,44 @@ select {
   max-width: 100%;
 }
 
-.site-primary-nav > div {
-  display: inline;
-}
-
-.site-primary-nav .primary-menu {
-  display: inline-block;
+.primary-menu {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
-.site-primary-nav .primary-menu > li {
-  display: inline;
+.primary-menu > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 0.5rem;
   position: relative;
 }
 
-.site-primary-nav .primary-menu > li > a {
-  color: #111111;
-  margin-right: 0.5rem;
-}
-
-.site-primary-nav .primary-menu > li > a + svg {
-  margin-right: 0.5rem;
-}
-
-.site-primary-nav .primary-menu > li > a:hover,
-.site-primary-nav .primary-menu > li > a:hover + svg {
+.primary-menu > li:hover a,
+.primary-menu > li:hover svg {
   opacity: 0.6;
 }
 
-.site-primary-nav .primary-menu > li.menu-item-has-children {
-  display: inline-block;
-  position: relative;
+.primary-menu > li > a {
+  color: #111111;
 }
 
-.site-primary-nav .primary-menu > li.menu-item-has-children > a {
-  margin-right: 0.125rem;
-}
-
-.site-primary-nav .primary-menu > li.menu-item-has-children .submenu-expand {
-  display: inline-block;
-  margin-right: 0.25rem;
-}
-
-.site-primary-nav .primary-menu > li.menu-item-has-children .submenu-expand svg {
-  position: relative;
-  top: 0.3rem;
-}
-
-.site-primary-nav .sub-menu {
+.primary-menu .sub-menu {
   position: absolute;
   opacity: 0;
   left: -9999px;
@@ -701,7 +690,7 @@ select {
   padding-left: 0;
 }
 
-.site-primary-nav .sub-menu > li > a {
+.primary-menu .sub-menu > li > a {
   display: block;
   line-height: 1.2;
   padding: calc( .5 * 1rem) calc( 24px + 1rem) calc( .5 * 1rem) 1rem;
@@ -709,19 +698,20 @@ select {
   color: #ffffff;
 }
 
-.site-primary-nav .sub-menu > li > a:hover,
-.site-primary-nav .sub-menu > li > a:focus {
+.primary-menu .sub-menu > li > a:hover,
+.primary-menu .sub-menu > li > a:focus {
   background: #dadada;
 }
 
-.site-primary-nav .primary-menu .menu-item-has-children:focus-within > .sub-menu {
+.primary-menu .menu-item-has-children:hover > .sub-menu,
+.primary-menu .menu-item-has-children:focus > .sub-menu {
   display: block;
   margin-top: 0;
   opacity: 1;
   position: absolute;
   right: 0;
+  top: 100%;
   left: auto;
-  top: auto;
   bottom: auto;
   height: auto;
   min-width: -webkit-max-content;
@@ -731,11 +721,13 @@ select {
           transform: none;
 }
 
-.site-primary-nav .primary-menu .menu-item-has-children:focus-within > .sub-menu .submenu-expand {
+.primary-menu .menu-item-has-children:hover > .sub-menu .svg-icon,
+.primary-menu .menu-item-has-children:focus > .sub-menu .svg-icon {
   display: none;
 }
 
-.site-primary-nav .primary-menu .menu-item-has-children:focus-within > .sub-menu .sub-menu {
+.primary-menu .menu-item-has-children:hover > .sub-menu .sub-menu,
+.primary-menu .menu-item-has-children:focus > .sub-menu .sub-menu {
   display: block;
   margin-top: inherit;
   position: relative;
@@ -744,24 +736,25 @@ select {
   opacity: 1;
 }
 
-.site-primary-nav .primary-menu .menu-item-has-children:focus-within > .sub-menu .sub-menu {
+.primary-menu .menu-item-has-children:hover > .sub-menu .sub-menu,
+.primary-menu .menu-item-has-children:focus > .sub-menu .sub-menu {
   counter-reset: submenu;
 }
 
-.site-primary-nav .primary-menu .menu-item-has-children:focus-within > .sub-menu .sub-menu > li > a::before {
+.primary-menu .menu-item-has-children:hover > .sub-menu .sub-menu > li > a::before,
+.primary-menu .menu-item-has-children:focus > .sub-menu .sub-menu > li > a::before {
   content: "\2013\A0" counters(submenu, "\2013\A0", none);
   counter-increment: submenu;
 }
 
-.site-primary-nav .primary-menu .menu-item-has-children:hover > .sub-menu,
-.site-primary-nav .primary-menu .menu-item-has-children:focus > .sub-menu {
+.primary-menu .menu-item-has-children:focus-within > .sub-menu {
   display: block;
   margin-top: 0;
   opacity: 1;
   position: absolute;
   right: 0;
+  top: 100%;
   left: auto;
-  top: auto;
   bottom: auto;
   height: auto;
   min-width: -webkit-max-content;
@@ -771,13 +764,11 @@ select {
           transform: none;
 }
 
-.site-primary-nav .primary-menu .menu-item-has-children:hover > .sub-menu .submenu-expand,
-.site-primary-nav .primary-menu .menu-item-has-children:focus > .sub-menu .submenu-expand {
+.primary-menu .menu-item-has-children:focus-within > .sub-menu .svg-icon {
   display: none;
 }
 
-.site-primary-nav .primary-menu .menu-item-has-children:hover > .sub-menu .sub-menu,
-.site-primary-nav .primary-menu .menu-item-has-children:focus > .sub-menu .sub-menu {
+.primary-menu .menu-item-has-children:focus-within > .sub-menu .sub-menu {
   display: block;
   margin-top: inherit;
   position: relative;
@@ -786,13 +777,11 @@ select {
   opacity: 1;
 }
 
-.site-primary-nav .primary-menu .menu-item-has-children:hover > .sub-menu .sub-menu,
-.site-primary-nav .primary-menu .menu-item-has-children:focus > .sub-menu .sub-menu {
+.primary-menu .menu-item-has-children:focus-within > .sub-menu .sub-menu {
   counter-reset: submenu;
 }
 
-.site-primary-nav .primary-menu .menu-item-has-children:hover > .sub-menu .sub-menu > li > a::before,
-.site-primary-nav .primary-menu .menu-item-has-children:focus > .sub-menu .sub-menu > li > a::before {
+.primary-menu .menu-item-has-children:focus-within > .sub-menu .sub-menu > li > a::before {
   content: "\2013\A0" counters(submenu, "\2013\A0", none);
   counter-increment: submenu;
 }
@@ -842,6 +831,17 @@ select {
   height: 32px;
 }
 
+.site-logo {
+  line-height: 0;
+  max-width: 40px;
+}
+
+@media only screen and (min-width: 1168px) {
+  .site-logo {
+    max-width: 50px;
+  }
+}
+
 .site-logo img {
   display: inline-block;
 }
@@ -869,6 +869,14 @@ select {
   background: transparent;
   border: none;
   padding: 0 10px;
+  cursor: pointer;
+}
+
+.site-mobile-menu-trigger {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5px 5px 5px 10px;
   cursor: pointer;
 }
 

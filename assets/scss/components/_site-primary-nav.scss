@@ -1,65 +1,36 @@
 ////
-/// Site primary nav component
+/// Site primary nav component (flexbox)
 ////
 
-.site-primary-nav {
+.primary-menu {
 
-	> div {
+	height: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: stretch;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
 
-		display: inline;
+	> li {
 
-	}
+		display: flex;
+		align-items: center;
+		margin-right: 0.5rem;
+		position: relative;
 
-	.primary-menu {
-
-		display: inline-block;
-		margin: 0;
-		padding: 0;
-
-		> li {
-			display: inline;
-			position: relative;
-
-			> a {
-
-				color: #111111;
-				margin-right: 0.5rem;
-
-				+ svg {
-					margin-right: 0.5rem;
-				}
-
-				&:hover,
-				&:hover + svg {
-					opacity: 0.6;
-				}
-
-			}
-
-			&.menu-item-has-children {
-
-				display: inline-block;
-				position: relative;
-
-				> a {
-					margin-right: 0.125rem;
-				}
-
-				.submenu-expand {
-
-					display: inline-block;
-					margin-right: 0.25rem;
-
-					svg {
-						position: relative;
-						top: 0.3rem;
-					}
-
-				}
-
+		&:hover {
+		
+			a, svg {
+				opacity: 0.6;
 			}
 
 		}
+		
+		> a {
+			color: #111111;
+		}
+
 	}
 
 	.sub-menu {
@@ -68,111 +39,111 @@
 		opacity: 0;
 		left: -9999px;
 		z-index: 99999;
-
+	
 		background: #cacaca;
 		list-style: none;
 		margin-left: 0;
 		padding-left: 0;
-
+	
 		> li {
-
+	
 			> a {
-
+	
 				display: block;
 				line-height: 1.2;
-    		padding: calc( .5 * 1rem) calc( 24px + 1rem) calc( .5 * 1rem) 1rem;
+				padding: calc( .5 * 1rem) calc( 24px + 1rem) calc( .5 * 1rem) 1rem;
 				white-space: nowrap;
 				color: #ffffff;
-
+	
 				&:hover,
 				&:focus {
 					background: #dadada;
 				}
-
+	
 			}
-
+	
 		}
-
+	
 	}
 
-	// Sub-menu styles -- :focus-within needs its own selector so other similar selectors don’t get ignored if a browser doesn’t recognize it
-	.primary-menu .menu-item-has-children:focus-within > .sub-menu {
+}
 
+.primary-menu .menu-item-has-children:hover > .sub-menu,
+.primary-menu .menu-item-has-children:focus > .sub-menu {
+
+	display: block;
+	margin-top: 0;
+	opacity: 1;
+	position: absolute;
+	right: 0;
+	top: 100%;
+	left: auto;
+	bottom: auto;
+	height: auto;
+	min-width: max-content;
+	transform: none;
+
+	.svg-icon {
+		display: none;
+	}
+
+	.sub-menu {
 		display: block;
-		margin-top: 0;
+		margin-top: inherit;
+		position: relative;
+		width: 100%;
+		left: 0;
 		opacity: 1;
-		position: absolute;
-		right: 0;
-		left: auto;
-		top: auto;
-		bottom: auto;
-		height: auto;
-		min-width: max-content;
-		transform: none;
+	}
 
-		.submenu-expand {
-			display: none;
-		}
+	// Nested sub-menu dashes
+	.sub-menu {
+		counter-reset: submenu;
+	}
 
-		.sub-menu {
-			display: block;
-			margin-top: inherit;
-			position: relative;
-			width: 100%;
-			left: 0;
-			opacity: 1;
-		}
+	.sub-menu > li > a::before {
+		content: "\2013\00a0" counters(submenu, "\2013\00a0", none);
+		counter-increment: submenu
+	}
 
-		// Nested sub-menu dashes
-		.sub-menu {
-			counter-reset: submenu;
-		}
+}
 
-		.sub-menu > li > a::before {
-			content: "\2013\00a0" counters(submenu, "\2013\00a0", none);
-			counter-increment: submenu
-		}
+// Sub-menu styles -- :focus-within needs its own selector so other similar selectors don’t get ignored if a browser doesn’t recognize it
+.primary-menu .menu-item-has-children:focus-within > .sub-menu {
 
-	 }
+	display: block;
+	margin-top: 0;
+	opacity: 1;
+	position: absolute;
+	right: 0;
+	top: 100%;
+	left: auto;
+	bottom: auto;
+	height: auto;
+	min-width: max-content;
+	transform: none;
 
-	.primary-menu .menu-item-has-children:hover > .sub-menu,
-	.primary-menu .menu-item-has-children:focus > .sub-menu {
+	.svg-icon {
+		display: none;
+	}
 
+	.sub-menu {
 		display: block;
-		margin-top: 0;
+		margin-top: inherit;
+		position: relative;
+		width: 100%;
+		left: 0;
 		opacity: 1;
-		position: absolute;
-		right: 0;
-		left: auto;
-		top: auto;
-		bottom: auto;
-		height: auto;
-		min-width: max-content;
-		transform: none;
+	}
 
-		.submenu-expand {
-			display: none;
-		}
+	// Nested sub-menu dashes
+	.sub-menu {
+		counter-reset: submenu;
+	}
 
-		.sub-menu {
-			display: block;
-			margin-top: inherit;
-			position: relative;
-			width: 100%;
-			left: 0;
-			opacity: 1;
-		}
-
-		// Nested sub-menu dashes
-		.sub-menu {
-			counter-reset: submenu;
-		}
-
-		.sub-menu > li > a::before {
-			content: "\2013\00a0" counters(submenu, "\2013\00a0", none);
-			counter-increment: submenu
-		}
-
+	.sub-menu > li > a::before {
+		content: "\2013\00a0" counters(submenu, "\2013\00a0", none);
+		counter-increment: submenu
 	}
 
 }

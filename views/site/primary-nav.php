@@ -9,6 +9,7 @@ $primary_args = array(
 	'theme_location' => 'primary',
 	'menu_class'     => 'primary-menu',
 	'items_wrap'     => '<ul id="%1$s" class="%2$s" tabindex="0">%3$s</ul>',
+	'container'      => false,
 	'fallback_cb'    => false,
 );
 ?>

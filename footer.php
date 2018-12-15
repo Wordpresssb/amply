@@ -15,6 +15,8 @@
 
 </div><!-- #page -->
 
+<?php do_action( 'amply_after_page' ); ?>
+
 <?php wp_footer(); ?>
 
 </body>

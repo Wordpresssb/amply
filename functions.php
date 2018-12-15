@@ -79,6 +79,15 @@ require_once get_parent_theme_file_path( 'pluggable/svg-icons/class-amply-svg-ic
 // Add social nav menu.
 require_once get_parent_theme_file_path( 'pluggable/social-nav-menu/class-amply-social-nav-menu.php' );
 
+// Add mobile sidebar.
+require get_parent_theme_file_path( '/pluggable/mobile-sidebar/mobile-sidebar.php' );
+
+
+
+
+
+
+
 
 
 // phpcs:disable

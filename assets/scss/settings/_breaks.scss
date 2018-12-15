@@ -3,9 +3,11 @@
 ////
 
 $breakpoints : (
-	mobile : 480px,
-	small  : 600px,
-	medium : 782px
+	mobile  : 480px,
+	small   : 600px,
+	tablet  : 768px,
+	desktop : 1168px,
+	wide    : 1379px
 );
 
 /// Returns an map of page breaks in name-value format.

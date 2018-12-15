@@ -154,10 +154,13 @@ if ( ! class_exists( 'Amply_General_Hooks' ) ) {
 				// Add SVG icon to parent items.
 				$icon = amply_get_icon_svg( 'keyboard_arrow_down', 24 );
 
-				$output .= sprintf(
-					'<span class="submenu-expand" tabindex="-1">%s</span>',
-					$icon
-				);
+				// phpcs:disable
+				// $output .= sprintf(
+				// 	'<span class="submenu-expand" tabindex="-1">%s</span>',
+				// 	$icon
+				// );
+				// phpcs:enable
+				$output .= $icon;
 			}
 
 			return $output;

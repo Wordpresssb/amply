@@ -78,7 +78,7 @@ function amply_get_logo() {
 			);
 
 			if ( amply_is_amp() ) {
-				$attr['display'] = 'responsive';
+				$attr['layout'] = 'intrinsic';
 			}
 
 			// Generate 'srcset' for retina devices.

@@ -7,5 +7,14 @@
 
 ?>
 
-<?php
-echo amply_get_icon_svg( 'hamburger' ); // wpcs: xss ok.
+<div  id="mobile-toggle" class="site-mobile-menu-trigger"
+	<?php if ( amply_is_amp() ) : ?>
+		on="tap:amply-sidebar-amp.toggle"
+	<?php endif; ?>
+>
+
+	<?php
+	echo amply_get_icon_svg( 'hamburger' ); // wpcs: xss ok.
+	?>
+
+</div>
