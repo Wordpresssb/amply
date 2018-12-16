@@ -71,6 +71,9 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 		 */
 		public function default_header_partial() {
 
+			$data = 'default-' . $this->header;
+			set_query_var( 'amply_default_header_var', $data );
+
 			get_template_part( 'views/header/' . $this->header . '/' . $this->header, 'partial' );
 
 		}

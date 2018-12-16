@@ -111,12 +111,12 @@ Kirki::add_field(
 		),
 		'output'          => array(
 			array(
-				'element'           => '#header1.site-header',
+				'element'           => '#default-header1.site-header',
 				'property'          => 'flex-direction',
 				'sanitize_callback' => 'sanitize_logo_position',
 			),
 			array(
-				'element'           => '#header1 .site-header__brand',
+				'element'           => '#default-header1 .site-header__brand',
 				'property'          => 'flex-direction',
 				'sanitize_callback' => 'sanitize_logo_position',
 			),
@@ -171,7 +171,7 @@ Kirki::add_field(
 		),
 		'output'          => array(
 			array(
-				'element'           => '#header1 .site-primary-nav',
+				'element'           => '#default-header1 .site-primary-nav',
 				'property'          => 'display',
 				'sanitize_callback' => 'sanitize_visibility',
 			),
@@ -226,7 +226,7 @@ Kirki::add_field(
 		),
 		'output'          => array(
 			array(
-				'element'           => '#header1 .site-social-nav',
+				'element'           => '#default-header1 .site-social-nav',
 				'property'          => 'display',
 				'sanitize_callback' => 'sanitize_visibility',
 			),
@@ -281,7 +281,7 @@ Kirki::add_field(
 		),
 		'output'          => array(
 			array(
-				'element'           => '#header1 .site-search-form',
+				'element'           => '#default-header1 .site-search-form',
 				'property'          => 'display',
 				'sanitize_callback' => 'sanitize_visibility',
 			),
@@ -336,7 +336,7 @@ Kirki::add_field(
 		),
 		'output'          => array(
 			array(
-				'element'           => '#header1 .site-mobile-menu-trigger',
+				'element'           => '#default-header1 .site-mobile-menu-trigger',
 				'property'          => 'display',
 				'sanitize_callback' => 'sanitize_visibility',
 			),

@@ -6,11 +6,13 @@
  */
 
 $elements = amply_option( 'amply_default_header_header1_elements' );
+
+$query_var = get_query_var( 'amply_default_header_var' );
 ?>
 
 <?php wp_print_styles( array( 'amply-header1' ) ); ?>
 
-<header id="header1" class="site-header">
+<header id="<?php echo esc_attr( $query_var ); ?>" class="site-header">
 
 	<div class="site-header__brand">
 
