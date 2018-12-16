@@ -157,11 +157,6 @@ Kirki::add_field(
 				'property'          => 'top',
 				'sanitize_callback' => 'sanitize_sticky_top',
 			),
-			array(
-				'element'           => '#default-header1 + *',
-				'property'          => 'padding-top',
-				'sanitize_callback' => 'sanitize_sticky_padding',
-			),
 		),
 	)
 );
@@ -411,7 +406,7 @@ function sanitize_logo_position( $value ) {
 function sanitize_sticky_position( $value ) {
 
 	if ( $value ) {
-		return 'fixed';
+		return 'sticky';
 	} else {
 		return false;
 	}
@@ -446,22 +441,6 @@ function sanitize_sticky_top( $value ) {
 		return '32px';
 	} elseif ( $value ) {
 		return '0';
-	} else {
-		return false;
-	}
-
-}
-
-/**
- * Sanitize sticky padding
- *
- * @param string $value Initial value.
- * @return mixed
- */
-function sanitize_sticky_padding( $value ) {
-
-	if ( $value ) {
-		return '3.5rem';
 	} else {
 		return false;
 	}

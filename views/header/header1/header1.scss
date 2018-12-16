@@ -10,13 +10,9 @@
 	margin: 0 auto;
 	padding: 0 1rem;
 	//max-width: 1200px;
-	height: 2.5rem;
+	height: 3.5rem;
 	justify-content: space-between;
 	align-items: center;
-	
-	@include media(desktop) {
-		height: 3.5rem;
-	}
 
 }
 
