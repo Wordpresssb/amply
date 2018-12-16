@@ -20,7 +20,7 @@ get_header(); ?>
 
 	<main id="main" class="site-main">
 
-		<?php do_action( 'amply_main' ); ?>
+		<?php do_action( 'amply_content_loop' ); ?>
 
 					<?php
 					/**

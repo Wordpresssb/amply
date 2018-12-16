@@ -152,10 +152,17 @@ Kirki::add_field(
 				'property'          => 'width',
 				'sanitize_callback' => 'sanitize_sticky_width',
 			),
+			// phpcs:disable
+			// array(
+			// 	'element'           => '#default-header1.site-header',
+			// 	'property'          => 'top',
+			// 	'sanitize_callback' => 'sanitize_sticky_top',
+			// ),
+			// phpcs:enable
 			array(
-				'element'           => '#default-header1.site-header',
-				'property'          => 'top',
-				'sanitize_callback' => 'sanitize_sticky_top',
+				'element'           => '#default-header1 + *',
+				'property'          => 'padding-top',
+				'sanitize_callback' => 'sanitize_sticky_padding',
 			),
 		),
 	)
@@ -400,13 +407,13 @@ function sanitize_logo_position( $value ) {
 /**
  * Sanitize sticky position
  *
- * @param string $value Initial value.
+ * @param string $value Switch value.
  * @return mixed
  */
 function sanitize_sticky_position( $value ) {
 
 	if ( $value ) {
-		return 'sticky';
+		return 'fixed';
 	} else {
 		return false;
 	}
@@ -416,7 +423,7 @@ function sanitize_sticky_position( $value ) {
 /**
  * Sanitize sticky width
  *
- * @param string $value Initial value.
+ * @param string $value Switch value.
  * @return mixed
  */
 function sanitize_sticky_width( $value ) {
@@ -432,7 +439,7 @@ function sanitize_sticky_width( $value ) {
 /**
  * Sanitize sticky top
  *
- * @param string $value Initial value.
+ * @param string $value Switch value.
  * @return mixed
  */
 function sanitize_sticky_top( $value ) {
@@ -441,6 +448,22 @@ function sanitize_sticky_top( $value ) {
 		return '32px';
 	} elseif ( $value ) {
 		return '0';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize sticky padding
+ *
+ * @param string $value Switch value.
+ * @return mixed
+ */
+function sanitize_sticky_padding( $value ) {
+
+	if ( $value ) {
+		return '3.5rem';
 	} else {
 		return false;
 	}
