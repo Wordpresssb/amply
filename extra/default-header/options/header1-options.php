@@ -127,6 +127,48 @@ Kirki::add_field(
 Kirki::add_field(
 	'amply_config',
 	array(
+		'type'            => 'switch',
+		'settings'        => 'amply_default_header_header1_sticky',
+		'label'           => esc_html__( 'Enable Sticky Header', 'amply' ),
+		'section'         => 'amply_default_header_section',
+		'default'         => '0',
+		'priority'        => 10,
+		'transport'       => 'auto',
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+		),
+		'output'          => array(
+			array(
+				'element'           => '#default-header1.site-header',
+				'property'          => 'position',
+				'sanitize_callback' => 'sanitize_sticky_position',
+			),
+			array(
+				'element'           => '#default-header1.site-header',
+				'property'          => 'width',
+				'sanitize_callback' => 'sanitize_sticky_width',
+			),
+			array(
+				'element'           => '#default-header1.site-header',
+				'property'          => 'top',
+				'sanitize_callback' => 'sanitize_sticky_top',
+			),
+			array(
+				'element'           => '#default-header1 + *',
+				'property'          => 'padding-top',
+				'sanitize_callback' => 'sanitize_sticky_padding',
+			),
+		),
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
 		'type'            => 'custom',
 		'settings'        => 'amply_default_header_header1_primary_nav_title',
 		'section'         => 'amply_default_header_section',
@@ -354,6 +396,72 @@ function sanitize_logo_position( $value ) {
 
 	if ( 'right' === $value ) {
 		return 'row-reverse';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize sticky position
+ *
+ * @param string $value Initial value.
+ * @return mixed
+ */
+function sanitize_sticky_position( $value ) {
+
+	if ( $value ) {
+		return 'fixed';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize sticky width
+ *
+ * @param string $value Initial value.
+ * @return mixed
+ */
+function sanitize_sticky_width( $value ) {
+
+	if ( $value ) {
+		return '100%';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize sticky top
+ *
+ * @param string $value Initial value.
+ * @return mixed
+ */
+function sanitize_sticky_top( $value ) {
+
+	if ( $value && is_admin_bar_showing() ) {
+		return '32px';
+	} elseif ( $value ) {
+		return '0';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize sticky padding
+ *
+ * @param string $value Initial value.
+ * @return mixed
+ */
+function sanitize_sticky_padding( $value ) {
+
+	if ( $value ) {
+		return '3.5rem';
 	} else {
 		return false;
 	}
