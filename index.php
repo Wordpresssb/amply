@@ -20,7 +20,23 @@ get_header(); ?>
 
 	<main id="main" class="site-main">
 
-		<?php do_action( 'amply_content_loop' ); ?>
+		<?php
+		if ( have_posts() ) :
+
+			// Index loop.
+			do_action( 'amply_index_loop' );
+
+			// Index navivation.
+			if ( ! is_singular() ) :
+				the_posts_navigation();
+			endif;
+
+		else :
+
+			get_template_part( 'template-parts/content', 'none' );
+
+		endif;
+		?>
 
 					<?php
 					/**

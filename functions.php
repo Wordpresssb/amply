@@ -54,6 +54,9 @@ require_once get_parent_theme_file_path( 'inc/admin/admin-init.php' );
 // Default header.
 require_once get_parent_theme_file_path( 'extra/default-header/class-amply-default-header.php' );
 
+// Default entries.
+require_once get_parent_theme_file_path( 'extra/default-index/class-amply-default-index-loop.php' );
+
 /**
  * Compatibility
  */
