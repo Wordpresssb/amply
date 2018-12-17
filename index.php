@@ -38,19 +38,6 @@ get_header(); ?>
 		endif;
 		?>
 
-					<?php
-					/**
-					 * Tests
-					 */
-					if ( is_front_page() ) :
-						?>
-						<div id="primary-dark" style="height:100px;"></div>
-						<div id="primary" style="height:2000px;text-align:right;padding:100px;">
-							<span id="btn" style="font-size: 30px;padding: 15px 20px;border-style: solid;border-width: 3px;;border-radius: 50px;">+</span>
-						</div>
-						<div id="primary-light" style="height:100px;"></div>
-					<?php endif ?>
-
 	</main><!-- #main -->
 
 	<?php do_action( 'amply_after_main' ); ?>

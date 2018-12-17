@@ -64,27 +64,9 @@ if ( ! class_exists( 'Amply_Default_Index_Loop_Component' ) ) {
 		}
 
 		/**
-		 * Undocumented function
+		 * Load appropriate loop
 		 */
 		public function index_loop() {
-
-			// if ( have_posts() ) :
-
-			// 	if ( 'classic' === $this->index_layout ) {
-
-			// 		get_template_part( 'views/index/classic/entries' );
-
-			// 	}
-
-			// 	if ( ! is_singular() ) :
-			// 		the_posts_navigation();
-			// 	endif;
-
-			// else :
-
-			// 	get_template_part( 'template-parts/content', 'none' );
-
-			// endif;
 
 			if ( 'classic' === $this->index_layout ) {
 

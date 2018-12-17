@@ -76,17 +76,18 @@ Kirki::add_field(
 		'transport' => 'auto',
 		'output'    => array(
 			array(
-				'element'  => '#primary',
-				'property' => 'background-color',
+				'element'           => '.site-header',
+				'property'          => 'background-color',
+				'sanitize_callback' => 'sanitize_frontpage',
 			),
 			array(
-				'element'           => '#primary-dark',
-				'property'          => 'background-color',
+				'element'           => '.site-header__brand a',
+				'property'          => 'color',
 				'sanitize_callback' => 'sanitize_color_darker',
 			),
 			array(
-				'element'           => '#primary-light',
-				'property'          => 'background-color',
+				'element'           => '.primary-menu > li:hover > a, .primary-menu > li:hover > svg',
+				'property'          => 'color',
 				'sanitize_callback' => 'sanitize_color_lighter',
 			),
 		),
@@ -110,16 +111,26 @@ Kirki::add_field(
 		'transport' => 'auto',
 		'output'    => array(
 			array(
-				'element'  => '#btn',
-				'property' => 'border-color',
-			),
-			array(
-				'element'  => '#btn',
+				'element'  => '.primary-menu .sub-menu',
 				'property' => 'background-color',
 			),
 		),
 	)
 );
+
+/**
+ * Undocumented function
+ *
+ * @param string $value Initial color.
+ * @return string
+ */
+function sanitize_frontpage( $value ) {
+
+	if ( is_front_page() ) {
+		return $value;
+	}
+
+}
 
 /**
  * Undocumented function
