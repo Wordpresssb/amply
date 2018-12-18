@@ -64,6 +64,13 @@ if ( ! class_exists( 'Amply_General_Hooks' ) ) {
 				$classes[] = 'hfeed';
 			}
 
+			if ( is_active_sidebar( 'sidebar-1' ) ) {
+				global $template;
+				if ( 'front-page.php' !== basename( $template ) ) {
+					$classes[] = 'has-sidebar';
+				}
+			}
+
 			return $classes;
 		}
 

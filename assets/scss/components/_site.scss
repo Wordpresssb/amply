@@ -9,3 +9,27 @@
 	max-width: 100%;
 
 }
+
+.has-sidebar .site-content {
+
+	@include media(desktop) {
+
+		margin: 1em;
+		display: grid;
+		grid-template-columns: 3fr 1fr;
+		grid-gap: 2rem;
+		justify-content: center;
+
+		.site-main {
+			grid-column: 1;
+			min-width: 0;
+		}
+	
+		.site-sidebar-right {
+			grid-column: 2;
+			min-width: 0;
+		}
+
+	}
+
+}

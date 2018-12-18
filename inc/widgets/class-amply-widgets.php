@@ -53,8 +53,8 @@ if ( ! class_exists( 'Amply_Widgets' ) ) {
 		public function register_widgets() {
 			register_sidebar(
 				array(
-					'name'          => esc_html__( 'Sidebar', 'amply' ),
-					'id'            => 'sidebar-1',
+					'name'          => esc_html__( 'Sidebar Right', 'amply' ),
+					'id'            => 'sidebar-right',
 					'description'   => esc_html__( 'Add widgets here.', 'amply' ),
 					'before_widget' => '<section id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</section>',

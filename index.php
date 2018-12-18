@@ -14,35 +14,40 @@
 
 get_header(); ?>
 
-<div id="content" class="site-content">
+<div id="content-wrap" class="site-content-wrap">
 
-	<?php do_action( 'amply_before_main' ); ?>
+	<div id="content" class="site-content">
 
-	<main id="main" class="site-main">
+		<?php do_action( 'amply_before_main' ); ?>
 
-		<?php
-		if ( have_posts() ) :
+		<main id="main" class="site-main">
 
-			// Index loop.
-			do_action( 'amply_index_loop' );
+			<?php
+			if ( have_posts() ) :
 
-			// Index navivation.
-			if ( ! is_singular() ) :
-				the_posts_navigation();
+				// Index loop.
+				do_action( 'amply_index_loop' );
+
+				// Index navivation.
+				if ( ! is_singular() ) :
+					the_posts_navigation();
+				endif;
+
+			else :
+
+				get_template_part( 'template-parts/content', 'none' );
+
 			endif;
+			?>
 
-		else :
+		</main><!-- #main -->
 
-			get_template_part( 'template-parts/content', 'none' );
+		<?php do_action( 'amply_after_main' ); ?>
 
-		endif;
-		?>
+		<?php get_sidebar(); ?>
 
-	</main><!-- #main -->
+	</div><!-- #content -->
 
-	<?php do_action( 'amply_after_main' ); ?>
+	<?php get_footer(); ?>
 
-</div><!-- #content -->
-
-<?php
-get_footer();
+</div><!-- #content-wrap -->

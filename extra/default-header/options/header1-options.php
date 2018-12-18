@@ -152,15 +152,19 @@ Kirki::add_field(
 				'property'          => 'width',
 				'sanitize_callback' => 'sanitize_sticky_width',
 			),
-			// phpcs:disable
-			// array(
-			// 	'element'           => '#default-header1.site-header',
-			// 	'property'          => 'top',
-			// 	'sanitize_callback' => 'sanitize_sticky_top',
-			// ),
-			// phpcs:enable
 			array(
-				'element'           => '#default-header1 + *',
+				'element'           => '#default-header1.site-header',
+				'property'          => 'top',
+				'sanitize_callback' => 'sanitize_sticky_top',
+			),
+			array(
+				'element'           => '#default-header1.site-header',
+				'property'          => 'top',
+				'media_query'       => '@media (max-width: 768px)',
+				'sanitize_callback' => 'sanitize_sticky_top_mobile',
+			),
+			array(
+				'element'           => '#default-header1 + .site-content-wrap',
 				'property'          => 'padding-top',
 				'sanitize_callback' => 'sanitize_sticky_padding',
 			),
@@ -446,6 +450,24 @@ function sanitize_sticky_top( $value ) {
 
 	if ( $value && is_admin_bar_showing() ) {
 		return '32px';
+	} elseif ( $value ) {
+		return '0';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize sticky top mobile
+ *
+ * @param string $value Switch value.
+ * @return mixed
+ */
+function sanitize_sticky_top_mobile( $value ) {
+
+	if ( $value && is_admin_bar_showing() ) {
+		return '45px';
 	} elseif ( $value ) {
 		return '0';
 	} else {
