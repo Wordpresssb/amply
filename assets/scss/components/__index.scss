@@ -2,10 +2,13 @@
 /// Global Components imports.
 ////
 
-@import 'site';
-// @import 'site-primary-nav__inline(deprecated)';
-@import 'site-primary-nav';
-@import 'site-social-nav';
-@import 'site-logo';
-@import 'site-search-form';
-@import 'site-mobile-menu-trigger';
+/// Site modules
+@import 'modules/site-primary-nav';
+@import 'modules/site-social-nav';
+@import 'modules/site-logo';
+@import 'modules/site-search-form';
+@import 'modules/site-mobile-menu-trigger';
+
+/// Site layouts
+@import 'layouts/site';
+@import 'layouts/entry';

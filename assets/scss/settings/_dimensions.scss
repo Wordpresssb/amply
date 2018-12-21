@@ -1,7 +1,8 @@
 ////
 /// Width and height settings.
-///
 ////
+
+$size__spacing-unit: 1rem;
 
 /// Defines the content width. This should match `$content_width` in class-amply-setup, if defined in `class-functions-setup.php`.
 /// @return {number}  The content width in pixels.

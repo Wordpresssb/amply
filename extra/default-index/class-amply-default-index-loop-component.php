@@ -1,6 +1,6 @@
 <?php
 /**
- * Loop Component
+ * Index loop Component
  *
  * @package amply
  */
@@ -70,7 +70,7 @@ if ( ! class_exists( 'Amply_Default_Index_Loop_Component' ) ) {
 
 			if ( 'classic' === $this->index_layout ) {
 
-				get_template_part( 'views/index/classic/entries' );
+				get_template_part( 'views/index/classic/loop' );
 
 			}
 
