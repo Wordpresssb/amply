@@ -2,6 +2,19 @@
 /// Custom mixins.
 ////
 
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// media queries
 @mixin media( $res ) {
 	@if mobile == $res {
 		@media only screen and (min-width: break( mobile )) {

@@ -6,8 +6,12 @@
 .site {
 
 	margin: 0 auto;
-	max-width: 100%;
+	width: 100%;
 
+}
+
+.site-content {
+	overflow: hidden;
 }
 
 .has-sidebar .site-content {

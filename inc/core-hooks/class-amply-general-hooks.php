@@ -42,6 +42,7 @@ if ( ! class_exists( 'Amply_General_Hooks' ) ) {
 		private function __construct() {
 
 			add_filter( 'body_class', array( $this, 'body_classes' ) );
+			add_filter( 'post_class', array( $this, 'post_classes' ), 10, 3 );
 			add_action( 'wp_head', array( $this, 'pingback_header' ) );
 			add_action( 'wp_head', array( $this, 'head_custom_css' ), PHP_INT_MAX );
 			add_filter( 'embed_defaults', array( $this, 'embed_dimensions' ) );
@@ -64,7 +65,7 @@ if ( ! class_exists( 'Amply_General_Hooks' ) ) {
 				$classes[] = 'hfeed';
 			}
 
-			if ( is_active_sidebar( 'sidebar-1' ) ) {
+			if ( is_active_sidebar( 'sidebar-right' ) ) {
 				global $template;
 				if ( 'front-page.php' !== basename( $template ) ) {
 					$classes[] = 'has-sidebar';
@@ -72,6 +73,21 @@ if ( ! class_exists( 'Amply_General_Hooks' ) ) {
 			}
 
 			return $classes;
+		}
+
+		/**
+		 * Adds custom classes to the array of posts classes.
+		 *
+		 * @param array $classes .
+		 * @param array $class .
+		 * @param int   $post_id .
+		 */
+		public function post_classes( $classes, $class, $post_id ) {
+
+			$classes[] = 'entry';
+
+			return $classes;
+
 		}
 
 		/**
@@ -104,7 +120,7 @@ if ( ! class_exists( 'Amply_General_Hooks' ) ) {
 		 * Set the embed width in pixels, based on the theme's design and stylesheet.
 		 *
 		 * @param array $dimensions An array of embed width and height values in pixels (in that order).
-		 * @return array
+		 * @return array Filtered dimensions array.
 		 */
 		public function embed_dimensions( array $dimensions ) {
 			$dimensions['width'] = 720;

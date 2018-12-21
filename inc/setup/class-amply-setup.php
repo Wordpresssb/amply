@@ -100,7 +100,11 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 			// Let WordPress manage the document title.
 			add_theme_support( 'title-tag' );
 
-			// Enable support for Post Thumbnails on posts and pages.
+			/*
+			 * Enable support for Post Thumbnails on posts and pages.
+			 *
+			 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+			 */
 			add_theme_support( 'post-thumbnails' );
 
 			// Switch default core markup to output valid HTML5.
@@ -161,7 +165,7 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 			);
 
 			/**
-			 * Add support for default block styles.
+			 * Add support for default block styles in front end.
 			 *
 			 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/#default-block-styles
 			 */
@@ -173,6 +177,20 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 			 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/#wide-alignment
 			 */
 			add_theme_support( 'align-wide' );
+
+			/**
+			 * Add support for editor styles.
+			 *
+			 * @link https://wordpress.org/gutenberg/handbook/designers-developers/developers/themes/theme-support/#editor-styles
+			 */
+			add_theme_support( 'editor-styles' );
+
+			/**
+			 * Enqueue editor styles.
+			 *
+			 * @link https://wordpress.org/gutenberg/handbook/designers-developers/developers/themes/theme-support/#editor-styles
+			 */
+			add_editor_style( 'dist/css/editor-styles.css' );
 
 			/**
 			 * Add support for block color palettes.

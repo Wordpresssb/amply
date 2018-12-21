@@ -255,8 +255,15 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 				wp_enqueue_style( 'amply-fonts', $fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			}
 
+			// phpcs:disable
+			/*
+
 			// Enqueue main stylesheet.
-			wp_enqueue_style( 'amply-editor-style', get_theme_file_uri( 'dist/css/editor-styles.css' ), array(), AMPLY_THEME_VERSION );
+			// Not necessary if opt-in for : add_editor_style( 'dist/css/editor-styles.css' );
+			wp_enqueue_style( 'amply-editor-styles', get_theme_file_uri( 'dist/css/editor-styles.css' ), array(), AMPLY_THEME_VERSION );
+
+			// if not opt-in for : add_theme_support( 'wp-block-styles' );
+			// see https://wordpress.org/gutenberg/handbook/designers-developers/developers/themes/theme-support/#editor-styles
 
 			// Unregister core block and theme styles.
 			// see: https://github.com/WordPress/gutenberg/issues/7776.
@@ -266,6 +273,9 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 			// Re-register core block and theme styles with an empty string. This is necessary to get styles set up correctly.
 			wp_register_style( 'wp-block-library', '' ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			wp_register_style( 'wp-block-library-theme', '' ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+
+			*/
+			// phpcs:enable
 
 		}
 

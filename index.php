@@ -48,6 +48,6 @@ get_header(); ?>
 
 	</div><!-- #content -->
 
-	<?php get_footer(); ?>
+	</div><!-- #content-wrap -->
 
-</div><!-- #content-wrap -->
+<?php get_footer(); ?>

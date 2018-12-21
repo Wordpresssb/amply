@@ -36,11 +36,11 @@ function amply_menu_sidebar_scripts() {
 
 	// Enqueue sidr script.
 	wp_enqueue_script( 'amply-sidr', get_theme_file_uri( 'pluggable/mobile-sidebar/js/jquery.sidr.min.js' ), array( 'jquery' ), '20180514', false );
-	wp_script_add_data( 'amply-sidr', 'async', true );
+	wp_script_add_data( 'amply-sidr', 'defer', true );
 
 	// Enqueue sidr menu script.
 	wp_enqueue_script( 'amply-mobile-sidebar-sidr', get_theme_file_uri( 'pluggable/mobile-sidebar/js/mobile-sidebar-sidr.js' ), array( 'jquery' ), '20180514', false );
-	wp_script_add_data( 'amply-mobile-sidebar-sidr', 'async', true );
+	wp_script_add_data( 'amply-mobile-sidebar-sidr', 'defer', true );
 
 }
 add_action( 'wp_enqueue_scripts', 'amply_menu_sidebar_scripts' );
