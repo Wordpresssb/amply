@@ -6,6 +6,10 @@ html {
 	box-sizing: border-box;
 }
 
+::selection {
+	background-color: $color__background_selection;
+}
+
 /**
  * Inherit box-sizing to make it easier to change the property for
  * components that leverage other behavior; see
@@ -20,52 +24,54 @@ html {
 // Body styles. Note that we're hiding horizontal overflow so that wide images don't overflow.
 body {
 	overflow-x: hidden;
-	background: #fff; //Fallback for when there is no custom background color defined.
-}
-
-blockquote,
-q {
-	quotes: "" "";
+	background: $color__background-body; //Fallback for when there is no custom background color defined.
 }
 
 hr {
-	background-color: #ccc;
+	background-color: $color__text-light;
 	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
+	height: 2px;
 }
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	padding-left: ( 1 * $size__spacing-unit );
 }
 
 ul {
 	list-style: disc;
+
+	ul {
+		list-style-type: circle;
+	}
 }
 
 ol {
 	list-style: decimal;
 }
 
+li {
+	line-height: $font__line-height-body;
+}
+
 li > ul,
 li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
+	padding-left: ( 2 * $size__spacing-unit );
 }
 
 dt {
-	font-weight: 700;
+	font-weight: bold;
 }
 
 dd {
-	margin: 0 1.5em 1.5em;
+	margin: 0 $size__spacing-unit $size__spacing-unit;
 }
 
 img {
 	display: block;
 	height: auto;
 	max-width: 100%;
+	position: relative;
 }
 
 // Extra wide images within figure tags don't overflow the content area.
@@ -73,7 +79,40 @@ figure {
 	margin: 0.5em 0;
 }
 
+blockquote {
+	border-left: 2px solid $color__link;
+	margin-left: 0;
+	padding: 0 0 0 $size__spacing-unit;
+
+	> p {
+		margin: 0 0 $size__spacing-unit;
+	}
+
+	cite {
+		color: $color__text-light;
+	}
+}
+
 table {
-	margin: 0 0 1.5em;
+	margin: 0 0 $size__spacing-unit;
+	border-collapse: collapse;
 	width: 100%;
+	font-family: $font__heading;
+
+	td,
+	th {
+		padding: 0.5em;
+		border: 1px solid $color__text-light;
+		word-break: break-all;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	margin: $size__spacing-unit 0;
 }

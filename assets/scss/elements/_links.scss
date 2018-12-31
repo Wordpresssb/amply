@@ -3,25 +3,23 @@
 ////
 
 a {
-	color: color(black);
+	@include link-transition;
+	color: $color__link;
 	text-decoration: none;
-}
 
-a:visited {
-	color: color(black);
-}
+	&:visited {
+		color: $color__link-visited;
+	}
 
-a:hover,
-a:focus,
-a:active {
-	color: color(black);
-}
+	&:hover,
+	&:active {
+		color: $color__link-hover;
+		outline: 0;
+		text-decoration: none;
+	}
 
-a:focus {
-	outline: thin dotted;
-}
-
-a:hover,
-a:active {
-	outline: 0;
+	&:focus {
+		outline: thin dotted;
+		text-decoration: underline;
+	}
 }

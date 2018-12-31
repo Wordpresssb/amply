@@ -1,3 +1,5 @@
+/* Nested sub-menu padding: 10 levels deep */
+
 .site-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -82,7 +84,7 @@
 }
 
 @media only screen and (min-width: 1168px) {
-  .site-mobile-menu-trigger {
+  .mobile-menu-trigger {
     display: none;
   }
 }

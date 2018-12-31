@@ -384,7 +384,7 @@ Kirki::add_field(
 		),
 		'output'          => array(
 			array(
-				'element'           => '#default-header1 .site-mobile-menu-trigger',
+				'element'           => '#default-header1 .mobile-menu-trigger',
 				'property'          => 'display',
 				'sanitize_callback' => 'sanitize_visibility',
 			),

@@ -32,12 +32,7 @@
 	}
 }
 
-// Do not show the outline on the skip link target.
-#primary[tabindex="-1"]:focus {
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
 	outline: 0;
 }
-
-// Targets the "skip to content" link at the top of the page if it needs extra
-// style rules beyond the screen reader text rules.
-
-.skip-link {}

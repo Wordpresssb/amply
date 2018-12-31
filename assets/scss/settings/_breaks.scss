@@ -2,6 +2,14 @@
 /// Media query page break settings.
 ////
 
+$mobile_width: 600px;
+$tablet_width: 768px;
+$desktop_width: 1168px;
+$wide_width: 1379px;
+
+
+
+
 $breakpoints : (
 	mobile  : 480px,
 	small   : 600px,

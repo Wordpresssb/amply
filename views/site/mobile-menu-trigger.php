@@ -7,7 +7,7 @@
 
 ?>
 
-<div  id="mobile-toggle" class="site-mobile-menu-trigger"
+<div  id="mobile-toggle" class="mobile-menu-trigger"
 	<?php if ( amply_is_amp() ) : ?>
 		on="tap:amply-sidebar-amp.toggle"
 	<?php endif; ?>

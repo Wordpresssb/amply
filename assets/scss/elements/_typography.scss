@@ -2,16 +2,27 @@
 /// Typography.
 ////
 
-body,
+html {
+	font-size: $font__size_base;
+}
+
+body {
+	color: $color__text-main;
+	font-family: $font__body;
+	font-size: 1em;
+	font-weight: 400;
+	line-height: $font__line-height-body;
+}
+
 button,
 input,
 select,
 optgroup,
 textarea {
-	color: color(black);
-	font-family: font-family(primary);
-	font-size: 16px;
-	line-height: 1.4;
+	color: $color__text-main;
+	font-family: $font__body;
+	font-weight: 400;
+	line-height: $font__line-height-body;
 }
 
 h1,
@@ -20,9 +31,47 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: font-family(primary);
-	color: color(black);
-	clear: both;
+	font-family: $font__heading;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: $font__line-height-heading;
+}
+
+h1 {
+	font-size: $font__size-xl;
+
+	@include media(tablet) {
+		font-size: $font__size-xxl;
+	}
+}
+
+h2 {
+	font-size: $font__size-lg;
+
+	@include media(tablet) {
+		font-size: $font__size-xl;
+	}
+}
+
+h3 {
+	font-size: $font__size-lg;
+}
+
+h4 {
+	font-size: $font__size-md;
+}
+
+h5 {
+	font-size: $font__size-sm;
+}
+
+h6 {
+	font-size: $font__size-xs;
+}
+
+p {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 dfn,
@@ -33,30 +82,27 @@ i {
 }
 
 blockquote {
-	margin: 0 1.5em;
-}
 
-address {
-	margin: 0 0 1.5em;
+	cite {
+		font-size: $font__size-xs;
+		font-style: normal;
+		font-family: $font__heading;
+	}
 }
 
 pre {
-	background: #eee;
-	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-size: 0.9375rem;
-	line-height: 1.6;
-	margin-bottom: 1.6em;
-	max-width: 100%;
+	font-size: $font__size-sm;
+	font-family: $font__pre;
+	line-height: $font__line-height-body;
 	overflow: auto;
-	padding: 1.6em;
 }
 
 code,
 kbd,
 tt,
 var {
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	font-size: 0.8rem;
+	font-size: $font__size-sm;
+	font-family: $font__code;
 }
 
 abbr,
@@ -74,3 +120,5 @@ ins {
 big {
 	font-size: 125%;
 }
+
+@include non-latin-fonts();

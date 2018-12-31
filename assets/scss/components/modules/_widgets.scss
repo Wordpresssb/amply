@@ -1,0 +1,78 @@
+////
+/// widgets
+////
+
+.widget {
+
+	margin: 0 0 #{$size__spacing-unit};
+
+	/* Make sure select, input elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+
+}
+
+.widget_archive,
+.widget_categories,
+.widget_meta,
+.widget_nav_menu,
+.widget_pages,
+.widget_recent_comments,
+.widget_recent_entries,
+.widget_rss {
+
+	ul {
+		padding: 0;
+		list-style: none;
+
+		li {
+			color: $color__text-light;
+			font-family: $font__heading;
+			font-size: calc(#{$font__size_base} * #{$font__size-ratio});
+			font-weight: 700;
+			line-height: $font__line-height-heading;
+			margin: #{0.5 * $size__spacing-unit} 0;
+		}
+
+		@include nestedSubMenuPadding();
+	}
+}
+
+.widget_tag_cloud {
+
+	.tagcloud {
+		font-family: $font__heading;
+		font-weight: 700;
+	}
+}
+
+.widget_search {
+
+	.search-field {
+		width: 100%;
+		max-width: 100%;
+
+		@include media(mobile) {
+			width: auto;
+		}
+	}
+
+	.search-submit {
+		display: block;
+		margin-top: $size__spacing-unit;
+	}
+}
+
+.widget_calendar .calendar_wrap {
+	text-align: center;
+
+	table td,
+	table th {
+		border: none;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+}

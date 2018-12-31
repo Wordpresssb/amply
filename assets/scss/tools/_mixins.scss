@@ -17,32 +17,137 @@
 // media queries
 @mixin media( $res ) {
 	@if mobile == $res {
-		@media only screen and (min-width: break( mobile )) {
-			@content;
-		}
-	}
-
-	@if small == $res {
-		@media only screen and (min-width: break( small )) {
+		@media only screen and (min-width: $mobile_width) {
 			@content;
 		}
 	}
 
 	@if tablet == $res {
-		@media only screen and (min-width: break( tablet )) {
+		@media only screen and (min-width: $tablet_width) {
 			@content;
 		}
 	}
 
 	@if desktop == $res {
-		@media only screen and (min-width: break( desktop )) {
+		@media only screen and (min-width: $desktop_width) {
 			@content;
 		}
 	}
 
 	@if wide == $res {
-		@media only screen and (min-width: break( wide )) {
+		@media only screen and (min-width: $wide_width) {
 			@content;
 		}
+	}
+}
+
+// Link transition
+@mixin link-transition( $attr: color ) {
+	transition: $attr $link_transition ease-in-out;
+}
+
+@mixin button-transition( $attr: background ) {
+	transition: $attr $button_transition ease-in-out;
+}
+
+// Fallback for non-latin fonts
+@mixin non-latin-fonts( $wrapper_classname: '.site' ) {
+
+	/* Arabic */
+	html[lang="ar"] #{$wrapper_classname} *,
+	html[lang="ary"] #{$wrapper_classname} *,
+	html[lang="azb"] #{$wrapper_classname} *,
+	html[lang="ckb"] #{$wrapper_classname} *,
+	html[lang="fa-IR"] #{$wrapper_classname} *,
+	html[lang="haz"] #{$wrapper_classname} *,
+	html[lang="ps"] #{$wrapper_classname} * {
+	  font-family: Tahoma, Arial, sans-serif !important;
+	}
+
+	/* Cyrillic */
+	html[lang="be"] #{$wrapper_classname} *,
+	html[lang="bg-BG"] #{$wrapper_classname} *,
+	html[lang="kk"] #{$wrapper_classname} *,
+	html[lang="mk-MK"] #{$wrapper_classname} *,
+	html[lang="mn"] #{$wrapper_classname} *,
+	html[lang="ru-RU"] #{$wrapper_classname} *,
+	html[lang="sah"] #{$wrapper_classname} *,
+	html[lang="sr-RS"] #{$wrapper_classname} *,
+	html[lang="tt-RU"] #{$wrapper_classname} *,
+	html[lang="uk"] #{$wrapper_classname} * {
+	  font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif !important;
+	}
+
+	/* Chinese (Hong Kong) */
+	html[lang="zh-HK"] #{$wrapper_classname} * {
+		font-family: -apple-system, BlinkMacSystemFont, 'PingFang HK', 'Helvetica Neue', "Microsoft YaHei New", STHeiti Light, sans-serif !important;
+	}
+
+	/* Chinese (Taiwan) */
+	html[lang="zh-TW"] #{$wrapper_classname} * {
+		font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Helvetica Neue', "Microsoft YaHei New", STHeiti Light, sans-serif !important;
+	}
+
+	/* Chinese (China) */
+	html[lang="zh-CN"] #{$wrapper_classname} * {
+		font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', "Microsoft YaHei New", STHeiti Light, sans-serif !important;
+	}
+
+	/* Devanagari */
+	html[lang="bn-BD"] #{$wrapper_classname} *,
+	html[lang="hi-IN"] #{$wrapper_classname} *,
+	html[lang="mr"] #{$wrapper_classname} *,
+	html[lang="ne-NP"] #{$wrapper_classname} * {
+	  font-family: Arial, sans-serif !important;
+	}
+
+	/* Greek */
+	html[lang="el"] #{$wrapper_classname} * {
+	  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+	}
+
+	/* Gujarati */
+	html[lang="gu"] #{$wrapper_classname} * {
+	  font-family: Arial, sans-serif !important;
+	}
+
+	/* Hebrew */
+	html[lang="he-IL"] #{$wrapper_classname} * {
+	  font-family: 'Arial Hebrew', Arial, sans-serif !important;
+	}
+
+	/* Japanese */
+	html[lang="ja"] #{$wrapper_classname} * {
+	  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", Meiryo, "Helvetica Neue", sans-serif !important;
+	}
+
+	/* Korean */
+	html[lang="ko-KR"] #{$wrapper_classname} * {
+	  font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Nanum Gothic', Dotum, sans-serif !important;
+	}
+
+	/* Thai */
+	html[lang="th"] #{$wrapper_classname} * {
+	  font-family: 'Sukhumvit Set', 'Helvetica Neue', helvetica, arial, sans-serif !important;
+	}
+
+	/* Vietnamese */
+	html[lang="vi"] #{$wrapper_classname} * {
+	  font-family: 'Libre Franklin', sans-serif !important;
+	}
+}
+
+/* Nested sub-menu padding: 10 levels deep */
+@mixin nestedSubMenuPadding() {
+
+	ul {
+		counter-reset: submenu;
+	}
+
+	ul > li > a::before {
+		font-family: $font__body;
+		font-weight: normal;
+		content: "\2013\00a0" counters(submenu, "\2013\00a0", none);
+		counter-increment: submenu
 	}
 }

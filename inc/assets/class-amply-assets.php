@@ -258,7 +258,7 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 			// phpcs:disable
 			/*
 
-			// Enqueue main stylesheet.
+			// Enqueue editor style.
 			// Not necessary if opt-in for : add_editor_style( 'dist/css/editor-styles.css' );
 			wp_enqueue_style( 'amply-editor-styles', get_theme_file_uri( 'dist/css/editor-styles.css' ), array(), AMPLY_THEME_VERSION );
 
