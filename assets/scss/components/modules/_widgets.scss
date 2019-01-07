@@ -52,10 +52,6 @@
 	.search-field {
 		width: 100%;
 		max-width: 100%;
-
-		@include media(mobile) {
-			width: auto;
-		}
 	}
 
 	.search-submit {

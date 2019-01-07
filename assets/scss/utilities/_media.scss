@@ -17,6 +17,88 @@ object {
 	max-width: 100%;
 }
 
+.avatar {
+	border-radius: 100%;
+	display: block;
+	height: calc(2.25 * #{$size__spacing-unit});
+	min-height: inherit;
+	width: calc(2.25 * #{$size__spacing-unit});
+}
+
 svg {
 	fill: currentColor;
+}
+
+// Captions
+.wp-caption {
+	margin-bottom: calc(#{$font__line-height-pre} * #{$size__spacing-unit});
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption-text {
+	color: $color__text-light;
+	font-size: $font__size-xs;
+	font-family: $font__heading;
+ 	line-height: $font__line-height-pre;
+ 	margin: 0;
+ 	padding: ( $size__spacing-unit * .5 );
+	text-align: center;
+}
+
+// Galeries
+.gallery {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	margin-bottom: calc(1.5 * #{$size__spacing-unit});
+}
+
+.gallery-item {
+	display: inline-block;
+	margin-right: 16px;
+	margin-bottom: 16px;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+
+	// Loops to enumerate the classes for gallery columns.
+	@for $i from 2 through 9 {
+		.gallery-columns-#{$i} & {
+			max-width: calc((100% - 16px * #{ $i - 1 }) / #{ $i });
+
+			&:nth-of-type(#{$i}n+#{$i}) {
+				margin-right: 0;
+			}
+		}
+	}
+
+	&:last-of-type {
+		padding-right: 0;
+	}
+}
+
+.gallery-caption {
+	display: block;
+	font-size: $font__size-xs;
+	font-family: $font__heading;
+	line-height: $font__line-height-pre;
+	margin: 0;
+	padding: ( $size__spacing-unit * .5 );
+}
+
+.gallery-item > div > a {
+	display: block;
+	line-height: 0;
+
+	// Accessibility
+	box-shadow: 0 0 0 0 transparent;
+
+	&:focus {
+		box-shadow: 0 0 0 2px rgba( $color__link, 1 );
+	}
 }

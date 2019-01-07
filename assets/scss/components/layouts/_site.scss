@@ -10,6 +10,17 @@
 
 }
 
+.site-content-wrap {
+
+	max-width: calc(100% - (2 * #{$size__spacing-unit}));;
+	margin: 0 $size__spacing-unit;
+
+	@include media(tablet) {
+		max-width: $size__tablet-content-width;
+		margin: 0 auto;
+	}
+}
+
 .site-content {
 	overflow: hidden;
 }
@@ -18,10 +29,9 @@
 
 	@include media(desktop) {
 
-		margin: 1em;
 		display: grid;
 		grid-template-columns: 3fr 1fr;
-		grid-gap: 2rem;
+		grid-gap: $size__spacing-unit;
 		justify-content: center;
 
 		.site-main {
