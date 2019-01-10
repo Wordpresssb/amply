@@ -1,0 +1,33 @@
+.entry-content > *,
+.entry-summary > * {
+
+	margin: 32px 0;
+
+	max-width: $size__content-max-width;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 1rem;
+
+	@include media(tablet) {
+		padding: 0;
+	}
+
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
+	&.alignwide {
+		max-width: $size__content-max-width;
+		// padding: 0;
+	}
+
+	&.alignfull {
+		max-width: 100%;
+		padding: 0;
+	}
+
+}

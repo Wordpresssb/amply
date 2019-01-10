@@ -89,8 +89,6 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 		 * Note that this function is hooked into the after_setup_theme hook, which
 		 * runs before the init hook. The init hook is too late for some features, such
 		 * as indicating support for post thumbnails.
-		 *
-		 * @return void
 		 */
 		public function theme_support() {
 
@@ -183,7 +181,9 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 			 *
 			 * @link https://wordpress.org/gutenberg/handbook/designers-developers/developers/themes/theme-support/#editor-styles
 			 */
-			add_theme_support( 'editor-styles' );
+			// phpcs:disable -- Block editor styles added in class-amply-assets.
+			// add_theme_support( 'editor-styles' );
+			// phpcs:enable
 
 			/**
 			 * Enqueue editor styles.
@@ -191,37 +191,6 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 			 * @link https://wordpress.org/gutenberg/handbook/designers-developers/developers/themes/theme-support/#editor-styles
 			 */
 			add_editor_style( 'dist/css/editor-styles.css' );
-
-			/**
-			 * Add support for block color palettes.
-			 *
-			 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/#block-color-palettes
-			 */
-			add_theme_support(
-				'editor-color-palette',
-				array(
-					array(
-						'name'  => __( 'Primary', 'amply' ),
-						'slug'  => 'primary',
-						'color' => get_theme_mod( 'amply_primary_color', '#5C6BC0' ),
-					),
-					array(
-						'name'  => __( 'Secondary', 'amply' ),
-						'slug'  => 'secondary',
-						'color' => get_theme_mod( 'amply_secondary_color', '#FF5252' ),
-					),
-					array(
-						'name'  => __( 'Black', 'amply' ),
-						'slug'  => 'black',
-						'color' => get_theme_mod( 'amply_black_color', '#000000' ),
-					),
-					array(
-						'name'  => __( 'White', 'amply' ),
-						'slug'  => 'white',
-						'color' => get_theme_mod( 'amply_white_color', '#ffffff' ),
-					),
-				)
-			);
 
 			/*
 			* Optional: Disable custom colors in block color palettes.
@@ -240,28 +209,28 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 				'editor-font-sizes',
 				array(
 					array(
-						'name'      => __( 'small', 'amply' ),
+						'name'      => __( 'Small', 'amply' ),
 						'shortName' => __( 'S', 'amply' ),
-						'size'      => 12,
+						'size'      => 19.5,
 						'slug'      => 'small',
 					),
 					array(
-						'name'      => __( 'regular', 'amply' ),
+						'name'      => __( 'Normal', 'amply' ),
 						'shortName' => __( 'M', 'amply' ),
-						'size'      => 16,
-						'slug'      => 'regular',
+						'size'      => 22,
+						'slug'      => 'normal',
 					),
 					array(
-						'name'      => __( 'large', 'amply' ),
+						'name'      => __( 'Large', 'amply' ),
 						'shortName' => __( 'L', 'amply' ),
-						'size'      => 36,
+						'size'      => 36.5,
 						'slug'      => 'large',
 					),
 					array(
-						'name'      => __( 'larger', 'amply' ),
+						'name'      => __( 'Huge', 'amply' ),
 						'shortName' => __( 'XL', 'amply' ),
-						'size'      => 48,
-						'slug'      => 'larger',
+						'size'      => 49.5,
+						'slug'      => 'huge',
 					),
 				)
 			);

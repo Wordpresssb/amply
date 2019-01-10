@@ -34,6 +34,9 @@ require_once get_parent_theme_file_path( 'inc/functions/functions-template.php' 
 // Setup configurations.
 require_once get_parent_theme_file_path( 'inc/setup/class-amply-setup.php' );
 
+// Admin.
+require_once get_parent_theme_file_path( 'inc/admin/admin-init.php' );
+
 // Core hooks.
 require_once get_parent_theme_file_path( 'inc/core-hooks/class-amply-general-hooks.php' );
 require_once get_parent_theme_file_path( 'inc/core-hooks/class-amply-image-sizes.php' );
@@ -44,8 +47,8 @@ require_once get_parent_theme_file_path( 'inc/widgets/class-amply-widgets.php' )
 // Main assets management.
 require_once get_parent_theme_file_path( 'inc/assets/class-amply-assets.php' );
 
-// Admin.
-require_once get_parent_theme_file_path( 'inc/admin/admin-init.php' );
+// Colors.
+require_once get_parent_theme_file_path( 'inc/color-patterns/class-amply-color-patterns.php' );
 
 /**
  * Extra features

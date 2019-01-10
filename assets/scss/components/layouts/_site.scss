@@ -10,17 +10,6 @@
 
 }
 
-.site-content-wrap {
-
-	max-width: calc(100% - (2 * #{$size__spacing-unit}));;
-	margin: 0 $size__spacing-unit;
-
-	@include media(tablet) {
-		max-width: $size__tablet-content-width;
-		margin: 0 auto;
-	}
-}
-
 .site-content {
 	overflow: hidden;
 }

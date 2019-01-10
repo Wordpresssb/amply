@@ -3,3 +3,17 @@
 /// Ensures a visual match between back- and front-end.
 ////
 
+@import 'settings/_index';
+@import 'tools/_index';
+
+.wp-block {
+	max-width: $size__content-max-width;
+}
+
+.wp-block[data-align="wide"] {
+	max-width: $size__content-max-width;
+}
+
+.wp-block[data-align="full"] {
+	max-width: none;
+}

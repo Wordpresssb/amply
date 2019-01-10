@@ -4,7 +4,7 @@
 
 $size__spacing-unit: 1rem;
 
-$size__tablet-content-width: 80%;
+$size__content-max-width: 720px;
 
 /// Defines the content width. This should match `$content_width` if defined in `class-amply-setup.php`.
 /// @return {number}  The content width in pixels.

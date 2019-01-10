@@ -2,12 +2,16 @@
 /// Define colors.
 ////
 
+// Main colors
+$color_primary: #5C6BC0;
+
+
 // Backgrounds
 $color__background-body: #fff;
 $color__background-input: #fff;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
-$color__background-button: #0073aa;
+$color__background-button: $color_primary;
 $color__background-button-hover: #111;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
@@ -19,53 +23,10 @@ $color__text-light: #767676;
 $color__text-hover: lighten( $color__text-main, 22.5% );
 
 // Links
-$color__link: #0073aa;
-$color__link-visited: #0073aa;
+$color__link: $color_primary;
+$color__link-visited: $color_primary;
 $color__link-hover: darken( $color__link, 10% );
 
 
 // Borders
 $color__border: #ccc;
-
-
-
-
-
-
-$colors : (
-	white : #fff,
-	black : #000,
-	dark-grey : #5f5f66,
-	light-grey : #dbe4f0,
-);
-
-$block-colors : (
-	primary   : #5C6BC0,
-	secondary : #FF5252
-);
-
-/// Returns a map of block colors in name-value format. 
-/// Colors defined via the `editor-color-palette` setting in `class-amply-setup.php` for the WordPress editor.
-/// @return {map} Map of block colors.
-@function block-colors() {
-	@return $block-colors;
-}
-
-// Returns a map of colors in name-value format. 
-// Merges with the `block-colors()` map to create a map of all colors.
-/// @return {map} Map of defined colors.
-@function colors() {
-	@return map-merge( $colors, block-colors() );
-}
-
-/// Returns a single color value by name.
-/// @return {string} Color value.
-@function color( $name ) {
-	@return map-get( colors(), $name );
-}
-
-/// Returns a single block color value by name.
-/// @return {string} Color value.
-@function block-color( $name ) {
-	@return map-get( block-colors(), $name );
-}

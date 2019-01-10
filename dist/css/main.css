@@ -382,11 +382,11 @@ html {
 }
 
 ::-moz-selection {
-  background-color: #bfdcea;
+  background-color: #d6daef;
 }
 
 ::selection {
-  background-color: #bfdcea;
+  background-color: #d6daef;
 }
 
 /**
@@ -459,7 +459,7 @@ figure {
 }
 
 blockquote {
-  border-left: 2px solid #0073aa;
+  border-left: 2px solid #5C6BC0;
   margin-left: 0;
   padding: 0 0 0 1rem;
 }
@@ -715,17 +715,17 @@ html[lang="vi"] .site * {
 a {
   -webkit-transition: color 110ms ease-in-out;
   transition: color 110ms ease-in-out;
-  color: #0073aa;
+  color: #5C6BC0;
   text-decoration: none;
 }
 
 a:visited {
-  color: #0073aa;
+  color: #5C6BC0;
 }
 
 a:hover,
 a:active {
-  color: #005177;
+  color: #4150a8;
   outline: 0;
   text-decoration: none;
 }
@@ -741,7 +741,7 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-transition: background 150ms ease-in-out;
   transition: background 150ms ease-in-out;
-  background: #0073aa;
+  background: #5C6BC0;
   border: none;
   border-radius: 5px;
   -webkit-box-sizing: border-box;
@@ -826,8 +826,8 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-  border-color: #0073aa;
-  outline: thin solid rgba(0, 115, 170, 0.15);
+  border-color: #5C6BC0;
+  outline: thin solid rgba(92, 107, 192, 0.15);
   outline-offset: -4px;
 }
 
@@ -1209,18 +1209,6 @@ form p {
   width: 100%;
 }
 
-.site-content-wrap {
-  max-width: calc(100% - (2 * 1rem));
-  margin: 0 1rem;
-}
-
-@media only screen and (min-width: 768px) {
-  .site-content-wrap {
-    max-width: 80%;
-    margin: 0 auto;
-  }
-}
-
 .site-content {
   overflow: hidden;
 }
@@ -1498,7 +1486,44 @@ svg {
 }
 
 .gallery-item > div > a:focus {
-  -webkit-box-shadow: 0 0 0 2px #0073aa;
-          box-shadow: 0 0 0 2px #0073aa;
+  -webkit-box-shadow: 0 0 0 2px #5c6bc0;
+          box-shadow: 0 0 0 2px #5c6bc0;
+}
+
+.entry-content > *,
+.entry-summary > * {
+  margin: 32px 0;
+  max-width: 720px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .entry-content > *,
+  .entry-summary > * {
+    padding: 0;
+  }
+}
+
+.entry-content > * > *:first-child,
+.entry-summary > * > *:first-child {
+  margin-top: 0;
+}
+
+.entry-content > * > *:last-child,
+.entry-summary > * > *:last-child {
+  margin-bottom: 0;
+}
+
+.entry-content > *.alignwide,
+.entry-summary > *.alignwide {
+  max-width: 720px;
+}
+
+.entry-content > *.alignfull,
+.entry-summary > *.alignfull {
+  max-width: 100%;
+  padding: 0;
 }
 
