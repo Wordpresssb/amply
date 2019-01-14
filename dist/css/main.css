@@ -1644,6 +1644,29 @@ svg {
   text-align: center;
 }
 
+.entry .entry-content select {
+  height: 36px;
+  font-size: 16px;
+  padding: 2px;
+  line-height: 28px;
+  vertical-align: middle;
+  -webkit-transition: -webkit-box-shadow .1s linear;
+  transition: -webkit-box-shadow .1s linear;
+  transition: box-shadow .1s linear;
+  transition: box-shadow .1s linear, -webkit-box-shadow .1s linear;
+  border-radius: 4px;
+  border: 1px solid #767676;
+  color: #767676;
+  background-color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  .entry .entry-content select {
+    height: 28px;
+    font-size: 13px;
+  }
+}
+
 .entry .entry-content .has-primary-background-color,
 .entry .entry-content .has-secondary-background-color,
 .entry .entry-content .has-dark-gray-background-color,

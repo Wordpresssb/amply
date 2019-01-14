@@ -685,3 +685,42 @@ ul.wp-block-archives,
 		font-size: $font__size-xs;
 	}
 }
+
+/** === Classic Editor === */
+
+/* Properly center-align captions in the classic-editor block */
+.wp-caption {
+	dd {
+		color: $color__text-light;
+ 		font-size: $font__size-xs;
+ 		font-family: $font__heading;
+ 		line-height: $font__line-height-pre;
+ 		margin: 0;
+ 		padding: ( $size__spacing-unit * .5 );
+ 		text-align: left;
+		text-align: center;
+		-webkit-margin-start: 0px;
+		margin-inline-start: 0px;
+	}
+}
+
+.wp-block-freeform {
+
+	/* Add style for galleries in classic-editor block */
+	blockquote {
+		border-left: 2px solid $color__link;
+
+		cite {
+			font-family: $font__heading;
+			font-size: $font__size-xs;
+			font-style: normal;
+			line-height: 1.6;
+			color: $color__text-light;
+		}
+	}
+}
+
+/* Make sure our non-latin font overrides don't overwrite the iconfont used in the classic editor toolbar */
+.wp-block[data-type="core/freeform"] .mce-btn i {
+	font-family: dashicons !important;
+}

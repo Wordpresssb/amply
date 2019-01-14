@@ -113,4 +113,24 @@
 		text-align: center;
 	}
 
+	select {
+
+		height: 36px;
+		font-size: 16px;
+		padding: 2px;
+    line-height: 28px;
+    vertical-align: middle;
+    transition: box-shadow .1s linear;
+    border-radius: 4px;
+		border: 1px solid $color__text-light;
+		color: $color__text-light;
+		background-color: #fff;
+
+		@include media(tablet) {
+			height: 28px;
+			font-size: 13px;
+		}
+
+	}
+
 }
