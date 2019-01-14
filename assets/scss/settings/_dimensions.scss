@@ -4,10 +4,5 @@
 
 $size__spacing-unit: 1rem;
 
-$size__content-max-width: 720px;
+$size__content-max-width: 80%;// 720px;
 
-/// Defines the content width. This should match `$content_width` if defined in `class-amply-setup.php`.
-/// @return {number}  The content width in pixels.
-@function content-width() {
-	@return 750px;
-}

@@ -2,19 +2,45 @@
 /// Columns block.
 ////
 
-.wp-block-columns {
-	display: flex;
+.entry .entry-content {
 
-	// Add styles based on the number of columns. Supports 2-6 columns.
-	&.has-2-columns {}
-}
+	.wp-block-columns {
 
-// Individual columns.
-.wp-block-column {
-	flex: 1;
-}
+		&.alignfull {
+			padding-left: $size__spacing-unit;
+			padding-right: $size__spacing-unit;
+		}
 
-// Editor specific styling. Make sure columns span correctly.
-.editor-inner-blocks {
-	flex: 1;
+		@include media(mobile) {
+			flex-wrap: nowrap;
+		}
+
+		@include media(tablet) {
+			.wp-block-column > * {
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			&[class*='has-'] > * {
+				margin-right: $size__spacing-unit;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+
+			&.alignfull,
+			&.alignfull .wp-block-column {
+				padding-left: calc(2 * #{$size__spacing-unit});
+				padding-right: calc(2 * #{$size__spacing-unit});
+			}
+		}
+	}
+
 }

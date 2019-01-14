@@ -21,25 +21,3 @@ $font__size-xxxl:  1em * (3 * $font__size-ratio);
 $font__line-height-body: 1.8;
 $font__line-height-heading: 1.2;
 $font__line-height-pre: 1.6;
-
-
-
-
-
-/// Returns a map of editor font sizes in name-value format.
-/// Defined via the `editor-font-sizes` setting in `class-amply-setup.php` for the WordPress editor.
-/// @return {map}  Map of defined font sizes.
-@function editor-font-sizes() {
-	@return (
-		small   : 12px,
-		regular : 16px,
-		large   : 36px,
-		larger  : 48px
-	);
-}
-
-/// Returns a single editor font size value by name.
-/// @return {string} Font size value.
-@function editor-font-size( $name ) {
-	@return map-get( editor-font-sizes(), $name );
-}

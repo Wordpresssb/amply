@@ -2,23 +2,78 @@
 /// Button block.
 ////
 
-.wp-block-button {
+.entry .entry-content {
 
-	margin-bottom: 1.5em;
+	.wp-block-button {
 
-	&__link {
-		border:          none;
-		border-radius:   0;
-		box-shadow:      none;
-		cursor:          pointer;
-		display:         inline-block;
-		font-size:       18px;
-		line-height:     24px;
-		margin:          0;
-		padding:         11px 24px;
-		text-align:      center;
-		text-decoration: none;
-		white-space:     normal;
-		word-break:      break-all;
+		.wp-block-button__link {
+	
+			@include button-transition;
+	
+			border: none;
+			font-size: $font__size-sm;
+			font-family: $font__heading;
+			line-height: $font__line-height-heading;
+			box-sizing: border-box;
+			font-weight: bold;
+			text-decoration: none;
+			padding: ($size__spacing-unit * .76) $size__spacing-unit;
+			outline: none;
+			outline: none;
+	
+			&:not(.has-background) {
+				background-color: $color__background-button;
+			}
+	
+			&:not(.has-text-color) {
+				color: $color__white;
+			}
+	
+			&:hover {
+				color: white;
+				background: $color__background-button-hover;
+				cursor: pointer;
+			}
+	
+			&:focus {
+				color: white;
+				background: $color__background-button-hover;
+				outline: thin dotted;
+				outline-offset: -4px;
+			}
+		}
+	
+		&:not(.is-style-squared) .wp-block-button__link {
+			border-radius: 5px;
+		}
+	
+		&.is-style-outline .wp-block-button__link,
+		&.is-style-outline .wp-block-button__link:focus,
+		&.is-style-outline .wp-block-button__link:active {
+	
+			border-width: 2px;
+			border-style: solid;
+	
+			&:not(.has-background) {
+				background: transparent;
+			}
+	
+			&:not(.has-text-color) {
+				color: $color__background-button;
+				border-color: currentColor;
+			}
+		}
+	
+		&.is-style-outline .wp-block-button__link:hover {
+			color: white;
+			border-color: $color__background-button-hover;
+			&:not(.has-background) {
+				color: $color__background-button-hover;
+			}
+		}
+	
 	}
+
 }
+
+

@@ -2,6 +2,16 @@
 /// Code block.
 ////
 
-.wp-block-code {
+.entry .entry-content {
+
+	.wp-block-code {
+		border-radius: 0;
+
+		code {
+			font-size: $font__size-md;
+			white-space: pre-wrap;
+    	word-break: break-word;
+		}
+	}
 
 }

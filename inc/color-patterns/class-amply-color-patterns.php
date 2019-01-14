@@ -111,10 +111,11 @@ if ( ! class_exists( 'Amply_Color_Patterns' ) ) {
 
 			require_once get_parent_theme_file_path( '/inc/color-patterns/color-patterns.php' );
 
-			$primary_color = get_theme_mod( 'amply_primary_color', amply_defaults( 'amply_primary_color' ) );
+			$primary_color   = get_theme_mod( 'amply_primary_color', amply_defaults( 'amply_primary_color' ) );
+			$secondary_color = get_theme_mod( 'amply_secondary_color', amply_defaults( 'amply_secondary_color' ) );
 			// phpcs:disable
 			?>
-			<style type="text/css" id="custom-theme-colors" <?php echo is_customize_preview() ? 'data-primary="' . esc_attr( $primary_color ) . '"' : ''; ?>>
+			<style type="text/css" id="custom-theme-colors" <?php echo is_customize_preview() ? 'data-primary="' . esc_attr( $primary_color ) . '"' : ''; ?> <?php echo is_customize_preview() ? 'data-secondary="' . esc_attr( $secondary_color ) . '"' : ''; ?>>
 				<?php
 					echo amply_custom_colors_css();
 				?>
@@ -128,9 +129,12 @@ if ( ! class_exists( 'Amply_Color_Patterns' ) ) {
 		 */
 		public function enqueue_gutenberg_color_styles() {
 
+			// Used to inline add dynamic block styles in the block editor.
+			wp_enqueue_style( 'amply-editor-styles-additions', get_theme_file_uri( '/dist/css/editor-styles-additions.css' ), false, '20151215', 'all' );
+
 			// Include color patterns.
 			require_once get_parent_theme_file_path( '/inc/color-patterns/color-patterns.php' );
-			wp_add_inline_style( 'amply-editor-styles', amply_custom_colors_css() );
+			wp_add_inline_style( 'amply-editor-styles-additions', amply_custom_colors_css() );
 
 		}
 

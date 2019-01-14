@@ -2,6 +2,12 @@
 /// Verse block.
 ////
 
-.wp-block-verse {
+.entry .entry-content {
+
+	.wp-block-verse {
+		font-family: $font__body;
+		font-size: $font__size_base;
+		line-height: 1.8;
+	}
 
 }

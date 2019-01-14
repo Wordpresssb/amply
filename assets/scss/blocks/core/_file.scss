@@ -2,36 +2,45 @@
 /// File block.
 ////
 
-.wp-block-file {
-	margin-bottom: 1.5em;
+.entry .entry-content {
 
-	&.aligncenter {
-		text-align: center;
-	}
+	.wp-block-file {
+		font-family: $font__heading;
 
-	&.alignright {
-		text-align: right;
-	}
+		.wp-block-file__button {
 
-	&__button {
-		background:      color( black );
-		color:           color( white );
-		padding:         0.5em 1em;
-		text-decoration: none;
-
-		&:hover,
-		&:visited,
-		&:focus,
-		&:active {
-			color:           color( white );
-			opacity:         0.85;
+			display: table;
+			@include button-transition;
+			border: none;
+			border-radius: 5px;
+			background: $color__background-button;
+			font-size: $font__size-base;
+			font-family: $font__heading;
+			line-height: $font__line-height-heading;
 			text-decoration: none;
+			font-weight: bold;
+			padding: ($size__spacing-unit * .75) $size__spacing-unit;
+			color: #fff;
+			margin-left: 0;
+			margin-top: calc(0.75 * #{$size__spacing-unit});
+
+			@include media(desktop) {
+				font-size: $font__size-base;
+				padding: ($size__spacing-unit * .875) ($size__spacing-unit * 1.5);
+			}
+
+			&:hover {
+				background: $color__background-button-hover;
+				cursor: pointer;
+			}
+
+			&:focus {
+				background: $color__background-button-hover;
+				outline: thin dotted;
+				outline-offset: -4px;
+			}
+			
 		}
 	}
-}
 
-// Give the file block button some spacing to the left if there's another element
-// preceding it.
-* + .wp-block-file__button {
-	margin-left: 0.75em;
 }

@@ -2,10 +2,31 @@
 /// Audio block.
 ////
 
-.wp-block-audio {
-	margin: 0;
+.entry .entry-content {
 
-	audio {
+	.wp-block-audio {
+
 		width: 100%;
+	
+		audio {
+			width: 100%;
+		}
+	
+		&.alignleft audio,
+		&.alignright audio {
+	
+			max-width: (0.33 * $mobile_width);
+	
+			@include media(tablet) {
+				max-width: (0.5 * $tablet_width);
+			}
+	
+			@include media(wide) {
+				max-width: (0.33 * $desktop_width);
+			}
+		}
+	
 	}
+
 }
+

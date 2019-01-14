@@ -2,9 +2,61 @@
 /// Quote block.
 ////
 
-.wp-block-quote {
+.entry .entry-content {
 
-	p {}
+	.wp-block-quote {
 
-	cite {}
+		&:not(.is-large),
+		&:not(.is-style-large) {
+			border-left: 2px solid $color__link;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+
+		p {
+			font-size: 1em;
+			font-style: normal;
+			line-height: 1.8;
+		}
+
+		cite {
+			/*
+			 * This requires a rem-based font size calculation instead of our normal em-based one,
+			 * because the cite tag sometimes gets wrapped in a p tag. This is equivalent to $font-size_xs.
+			 */
+			font-size: calc(1rem / (1.25 * #{$font__size-ratio}));
+		}
+
+		&.is-large,
+		&.is-style-large {
+			margin: $size__spacing-unit 0;
+			padding: 0;
+			border-left: none;
+
+			p {
+				font-size: $font__size-lg;
+				line-height: 1.4;
+				font-style: italic;
+			}
+
+			cite,
+			footer {
+				/*
+				 * This requires a rem-based font size calculation instead of our normal em-based one,
+				 * because the cite tag sometimes gets wrapped in a p tag. This is equivalent to $font-size_xs.
+				 */
+				font-size: calc(1rem / (1.25 * #{$font__size-ratio}));
+			}
+
+			@include media(tablet) {
+				margin: $size__spacing-unit 0;
+				padding: $size__spacing-unit 0;
+
+				p {
+					font-size: $font__size-lg;
+				}
+			}
+		}
+	}
+
 }

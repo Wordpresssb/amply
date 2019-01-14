@@ -2,29 +2,25 @@
 /// Image block.
 ////
 
-.wp-block-image {
-	width:     fit-content;
-	max-width: 100%;
+.entry .entry-content {
 
-	img {
+	.wp-block-image {
 		max-width: 100%;
-	}
-
-	&.is-resized {
-		width: min-content;
-
-		// Emulate min-content for Edge and IE11
-		display: -ms-inline-grid;
-		-ms-grid-columns: min-content;
-
-		figcaption {
-			-ms-grid-row: 2;
-		}
 
 		img {
-			max-width: none;
+			display: block;
+		}
+
+		&.alignfull img {
+			width: 100vw;
+			max-width: calc( 100% + (2 * #{$size__spacing-unit}));
+
+			@include media(tablet) {
+				max-width: calc( 125% + 150px );
+				margin-left: auto;
+				margin-right: auto;
+			}
 		}
 	}
 
-	figcaption {}
 }

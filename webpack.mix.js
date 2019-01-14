@@ -8,6 +8,9 @@ mix.js( 'assets/js/customize-controls.js', 'dist/js/customize-controls.js');
 // Editor styles
 mix.sass( 'assets/scss/editor-styles.scss', 'dist/css/editor-styles.css' );
 
+// Editor styles additions
+mix.sass( 'assets/scss/editor-styles-additions.scss', 'dist/css/editor-styles-additions.css' );
+
 // Main css
 mix.sass( 'assets/scss/main.scss', 'dist/css/main.css' );
 

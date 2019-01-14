@@ -3,13 +3,10 @@
 
 	margin: 32px 0;
 
-	max-width: $size__content-max-width;
-	margin-right: auto;
-	margin-left: auto;
-	padding: 1rem;
-
+	// blocks max width
+	max-width: 100%;
 	@include media(tablet) {
-		padding: 0;
+		// max-width: 80%;
 	}
 
 	> *:first-child {
@@ -21,13 +18,99 @@
 	}
 
 	&.alignwide {
-		max-width: $size__content-max-width;
-		// padding: 0;
+		margin-left: auto;
+		margin-right: auto;
+		clear: both;
+
+		@include media(tablet) {
+			width: 100%;
+			max-width: 100%;
+		}
 	}
 
 	&.alignfull {
-		max-width: 100%;
-		padding: 0;
+		position: relative;
+		left: -#{$size__spacing-unit };
+		width: calc( 100% + (2 * #{$size__spacing-unit}));
+		max-width: calc( 100% + (2 * #{$size__spacing-unit}));
+		clear: both;
+
+		@include media(tablet) {
+			margin-top: calc(2 * #{$size__spacing-unit});
+			margin-bottom: calc(2 * #{$size__spacing-unit});
+			left: calc( -12.5% - 75px );
+			width: calc( 125% + 150px );
+			max-width: calc( 125% + 150px );
+		}
+	}
+
+	&.alignleft {
+		/*rtl:ignore*/
+		float: left;
+		max-width: 45%;
+		margin-top: 0;
+		margin-left: 0;
+		/*rtl:ignore*/
+		margin-right: $size__spacing-unit;
+
+		@include media(tablet) {
+			/*rtl:ignore*/
+			margin-right: calc(2 * #{$size__spacing-unit});
+		}
+	}
+
+	&.alignright {
+		/*rtl:ignore*/
+		float: right;
+		max-width: 45%;
+		margin-top: 0;
+		margin-right: 0;
+		/*rtl:ignore*/
+		margin-left: $size__spacing-unit;
+
+		@include media(tablet) {
+			max-width: calc(4 * (100vw / 12));
+			margin-right: 0;
+			/*rtl:ignore*/
+			margin-left: calc(2 * #{$size__spacing-unit});
+		}
+	}
+	&.aligncenter {
+		margin-left: auto;
+		margin-right: auto;
+
+		@include media(tablet) {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+}
+
+.entry .entry-content {
+
+	.has-drop-cap {
+		&:not(:focus):first-letter {
+			font-family: $font__heading;
+			font-size: $font__size-xxxl;
+			line-height: 1;
+			font-weight: bold;
+			margin: 0 0.25em 0 0;
+		}
+	}
+
+	// Captions
+	.wp-block-audio figcaption,
+	.wp-block-video figcaption,
+	.wp-block-image figcaption,
+	.wp-block-gallery .blocks-gallery-image figcaption,
+	.wp-block-gallery .blocks-gallery-item figcaption {
+		font-size: $font__size-xs;
+		font-family: $font__heading;
+		line-height: $font__line-height-pre;
+		margin: 0;
+		padding: ( $size__spacing-unit * .5 );
+		text-align: center;
 	}
 
 }

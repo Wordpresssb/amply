@@ -1,10 +1,11 @@
 ////
-/// Latest posts block.
+/// Latest categories & archives blocks.
 ////
 
 .entry .entry-content {
 
-	.wp-block-latest-posts {
+	.wp-block-archives,
+	.wp-block-categories {
 
 		padding: 0;
 		list-style: none;
@@ -27,25 +28,24 @@
 			}
 		}
 
-	}
-
-	.wp-block-latest-posts.is-grid {
-		li {
-			border-top: 2px solid $color__border;
-			padding-top: (1 * $size__spacing-unit);
-			margin-bottom: (2 * $size__spacing-unit);
-			a {
-				&:after {
-					content: '';
-				}
-			}
-			&:last-child {
-				margin-bottom: auto;
-				a:after {
-					content: '';
-				}
-			}
+		&.aligncenter {
+			text-align: center;
 		}
+
 	}
 
+	.wp-block-categories {
+
+		ul {
+			padding-top: ( .75 * $size__spacing-unit );
+		}
+
+		li ul {
+			list-style: none;
+			padding-left: 0;
+		}
+
+		@include nestedSubMenuPadding();
+	}
+	
 }

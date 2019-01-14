@@ -2,6 +2,12 @@
 /// Preformatted block.
 ////
 
-.wp-block-preformatted {
+.entry .entry-content {
+
+	.wp-block-preformatted {
+		font-size: $font__size-xs;
+		line-height: 1.8;
+		padding: $size__spacing-unit;
+	}
 
 }

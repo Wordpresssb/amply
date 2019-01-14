@@ -181,9 +181,7 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 			 *
 			 * @link https://wordpress.org/gutenberg/handbook/designers-developers/developers/themes/theme-support/#editor-styles
 			 */
-			// phpcs:disable -- Block editor styles added in class-amply-assets.
-			// add_theme_support( 'editor-styles' );
-			// phpcs:enable
+			add_theme_support( 'editor-styles' );
 
 			/**
 			 * Enqueue editor styles.
@@ -223,7 +221,7 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 					array(
 						'name'      => __( 'Large', 'amply' ),
 						'shortName' => __( 'L', 'amply' ),
-						'size'      => 36.5,
+						'size'      => 37.125,
 						'slug'      => 'large',
 					),
 					array(

@@ -2,7 +2,14 @@
 /// Table block.
 ////
 
-.wp-block-table {
+.entry .entry-content {
 
-	&.has-fixed-layout {}
+	.wp-block-table {
+
+		th,
+		td {
+			border-color: $color__text-light;
+		}
+	}
+
 }

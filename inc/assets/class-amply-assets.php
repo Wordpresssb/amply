@@ -255,11 +255,6 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 				wp_enqueue_style( 'amply-fonts', $fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			}
 
-			// Enqueue block editor stylesheet.
-			$handle = 'amply-editor-styles';
-			$src    = get_theme_file_uri( '/dist/css/editor-styles.css' );
-			wp_enqueue_style( $handle, $src, array(), '20151215' );
-
 		}
 
 	}

@@ -1,27 +1,13 @@
 ////
-/// Embed block.
+/// Embed blocks.
 ////
 
-.wp-block-embed {
+.entry .entry-content {
 
-	// Image embeds.
-	&.is-type-image {}
-
-	// Audio embeds.
-	&.is-type-audio {}
-
-	// Rich text embeds (text, Twitter, etc.)
-	&.is-type-rich {}
-
-	// Video embeds.
-	&.is-type-video {}
-
-	// Directly target iframes.
-	iframe {}
-
-	// Caption below embedded content.
-	figcaption {
-		margin-top: 0.5em;
-		text-align: center;
+	// Twitter Embed
+	.wp-block-embed-twitter {
+		word-break: break-word;
 	}
+
 }
+
