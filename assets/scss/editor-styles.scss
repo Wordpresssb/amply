@@ -30,6 +30,22 @@ body {
 
 }
 
+/** === Content Width === */
+
+.wp-block {
+	// width: calc(100vw - (2 * #{$size__spacing-unit}));
+	max-width: 100%;
+
+	@include media(tablet) {
+		// width: calc(8 * (100vw / 12));
+	}
+
+	// Only the top level blocks need specific widths, therefore override for every nested block.
+	.wp-block {
+		width: 100%;
+	}
+}
+
 /** === Base Typography === */
 
 body {
@@ -104,22 +120,6 @@ a {
 	&:focus {
 		outline: thin dotted;
 		text-decoration: underline;
-	}
-}
-
-/** === Content Width === */
-
-.wp-block {
-	width: calc(100vw - (2 * #{$size__spacing-unit}));
-	max-width: 100%;
-
-	@include media(tablet) {
-		// width: calc(8 * (100vw / 12));
-	}
-
-	// Only the top level blocks need specific widths, therefore override for every nested block.
-	.wp-block {
-		width: 100%;
 	}
 }
 
@@ -454,7 +454,7 @@ ul.wp-block-archives,
 	}
 }
 
-/** === Blockquote === */
+/** === Quote === */
 
 .wp-block-quote {
 

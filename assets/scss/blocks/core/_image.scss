@@ -16,7 +16,8 @@
 			max-width: calc( 100% + (2 * #{$size__spacing-unit}));
 
 			@include media(tablet) {
-				max-width: calc( 125% + 150px );
+				// max-width: calc( 125% + 150px );
+				max-width: 100vw;
 				margin-left: auto;
 				margin-right: auto;
 			}

@@ -28,19 +28,32 @@
 		}
 	}
 
+	// Twentynineteen class
+	// &.alignfull {
+	// 	position: relative;
+	// 	left: -#{$size__spacing-unit };
+	// 	width: calc( 100% + (2 * #{$size__spacing-unit}));
+	// 	max-width: calc( 100% + (2 * #{$size__spacing-unit}));
+	// 	clear: both;
+
+	// 	@include media(tablet) {
+	// 		margin-top: calc(2 * #{$size__spacing-unit});
+	// 		margin-bottom: calc(2 * #{$size__spacing-unit});
+
+	// 		left: calc( -12.5% - 75px );
+	// 		width: calc( 125% + 150px );
+	// 		max-width: calc( 125% + 150px );
+	// 	}
+	// }
+
 	&.alignfull {
-		position: relative;
-		left: -#{$size__spacing-unit };
-		width: calc( 100% + (2 * #{$size__spacing-unit}));
-		max-width: calc( 100% + (2 * #{$size__spacing-unit}));
-		clear: both;
+		margin-left: calc( -100vw / 2 + 100% / 2 );
+		margin-right: calc( -100vw / 2 + 100% / 2 );
+		max-width: none;
 
 		@include media(tablet) {
 			margin-top: calc(2 * #{$size__spacing-unit});
 			margin-bottom: calc(2 * #{$size__spacing-unit});
-			left: calc( -12.5% - 75px );
-			width: calc( 125% + 150px );
-			max-width: calc( 125% + 150px );
 		}
 	}
 
@@ -75,6 +88,7 @@
 			margin-left: calc(2 * #{$size__spacing-unit});
 		}
 	}
+
 	&.aligncenter {
 		margin-left: auto;
 		margin-right: auto;
@@ -89,6 +103,7 @@
 
 .entry .entry-content {
 
+	// Drop-cap
 	.has-drop-cap {
 		&:not(:focus):first-letter {
 			font-family: $font__heading;
@@ -113,6 +128,7 @@
 		text-align: center;
 	}
 
+	// Dropdown
 	select {
 
 		height: 36px;

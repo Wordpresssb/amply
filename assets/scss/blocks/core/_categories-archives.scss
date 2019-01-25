@@ -46,6 +46,14 @@
 		}
 
 		@include nestedSubMenuPadding();
+
+	}
+
+	.wp-block-archives-dropdown,
+	.wp-block-categories-dropdown {
+		select {
+			width: auto;
+		}
 	}
 	
 }
