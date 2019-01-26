@@ -116,7 +116,7 @@ function tests() {
 	// var_dump( get_option( 'active_plugins' ) );
 	// var_dump( wp_styles()->registered['amply-header1'] );
 
-	// $test1 = amply_defaults( 'amply_default_header_type' );
+	// $test1 = amply_defaults( 'amply_default_header_header2_elements' );
 	// var_dump($test1);
 	// echo '<br>';
 	// $test3 = amply_option('amply_default_header_type');

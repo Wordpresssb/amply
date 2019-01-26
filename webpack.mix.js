@@ -9,7 +9,7 @@ mix.js( 'assets/js/customize-controls.js', 'dist/js/customize-controls.js');
 mix.sass( 'assets/scss/editor-styles.scss', 'dist/css/editor-styles.css' );
 
 // Editor styles additions
-mix.sass( 'assets/scss/editor-styles-additions.scss', 'dist/css/editor-styles-additions.css' );
+mix.sass( 'assets/scss/editor-styles-customizer-additions.scss', 'dist/css/editor-styles-customizer-additions.css' );
 
 // Main css
 mix.sass( 'assets/scss/main.scss', 'dist/css/main.css' );
@@ -27,3 +27,4 @@ mix.scripts([
 
 // Views
 mix.sass( 'views/header/header1/header1.scss', 'views/header/header1/header1.css' );
+mix.sass( 'views/header/header2/header2.scss', 'views/header/header2/header2.css' );

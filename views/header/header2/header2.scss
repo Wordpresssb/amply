@@ -1,0 +1,17 @@
+////
+/// Header 2 component
+////
+@import '../../../assets/scss/settings/_index';
+@import '../../../assets/scss/tools/_index';
+
+.site-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.site-header__elements {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

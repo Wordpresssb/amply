@@ -16,6 +16,16 @@
   }
 }
 
+/** === Content Width === */
+
+.wp-block {
+  max-width: 100%;
+}
+
+.wp-block .wp-block {
+  width: 100%;
+}
+
 /** === Base Typography === */
 
 body {
@@ -96,17 +106,6 @@ a:active {
 a:focus {
   outline: thin dotted;
   text-decoration: underline;
-}
-
-/** === Content Width === */
-
-.wp-block {
-  width: calc(100vw - (2 * 1rem));
-  max-width: 100%;
-}
-
-.wp-block .wp-block {
-  width: 100%;
 }
 
 /** === Post Title === */
@@ -494,7 +493,7 @@ ul.wp-block-archives li ul,
   }
 }
 
-/** === Blockquote === */
+/** === Quote === */
 
 .wp-block-quote:not(.is-large):not(.is-style-large) {
   border-left: 2px solid #5C6BC0;

@@ -68,15 +68,14 @@ Kirki::add_field(
 	array(
 		'type'            => 'sortable',
 		'settings'        => 'amply_default_header_header2_elements',
-		'label'           => esc_html__( 'Header 2 Elements', 'ubik' ),
+		'label'           => esc_html__( 'Header 2 Elements', 'amply' ),
 		'section'         => 'amply_default_header_header2_elements_outer_section',
 		'priority'        => 10,
 		'choices'         => array(
-			'site-logo'           => esc_html__( 'Site Logo', 'amply' ),
-			'social-nav'          => esc_html__( 'Social Navigation', 'amply' ),
-			'primary-nav'         => esc_html__( 'Primary Navigation', 'amply' ),
-			'mobile-menu-trigger' => esc_html__( 'Mobile Menu Trigger', 'amply' ),
-			'search-form'         => esc_html__( 'Search Form', 'amply' ),
+			'site-logo'   => esc_html__( 'Site Logo', 'amply' ),
+			'primary-nav' => esc_html__( 'Primary Navigation', 'amply' ),
+			'social-nav'  => esc_html__( 'Social Navigation', 'amply' ),
+			'search-form' => esc_html__( 'Search Form', 'amply' ),
 		),
 		'default'         => amply_defaults( 'amply_default_header_header2_elements' ),
 		'active_callback' => array(

@@ -2,57 +2,69 @@
 /**
  * Header 2
  *
- * @package wprig
+ * @package amply
  */
 
 $elements = amply_option( 'amply_default_header_header2_elements' );
+
+$query_var = get_query_var( 'amply_default_header_var' );
 ?>
 
-<h1>HEADER 2</h1>
+<?php wp_print_styles( array( 'amply-header2' ) ); ?>
 
-<?php
-if ( $elements ) :
+<header id="<?php echo esc_attr( $query_var ); ?>" class="site-header">
 
-	// Loop through elements.
-	foreach ( $elements as $element ) :
-		?>
+	<div class="site-header__trigger">
 
-		<?php
-		// Site-logo.
-		if ( 'site-logo' === $element ) {
-			get_template_part( 'views/site/site-logo' );
-		}
-		?>
+		<?php get_template_part( 'views/site/mobile-menu-trigger' ); ?>
+
+	</div>
+
+	<div class="site-header__elements">
 
 		<?php
-		// Social navigation.
-		if ( 'social-nav' === $element ) {
-			get_template_part( 'views/site/social-nav' );
-		}
+		if ( $elements ) :
+
+			// Loop through elements.
+			foreach ( $elements as $element ) :
+				?>
+
+				<?php
+				// Logo.
+				if ( 'site-logo' === $element ) {
+					get_template_part( 'views/site/site-logo' );
+				}
+				?>
+
+				<?php
+				// Primary navigation.
+				if ( 'primary-nav' === $element ) {
+					get_template_part( 'views/site/primary-nav' );
+				}
+				?>
+
+				<?php
+				// Social navigation.
+				if ( 'social-nav' === $element ) {
+					get_template_part( 'views/site/social-nav' );
+				}
+				?>
+
+				<?php
+				// Search form.
+				if ( 'search-form' === $element ) {
+					get_template_part( 'views/site/search-form' );
+				}
+				?>
+
+				<?php
+			endforeach;
+
+		endif;
 		?>
 
-		<?php
-		// Primary navigation.
-		if ( 'primary-nav' === $element ) {
-			get_template_part( 'views/site/primary-nav' );
-		}
-		?>
+	</div>
 
-		<?php
-		// Mobile menu trigger.
-		if ( 'mobile-menu-trigger' === $element ) {
-			get_template_part( 'views/site/mobile-menu-trigger' );
-		}
-		?>
+</header>
 
-		<?php
-		// Search form.
-		if ( 'search-form' === $element ) {
-			get_template_part( 'views/site/search-form' );
-		}
-		?>
 
-		<?php
-	endforeach;
-
-endif;

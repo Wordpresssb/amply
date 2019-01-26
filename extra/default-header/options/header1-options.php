@@ -68,7 +68,7 @@ Kirki::add_field(
 	array(
 		'type'            => 'sortable',
 		'settings'        => 'amply_default_header_header1_elements',
-		'label'           => esc_html__( 'Header1 Elements', 'ubik' ),
+		'label'           => esc_html__( 'Header1 Elements', 'amply' ),
 		'section'         => 'amply_default_header_header1_elements_outer_section',
 		'priority'        => 10,
 		'choices'         => array(
@@ -127,13 +127,18 @@ Kirki::add_field(
 Kirki::add_field(
 	'amply_config',
 	array(
-		'type'            => 'switch',
-		'settings'        => 'amply_default_header_header1_sticky',
-		'label'           => esc_html__( 'Enable Sticky Header', 'amply' ),
+		'type'            => 'radio-buttonset',
+		'settings'        => 'amply_default_header_header1_position',
+		'label'           => esc_html__( 'Header Position', 'amply' ),
 		'section'         => 'amply_default_header_section',
-		'default'         => '0',
+		'default'         => 'normal',
 		'priority'        => 10,
 		'transport'       => 'auto',
+		'choices'         => array(
+			'normal'      => esc_html__( 'Normal', 'amply' ),
+			'sticky'      => esc_html__( 'Sticky', 'amply' ),
+			'transparent' => esc_html__( 'Transparent', 'amply' ),
+		),
 		'active_callback' => array(
 			array(
 				'setting'  => 'amply_default_header_type',
@@ -145,28 +150,28 @@ Kirki::add_field(
 			array(
 				'element'           => '#default-header1.site-header',
 				'property'          => 'position',
-				'sanitize_callback' => 'sanitize_sticky_position',
+				'sanitize_callback' => 'sanitize_header_position',
 			),
 			array(
 				'element'           => '#default-header1.site-header',
 				'property'          => 'width',
-				'sanitize_callback' => 'sanitize_sticky_width',
+				'sanitize_callback' => 'sanitize_header_width',
 			),
 			array(
 				'element'           => '#default-header1.site-header',
 				'property'          => 'top',
-				'sanitize_callback' => 'sanitize_sticky_top',
+				'sanitize_callback' => 'sanitize_header_top',
 			),
 			array(
 				'element'           => '#default-header1.site-header',
 				'property'          => 'top',
 				'media_query'       => '@media (max-width: 768px)',
-				'sanitize_callback' => 'sanitize_sticky_top_mobile',
+				'sanitize_callback' => 'sanitize_header_top_mobile',
 			),
 			array(
 				'element'           => '#default-header1 + .site-content-wrap',
 				'property'          => 'padding-top',
-				'sanitize_callback' => 'sanitize_sticky_padding',
+				'sanitize_callback' => 'sanitize_header_padding',
 			),
 		),
 	)
@@ -409,6 +414,92 @@ function sanitize_logo_position( $value ) {
 }
 
 /**
+ * Sanitize header position
+ *
+ * @param string $value Buttonset value.
+ * @return mixed
+ */
+function sanitize_header_position( $value ) {
+
+	if ( 'sticky' === $value ) {
+		return 'fixed';
+	} elseif ( 'transparent' === $value ) {
+		return 'absolute';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize header width
+ *
+ * @param string $value Buttonset value.
+ * @return mixed
+ */
+function sanitize_header_width( $value ) {
+
+	if ( 'sticky' === $value || 'transparent' === $value ) {
+		return '100%';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize header top
+ *
+ * @param string $value Buttonset value.
+ * @return mixed
+ */
+function sanitize_header_top( $value ) {
+
+	if ( 'sticky' === $value && is_admin_bar_showing() ) {
+		return '32px';
+	} elseif ( 'sticky' === $value ) {
+		return '0';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize header top mobile
+ *
+ * @param string $value Buttonset value.
+ * @return mixed
+ */
+function sanitize_header_top_mobile( $value ) {
+
+	if ( 'sticky' === $value && is_admin_bar_showing() ) {
+		return '45px';
+	} elseif ( 'sticky' === $value ) {
+		return '0';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize header padding
+ *
+ * @param string $value Buttonset value.
+ * @return mixed
+ */
+function sanitize_header_padding( $value ) {
+
+	if ( 'sticky' === $value ) {
+		return '3.5rem';
+	} else {
+		return false;
+	}
+
+}
+
+/**
  * Sanitize sticky position
  *
  * @param string $value Switch value.
@@ -486,6 +577,38 @@ function sanitize_sticky_padding( $value ) {
 
 	if ( $value ) {
 		return '3.5rem';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize transparent position
+ *
+ * @param string $value Switch value.
+ * @return mixed
+ */
+function sanitize_transparent_position( $value ) {
+
+	if ( $value ) {
+		return 'absolute';
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Sanitize transparent width
+ *
+ * @param string $value Switch value.
+ * @return mixed
+ */
+function sanitize_transparent_width( $value ) {
+
+	if ( $value ) {
+		return '100%';
 	} else {
 		return false;
 	}

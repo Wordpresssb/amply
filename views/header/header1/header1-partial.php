@@ -16,9 +16,7 @@ $query_var = get_query_var( 'amply_default_header_var' );
 
 	<div class="site-header__brand">
 
-	<?php
-		get_template_part( 'views/site/site-logo' );
-	?>
+		<?php get_template_part( 'views/site/site-logo' ); ?>
 
 	</div>
 
