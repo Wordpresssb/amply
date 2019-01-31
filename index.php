@@ -39,7 +39,7 @@ get_header(); ?>
 
 			else :
 
-				get_template_part( 'template-parts/content', 'none' );
+				get_template_part( 'views/none/none' );
 
 			endif;
 			?>
@@ -52,6 +52,6 @@ get_header(); ?>
 
 	</div><!-- #content -->
 
-	</div><!-- #content-wrap -->
+</div><!-- #content-wrap -->
 
 <?php get_footer(); ?>

@@ -11,7 +11,18 @@
 }
 
 .site-content {
-	overflow: hidden;
+
+	// overflow: hidden;
+
+	max-width: calc(100% - (2 * #{ $size__spacing-unit }));
+	margin: 0 $size__spacing-unit;
+
+	@include media(tablet) {
+		max-width: $size__content-max-width;
+		margin: 0 calc((100% - #{ $size__content-max-width }) / 2);
+		padding: 0 60px;
+	}
+
 }
 
 .has-sidebar .site-content {

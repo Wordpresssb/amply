@@ -9,6 +9,28 @@
  */
 
 /**
+ * [ Table of contents]
+ *
+ * # amply_is_amp()
+ * # amply_using_amp_live_list_comments()
+ * # amply_add_amp_live_list_pagination_attribute()
+ * # amply_index_header()
+ * # amply_posted_on()
+ * # amply_posted_by()
+ * # amply_entry_footer()
+ * # amply_post_categories()
+ * # amply_post_tags()
+ * # amply_comments_link()
+ * # amply_edit_post_link()
+ * # amply_post_thumbnail()
+ * # amply_attachment_in()
+ * # amply_the_attachment_navigation()
+ * # amply_excerpt()
+ * # amply_the_comments()
+ * # amply_filter_add_amp_live_list_pagination_attribute()
+ */
+
+/**
  * Determine whether this is an AMP response.
  *
  * Note that this must only be called after the parse_query action.
@@ -376,4 +398,102 @@ function amply_the_attachment_navigation() {
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation .attachment-navigation -->
 	<?php
+}
+
+/**
+ * The excerpt.
+ *
+ * @param integer $length The excerpt lenght.
+ * @return string $output The excerpt.
+ */
+function amply_excerpt( $length = 30 ) {
+	global $post;
+
+	// Check for custom excerpt.
+	if ( has_excerpt( $post->ID ) ) {
+		$output = $post->post_excerpt;
+	} else {
+
+		// Check for more tag and return content if it exists.
+		if ( strpos( $post->post_content, '<!--more-->' ) ) {
+			$output = apply_filters( 'the_content', get_the_content() );
+		} else {
+			$output = wp_trim_words( strip_shortcodes( $post->post_content ), $length );
+		}
+	}
+
+	return $output;
+
+}
+
+/**
+ * Displays the list of comments for the current post.
+ *
+ * Internally this method calls `wp_list_comments()`. However, in addition to that it will render the wrapping
+ * element for the list, so that must not be added manually. The method will also take care of generating the
+ * necessary markup if amp-live-list should be used for comments.
+ *
+ * @param array $args Optional. Array of arguments. See `wp_list_comments()` documentation for a list of supported
+ *                    arguments.
+ */
+function the_comments( array $args = array() ) {
+	$args = array_merge(
+		$args,
+		array(
+			'style'      => 'ol',
+			'short_ping' => true,
+		)
+	);
+
+	$amp_live_list = amply_using_amp_live_list_comments();
+
+	if ( $amp_live_list ) {
+		$comment_order     = get_option( 'comment_order' );
+		$comments_per_page = get_option( 'page_comments' ) ? (int) get_option( 'comments_per_page' ) : 10000;
+		$poll_inverval     = MINUTE_IN_SECONDS * 1000;
+
+		?>
+		<amp-live-list
+			id="amp-live-comments-list-<?php the_ID(); ?>"
+			<?php echo ( 'asc' === $comment_order ) ? ' sort="ascending" ' : ''; ?>
+			data-poll-interval="<?php echo esc_attr( $poll_inverval ); ?>"
+			data-max-items-per-page="<?php echo esc_attr( $comments_per_page ); ?>"
+		>
+		<?php
+
+		add_filter( 'navigation_markup_template', 'amply_filter_add_amp_live_list_pagination_attribute' );
+	}
+
+	?>
+	<ol class="comment-list"<?php echo $amp_live_list ? ' items' : ''; ?>>
+		<?php wp_list_comments( $args ); ?>
+	</ol><!-- .comment-list -->
+	<?php
+
+	the_comments_navigation();
+
+	if ( $amp_live_list ) {
+		remove_filter( 'navigation_markup_template', 'amply_filter_add_amp_live_list_pagination_attribute' );
+
+		?>
+			<div update>
+				<button class="button" on="tap:amp-live-comments-list-<?php the_ID(); ?>.update"><?php esc_html_e( 'New comment(s)', 'amply' ); ?></button>
+			</div>
+		</amp-live-list>
+		<?php
+	}
+}
+
+/**
+ * Adds a pagination reference point attribute for amp-live-list when theme supports AMP.
+ *
+ * This is used by the navigation_markup_template filter in the comments template.
+ *
+ * @link https://www.ampproject.org/docs/reference/components/amp-live-list#pagination
+ *
+ * @param string $markup Navigation markup.
+ * @return string Filtered markup.
+ */
+function amply_filter_add_amp_live_list_pagination_attribute( string $markup ) : string {
+	return preg_replace( '/(\s*<[a-z0-9_-]+)/i', '$1 pagination ', $markup, 1 );
 }

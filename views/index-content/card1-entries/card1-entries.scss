@@ -1,0 +1,15 @@
+////
+/// Styles for card-entries.
+////
+
+@import 'assets/scss/settings/_index';
+@import 'assets/scss/tools/_index';
+
+.card1-entries {
+
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+}
+

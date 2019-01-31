@@ -58,7 +58,7 @@ require_once get_parent_theme_file_path( 'inc/color-patterns/class-amply-color-p
 require_once get_parent_theme_file_path( 'extra/default-header/class-amply-default-header.php' );
 
 // Default index loop.
-require_once get_parent_theme_file_path( 'extra/default-index/class-amply-default-index-loop.php' );
+require_once get_parent_theme_file_path( 'extra/default-index-loop/class-amply-default-index-loop.php' );
 
 // Default single loop.
 require_once get_parent_theme_file_path( 'extra/default-single/class-amply-default-single-loop.php' );
@@ -108,6 +108,11 @@ require get_parent_theme_file_path( '/pluggable/mobile-sidebar/mobile-sidebar.ph
  * Tests
  */
 function tests() {
+
+	// global $template;
+	// var_dump( $template );
+	// echo '<br>';
+	// var_dump( basename( $template ) );
 
 	// var_dump( 'Theme Path: ' . get_template_directory() );
 	// var_dump( 'Theme URL: ' . get_template_directory_uri() );

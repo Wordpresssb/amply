@@ -29,12 +29,20 @@ add_filter( 'amply_default_options_filter', 'amply_add_default_index_loop_defaul
  * Add settings
  */
 
+Kirki::add_panel(
+	'amply_default_content_panel',
+	array(
+		'title'    => esc_html__( 'Content', 'amply' ),
+		'priority' => 303,
+	)
+);
+
 Kirki::add_section(
 	'amply_default_index_section',
 	array(
 		'title'    => esc_html__( 'Posts Index Options', 'amply' ),
-		'panel'    => 'amply_general_panel',
-		'priority' => 161,
+		'panel'    => 'amply_default_content_panel',
+		'priority' => 160,
 	)
 );
 

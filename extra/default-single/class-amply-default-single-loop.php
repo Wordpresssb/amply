@@ -41,14 +41,14 @@ if ( ! class_exists( 'Amply_Default_Single_Loop' ) ) {
 		 */
 		private function __construct() {
 
-			add_action( 'template_redirect', array( $this, 'load_default_index_loop_component' ) );
+			add_action( 'template_redirect', array( $this, 'load_default_single_loop_component' ) );
 
 		}
 
 		/**
-		 * Load appropriate index loop component.
+		 * Load appropriate single loop component.
 		 */
-		public function load_default_index_loop_component() {
+		public function load_default_single_loop_component() {
 
 			require_once get_template_directory() . '/extra/default-single/class-amply-default-single-loop-component.php';
 

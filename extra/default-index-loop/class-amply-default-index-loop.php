@@ -51,7 +51,7 @@ if ( ! class_exists( 'Amply_Default_Index_Loop' ) ) {
 		 */
 		public function default_index_options() {
 
-			require_once get_template_directory() . '/extra/default-index/options/default-index-options.php';
+			require_once get_template_directory() . '/extra/default-index-loop/options/default-index-options.php';
 
 		}
 
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Amply_Default_Index_Loop' ) ) {
 		 */
 		public function load_default_index_loop_component() {
 
-			require_once get_template_directory() . '/extra/default-index/class-amply-default-index-loop-component.php';
+			require_once get_template_directory() . '/extra/default-index-loop/class-amply-default-index-loop-component.php';
 
 		}
 

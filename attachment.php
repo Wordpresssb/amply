@@ -1,8 +1,11 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The template for displaying attachments and their metadata.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * Attachments are a special post type that holds information
+ * about a file uploaded through the WordPress media upload system.
+ *
+ * @link https://developer.wordpress.org/themes/template-files-section/attachment-template-files/
  *
  * @package amply
  */
@@ -23,8 +26,13 @@ get_header();
 		<main id="main" class="site-main">
 
 			<?php
-			// Index loop.
-			do_action( 'amply_single_loop' );
+			wp_print_styles( array( 'amply-attachement-entry' ) );
+
+			while ( have_posts() ) {
+				the_post();
+
+				get_template_part( 'views/attachment-content/entry-attachment' );
+			}
 			?>
 
 		</main><!-- #main -->

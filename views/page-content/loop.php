@@ -18,6 +18,6 @@ while ( have_posts() ) :
 	/**
 	 * Include the template for the content.
 	 */
-	get_template_part( 'views/page/entry' );
+	get_template_part( 'views/page-content/entry' );
 
 endwhile;

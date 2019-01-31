@@ -46,7 +46,7 @@ if ( ! class_exists( 'Amply_Default_Page_Loop' ) ) {
 		}
 
 		/**
-		 * Load appropriate index loop component.
+		 * Load appropriate page loop component.
 		 */
 		public function load_default_page_loop_component() {
 
