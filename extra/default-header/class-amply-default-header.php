@@ -62,7 +62,7 @@ if ( ! class_exists( 'Amply_Default_Header' ) ) {
 		 */
 		public function customize_controls_pane_css() {
 
-			wp_enqueue_style( 'amply-default-header-controls-pane-css', get_theme_file_uri( '/extra/default-header/css/customize-control.css' ), null, AMPLY_THEME_VERSION );
+			wp_enqueue_style( 'amply-default-header-controls-pane-css', get_theme_file_uri( '/extra/default-header/css/customize-controls.css' ), null, AMPLY_THEME_VERSION );
 
 		}
 
@@ -71,7 +71,7 @@ if ( ! class_exists( 'Amply_Default_Header' ) ) {
 		 */
 		public function customize_controls_pane_js() {
 
-			wp_enqueue_script( 'amply-default-header-controls-pane-js', get_theme_file_uri( '/extra/default-header/js/customize-control.js' ), array( 'customize-controls', 'jquery' ), AMPLY_THEME_VERSION, true );
+			wp_enqueue_script( 'amply-default-header-controls-pane-js', get_theme_file_uri( '/extra/default-header/js/customize-controls.js' ), array( 'customize-controls', 'jquery' ), AMPLY_THEME_VERSION, true );
 
 		}
 

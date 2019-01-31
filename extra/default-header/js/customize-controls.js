@@ -1,15 +1,14 @@
 /**
- * File default-header customizer-control.js.
+ * File default-header customize-control.js.
  */
 
 ( function( $ ) {
-	var api = wp.customize,
-		defaultHeaderTypeTrigger;
+	var api = wp.customize;
 
   api.bind( 'ready', function() {
 
 		/**
-		 * Add outer trigger button for amply_default_header_outer_section.
+		 * Trigger amply_default_header_outer_section.
 		 */
 		$( '#amply_default_header_type_trigger_button' ).on( 'click', function( event ) {
 			event.preventDefault();
@@ -18,7 +17,7 @@
 		} );
 
 		/**
-		 * Add outer trigger button for amply_default_header_header1_elements_outer_section.
+		 * Trigger amply_default_header_header1_elements_outer_section.
 		 */
 		$( '#amply_default_header_header1_elements_trigger_button' ).on( 'click', function( event ) {
 			event.preventDefault();
@@ -27,7 +26,7 @@
 		} );
 
 		/**
-		 * Add outer trigger button for amply_default_header_header2_elements_outer_section.
+		 * Trigger amply_default_header_header2_elements_outer_section.
 		 */
 		$( '#amply_default_header_header2_elements_trigger_button' ).on( 'click', function( event ) {
 			event.preventDefault();

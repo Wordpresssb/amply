@@ -51,6 +51,21 @@ if ( ! class_exists( 'Amply_Widgets' ) ) {
 		 * @return void
 		 */
 		public function register_widgets() {
+
+			// Sidebar left.
+			register_sidebar(
+				array(
+					'name'          => esc_html__( 'Sidebar Left', 'amply' ),
+					'id'            => 'sidebar-left',
+					'description'   => esc_html__( 'Add widgets here.', 'amply' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				)
+			);
+
+			// Sidebar right.
 			register_sidebar(
 				array(
 					'name'          => esc_html__( 'Sidebar Right', 'amply' ),

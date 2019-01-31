@@ -50,7 +50,7 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 
 			$this->get_header_type();
 
-			add_action( 'amply_header', array( $this, 'default_header_partial' ) );
+			add_action( 'amply_header', array( $this, 'default_header_view' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'register_header_style' ) );
 			add_action( 'wp_head', array( $this, 'preload_header_body_style' ) );
 			add_filter( 'amply_head_custom_css', array( $this, 'head_css' ) );
@@ -69,12 +69,14 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 		/**
 		 * Add header template.
 		 */
-		public function default_header_partial() {
+		public function default_header_view() {
 
 			$data = 'default-' . $this->header;
 			set_query_var( 'amply_default_header_var', $data );
 
 			get_template_part( 'views/header/' . $this->header . '/' . $this->header, 'partial' );
+
+			/* TO DO : Use remove_query_var() to remove the query var. */
 
 		}
 

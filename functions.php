@@ -66,6 +66,9 @@ require_once get_parent_theme_file_path( 'extra/default-single/class-amply-defau
 // Default page loop.
 require_once get_parent_theme_file_path( 'extra/default-page/class-amply-default-page-loop.php' );
 
+// Default sidebar.
+require_once get_parent_theme_file_path( 'extra/default-sidebar/class-amply-default-sidebar.php' );
+
 /**
  * Compatibility
  */

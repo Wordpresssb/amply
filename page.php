@@ -15,6 +15,8 @@ get_header(); ?>
 
 	<div id="content" class="site-content">
 
+		<?php do_action( 'amply_sidebar_left' ); ?>
+
 		<?php do_action( 'amply_before_main' ); ?>
 
 		<main id="main" class="site-main">
@@ -28,7 +30,7 @@ get_header(); ?>
 
 		<?php do_action( 'amply_after_main' ); ?>
 
-		<?php get_sidebar(); ?>
+		<?php do_action( 'amply_sidebar_right' ); ?>
 
 	</div><!-- #content -->
 

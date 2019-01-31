@@ -88,8 +88,8 @@ Kirki::add_field(
 		'default'  => amply_defaults( 'amply_default_header_type' ),
 		'priority' => 10,
 		'choices'  => array(
-			'header1' => get_template_directory_uri() . '/assets/images/header1.png',
-			'header2' => get_template_directory_uri() . '/assets/images/header2.png',
+			'header1' => get_template_directory_uri() . '/extra/default-header/images/header1.png',
+			'header2' => get_template_directory_uri() . '/extra/default-header/images/header2.png',
 		),
 	)
 );
