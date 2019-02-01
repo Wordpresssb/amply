@@ -1,19 +1,19 @@
 <?php
 /**
- * Default Header Component
+ * Front page Header Component
  *
  * @package amply
  */
 
 /**
- * Amply_Default_Header_Component class
+ * Amply_Frontpage_Header_Component class
  */
-if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
+if ( ! class_exists( 'Amply_Frontpage_Header_Component' ) ) {
 
 	/**
-	 * Amply_Default_Header_Component class
+	 * Amply_Frontpage_Header_Component class
 	 */
-	class Amply_Default_Header_Component {
+	class Amply_Frontpage_Header_Component {
 
 		/**
 		 * Instance
@@ -50,7 +50,7 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 
 			$this->get_header_type();
 
-			add_action( 'amply_header', array( $this, 'default_header_view' ) );
+			add_action( 'amply_header', array( $this, 'frontpage_header_view' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'register_header_style' ) );
 			add_action( 'wp_head', array( $this, 'preload_header_body_style' ) );
 			add_filter( 'amply_head_custom_css', array( $this, 'head_css' ) );
@@ -62,24 +62,22 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 		 */
 		public function get_header_type() {
 
-			$this->header = amply_option( 'amply_default_header_type' );
+			$this->header = amply_option( 'amply_frontpage_header_type' );
 
 		}
 
 		/**
 		 * Add header template.
 		 */
-		public function default_header_view() {
+		public function frontpage_header_view() {
 
-			$data = 'default-' . $this->header;
+			$data = 'frontpage-' . $this->header;
 			set_query_var( 'amply_header_var', $data );
 
-			$elements = amply_option( 'amply_default_header_' . $this->header . '_elements' );
+			$elements = amply_option( 'amply_frontpage_header_' . $this->header . '_elements' );
 			set_query_var( 'amply_header_elements_var', $elements );
 
 			get_template_part( 'views/header/' . $this->header . '/' . $this->header, 'partial' );
-
-			/* TO DO : Use remove_query_var() to remove the query var. */
 
 		}
 
@@ -150,4 +148,4 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 	}
 
 }
-Amply_Default_Header_Component::get_instance();
+Amply_Frontpage_Header_Component::get_instance();

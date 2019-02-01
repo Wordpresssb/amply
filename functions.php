@@ -54,6 +54,9 @@ require_once get_parent_theme_file_path( 'inc/color-patterns/class-amply-color-p
  * Extra features
  */
 
+// Sanitize callbacks.
+require_once get_parent_theme_file_path( 'extra/sanitize-callbacks/functions-sanitize-callbacks.php' );
+
 // Default header.
 require_once get_parent_theme_file_path( 'extra/default-header/class-amply-default-header.php' );
 
@@ -68,6 +71,10 @@ require_once get_parent_theme_file_path( 'extra/default-page/class-amply-default
 
 // Default sidebar.
 require_once get_parent_theme_file_path( 'extra/default-sidebar/class-amply-default-sidebar.php' );
+
+// Frontpage.
+require_once get_parent_theme_file_path( 'extra/frontpage/frontpage-panel.php' );
+require_once get_parent_theme_file_path( 'extra/frontpage/header/class-amply-frontpage-header.php' );
 
 /**
  * Compatibility

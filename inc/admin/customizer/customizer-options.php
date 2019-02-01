@@ -32,3 +32,23 @@ Kirki::add_field(
 		'priority' => 10,
 	)
 );
+
+Kirki::add_section(
+	'amply_page_options_expanded_section',
+	array(
+		'title'    => esc_html__( 'Section Options' ),
+		'priority' => 310,
+		'type'     => 'expanded',
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'     => 'custom',
+		'settings' => 'amply_empty_separator_page_options_expanded_section',
+		'label'    => '',
+		'section'  => 'amply_page_options_expanded_section',
+		'priority' => 10,
+	)
+);
