@@ -1,6 +1,6 @@
 <?php
 /**
- * Frontpage Header
+ * Front page header
  *
  * @package amply
  */
