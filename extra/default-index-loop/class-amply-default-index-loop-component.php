@@ -127,7 +127,7 @@ if ( ! class_exists( 'Amply_Default_Index_Loop_Component' ) ) {
 
 			if ( 'classic' === $this->index_layout ) {
 
-				if ( ! $wp_styles->registered['amply-classic-entries'] ) {
+				if ( empty( $wp_styles->registered['amply-classic-entries'] ) ) {
 					return;
 				}
 
@@ -141,7 +141,7 @@ if ( ! class_exists( 'Amply_Default_Index_Loop_Component' ) ) {
 
 			if ( 'card1' === $this->index_layout ) {
 
-				if ( ! $wp_styles->registered['amply-card1-entries'] ) {
+				if ( empty( $wp_styles->registered['amply-card1-entries'] ) ) {
 					return;
 				}
 

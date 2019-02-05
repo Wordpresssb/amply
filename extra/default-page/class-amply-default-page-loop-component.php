@@ -86,7 +86,7 @@ if ( ! class_exists( 'Amply_Default_Page_Loop_Component' ) ) {
 			// Get registered styles.
 			$wp_styles = wp_styles();
 
-			if ( ! $wp_styles->registered['amply-page-entry'] ) {
+			if ( empty( $wp_styles->registered['amply-page-entry'] ) ) {
 				return;
 			}
 

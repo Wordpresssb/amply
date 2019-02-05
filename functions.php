@@ -110,6 +110,9 @@ require_once get_parent_theme_file_path( 'pluggable/social-nav-menu/class-amply-
 // Add mobile sidebar.
 require get_parent_theme_file_path( '/pluggable/mobile-sidebar/mobile-sidebar.php' );
 
+// Add section templates.
+require_once get_parent_theme_file_path( 'pluggable/section-templates/class-amply-section-templates.php' );
+
 
 
 
@@ -149,6 +152,24 @@ function tests() {
 	// echo '<pre>';
 	// var_dump( wp_styles()->registered[ 'amply-header2' ] );
 	// echo '</pre>';
+
+	echo '<pre>';
+
+	//print_r( Kirki_Helper::get_posts( array( 'posts_per_page' => -1, 'post_type' => 'amply_header_cpt' ) ) );
+
+	$post_id = amply_option( 'amply_default_header_headercpt_template' );
+	print_r( $post_id );
+
+	echo '<br>';
+
+	$post_obj = get_post( $post_id );
+	print_r( $post_obj );
+
+	echo '<br>';
+
+	print_r( $post_obj->post_content );
+
+	echo '</pre>';
 
 }
 add_action( 'wp_footer', 'tests' );

@@ -36,7 +36,7 @@ Kirki::add_field(
 Kirki::add_section(
 	'amply_page_options_expanded_section',
 	array(
-		'title'    => esc_html__( 'Section Options' ),
+		'title'    => esc_html__( 'Page Options' ),
 		'priority' => 310,
 		'type'     => 'expanded',
 	)

@@ -110,7 +110,7 @@ if ( ! class_exists( 'Amply_Single_Header_Component' ) ) {
 			// Get registered styles.
 			$wp_styles = wp_styles();
 
-			if ( ! $wp_styles->registered[ 'amply-' . $this->header ] ) {
+			if ( empty( $wp_styles->registered[ 'amply-' . $this->header ] ) ) {
 				return;
 			}
 

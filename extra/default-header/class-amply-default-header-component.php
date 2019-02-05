@@ -71,11 +71,20 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 		 */
 		public function default_header_view() {
 
-			$data = 'default-' . $this->header;
-			set_query_var( 'amply_header_var', $data );
+			if ( 'headercpt' === $this->header ) {
 
-			$elements = amply_option( 'amply_default_header_' . $this->header . '_elements' );
-			set_query_var( 'amply_header_elements_var', $elements );
+				$header_id = amply_option( 'amply_default_header_' . $this->header . '_template' );
+				set_query_var( 'amply_header_id_var', $header_id );
+
+			} else {
+
+				$name = 'default-' . $this->header;
+				set_query_var( 'amply_header_var', $name );
+
+				$elements = amply_option( 'amply_default_header_' . $this->header . '_elements' );
+				set_query_var( 'amply_header_elements_var', $elements );
+
+			}
 
 			get_template_part( 'views/header/' . $this->header . '/' . $this->header, 'partial' );
 
@@ -112,7 +121,7 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 			// Get registered styles.
 			$wp_styles = wp_styles();
 
-			if ( ! $wp_styles->registered[ 'amply-' . $this->header ] ) {
+			if ( empty( $wp_styles->registered[ 'amply-' . $this->header ] ) ) {
 				return;
 			}
 

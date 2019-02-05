@@ -33,6 +33,7 @@ mix.scripts([
 ], 'dist/js/all.js');
 
 // Views
+mix.sass( 'views/header/headercpt/headercpt.scss', 'views/header/headercpt/headercpt.css' );
 mix.sass( 'views/header/header1/header1.scss', 'views/header/header1/header1.css' );
 mix.sass( 'views/header/header2/header2.scss', 'views/header/header2/header2.css' );
 
