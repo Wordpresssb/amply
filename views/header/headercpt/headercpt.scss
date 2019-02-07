@@ -8,13 +8,8 @@
 
 	.entry-content > * {
 
-		&:first-child {
-			margin-top: 0;
-		}
-	
-		&:last-child {
-			margin-bottom: 0;
-		}
+		// // Remove margins between blocks in the header cpt.
+		// margin: 0;
 
 	}
 

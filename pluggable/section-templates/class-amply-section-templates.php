@@ -43,6 +43,10 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 
 			add_action( 'init', array( $this, 'header_post_type' ) );
 
+			// // phpcs:disable
+			// add_action( 'init', array( $this, 'register_header_template' ) );
+			// // phpcs:enable
+
 			if ( is_admin() ) {
 				add_action( 'admin_menu', array( $this, 'add_menu_page' ), 0 );
 				add_action( 'admin_menu', array( $this, 'add_submenu_page' ), 1 );
@@ -82,9 +86,27 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 					'exclude_from_search' => true,
 					'capability_type'     => 'post',
 					'rewrite'             => false,
-					'supports'            => array( 'title', 'editor', 'excerpt', 'custom-fields', 'page-attributes', 'thumbnail', 'author', 'elementor' ),
+					'supports'            => array( 'title', 'editor', 'custom-fields', 'author', 'elementor' ),
 					'show_in_rest'        => true,
 				)
+			);
+
+		}
+
+		/**
+		 * Register header cpt template
+		 */
+		public function register_header_template() {
+
+			$post_type_object = get_post_type_object( 'amply_header_cpt' );
+
+			$post_type_object->template = array(
+				array(
+					'core/paragraph',
+					array(
+						'placeholder' => 'Paragraphe text…',
+					),
+				),
 			);
 
 		}

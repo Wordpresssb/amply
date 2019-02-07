@@ -71,15 +71,15 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 		 */
 		public function default_header_view() {
 
+			$name = 'default-' . $this->header;
+			set_query_var( 'amply_header_var', $name );
+
 			if ( 'headercpt' === $this->header ) {
 
 				$header_id = amply_option( 'amply_default_header_' . $this->header . '_template' );
 				set_query_var( 'amply_header_id_var', $header_id );
 
 			} else {
-
-				$name = 'default-' . $this->header;
-				set_query_var( 'amply_header_var', $name );
 
 				$elements = amply_option( 'amply_default_header_' . $this->header . '_elements' );
 				set_query_var( 'amply_header_elements_var', $elements );
