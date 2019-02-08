@@ -50,7 +50,7 @@ if ( ! class_exists( 'Amply_Default_Page_Loop' ) ) {
 		 */
 		public function load_default_page_loop_component() {
 
-			require_once get_template_directory() . '/extra/default-page/class-amply-default-page-loop-component.php';
+			require_once get_template_directory() . '/extra/default-page-loop/class-amply-default-page-loop-component.php';
 
 		}
 

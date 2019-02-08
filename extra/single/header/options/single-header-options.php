@@ -15,13 +15,15 @@ function amply_add_single_header_defaults( $defaults ) {
 
 	$extra_defaults = array(
 
-		'amply_single_header_type'             => 'default',
+		'amply_single_header_type'               => 'default',
 
-		'amply_single_header_header1_elements' => array(
+		'amply_single_header_headercpt_template' => 'none',
+
+		'amply_single_header_header1_elements'   => array(
 			'primary-nav',
 			'mobile-menu-trigger',
 		),
-		'amply_single_header_header2_elements' => array(
+		'amply_single_header_header2_elements'   => array(
 			'site-logo',
 			'social-nav',
 			'primary-nav',
@@ -88,12 +90,14 @@ Kirki::add_field(
 		'default'  => amply_defaults( 'amply_single_header_type' ),
 		'priority' => 10,
 		'choices'  => array(
-			'default' => get_template_directory_uri() . '/assets/images/default.png',
-			'header1' => get_template_directory_uri() . '/extra/default-header/images/header1.png',
-			'header2' => get_template_directory_uri() . '/extra/default-header/images/header2.png',
+			'default'   => get_template_directory_uri() . '/assets/images/default.png',
+			'headercpt' => get_template_directory_uri() . '/extra/default-header/images/headercpt.png',
+			'header1'   => get_template_directory_uri() . '/extra/default-header/images/header1.png',
+			'header2'   => get_template_directory_uri() . '/extra/default-header/images/header2.png',
 		),
 	)
 );
 
+require_once get_template_directory() . '/extra/single/header/options/headercpt-options.php';
 require_once get_template_directory() . '/extra/single/header/options/header1-options.php';
 require_once get_template_directory() . '/extra/single/header/options/header2-options.php';

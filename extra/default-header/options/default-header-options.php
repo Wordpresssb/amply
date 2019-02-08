@@ -17,7 +17,7 @@ function amply_add_default_header_defaults( $defaults ) {
 
 		'amply_default_header_type'               => 'header1',
 
-		'amply_default_header_headercpt_template' => '',
+		'amply_default_header_headercpt_template' => 'none',
 
 		'amply_default_header_header1_elements'   => array(
 			'primary-nav',

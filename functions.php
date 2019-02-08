@@ -57,6 +57,9 @@ require_once get_parent_theme_file_path( 'inc/color-patterns/class-amply-color-p
 // Sanitize callbacks.
 require_once get_parent_theme_file_path( 'extra/sanitize-callbacks/functions-sanitize-callbacks.php' );
 
+// Add section templates.
+require_once get_parent_theme_file_path( 'extra/section-templates/class-amply-section-templates.php' );
+
 // Default header.
 require_once get_parent_theme_file_path( 'extra/default-header/class-amply-default-header.php' );
 
@@ -64,10 +67,10 @@ require_once get_parent_theme_file_path( 'extra/default-header/class-amply-defau
 require_once get_parent_theme_file_path( 'extra/default-index-loop/class-amply-default-index-loop.php' );
 
 // Default single loop.
-require_once get_parent_theme_file_path( 'extra/default-single/class-amply-default-single-loop.php' );
+require_once get_parent_theme_file_path( 'extra/default-single-loop/class-amply-default-single-loop.php' );
 
 // Default page loop.
-require_once get_parent_theme_file_path( 'extra/default-page/class-amply-default-page-loop.php' );
+require_once get_parent_theme_file_path( 'extra/default-page-loop/class-amply-default-page-loop.php' );
 
 // Default sidebar.
 require_once get_parent_theme_file_path( 'extra/default-sidebar/class-amply-default-sidebar.php' );
@@ -109,9 +112,6 @@ require_once get_parent_theme_file_path( 'pluggable/social-nav-menu/class-amply-
 
 // Add mobile sidebar.
 require get_parent_theme_file_path( '/pluggable/mobile-sidebar/mobile-sidebar.php' );
-
-// Add section templates.
-require_once get_parent_theme_file_path( 'pluggable/section-templates/class-amply-section-templates.php' );
 
 
 

@@ -10,6 +10,10 @@ $header_name = get_query_var( 'amply_header_var' );
 $header_id      = get_query_var( 'amply_header_id_var' );
 $header_content = '';
 
+if ( 'none' === $header_id ) {
+	return;
+}
+
 if ( ! empty( $header_id ) ) {
 
 	$header_post_obj = get_post( $header_id );

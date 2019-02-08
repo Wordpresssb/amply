@@ -50,7 +50,7 @@ if ( ! class_exists( 'Amply_Default_Single_Loop' ) ) {
 		 */
 		public function load_default_single_loop_component() {
 
-			require_once get_template_directory() . '/extra/default-single/class-amply-default-single-loop-component.php';
+			require_once get_template_directory() . '/extra/default-single-loop/class-amply-default-single-loop-component.php';
 
 		}
 

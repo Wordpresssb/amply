@@ -74,8 +74,17 @@ if ( ! class_exists( 'Amply_Single_Header_Component' ) ) {
 			$data = 'single-' . $this->header;
 			set_query_var( 'amply_header_var', $data );
 
-			$elements = amply_option( 'amply_single_header_' . $this->header . '_elements' );
-			set_query_var( 'amply_header_elements_var', $elements );
+			if ( 'headercpt' === $this->header ) {
+
+				$header_id = amply_option( 'amply_single_header_' . $this->header . '_template' );
+				set_query_var( 'amply_header_id_var', $header_id );
+
+			} else {
+
+				$elements = amply_option( 'amply_single_header_' . $this->header . '_elements' );
+				set_query_var( 'amply_header_elements_var', $elements );
+
+			}
 
 			get_template_part( 'views/header/' . $this->header . '/' . $this->header, 'partial' );
 
