@@ -88,7 +88,18 @@ if ( ! class_exists( 'Amply_Frontpage_Sidebar_Component' ) ) {
 		 */
 		public function sidebar_right_view() {
 
-			get_sidebar( 'right' );
+			if ( 'template' === amply_option( 'amply_frontpage_sidebar_sidebar_right_type' ) ) {
+
+				$sidebar_right_id = amply_option( 'amply_frontpage_sidebar_sidebar_right_template' );
+				set_query_var( 'amply_sidebar_right_id_var', $sidebar_right_id );
+
+				get_template_part( 'views/sidebar/sidebarcpt/sidebar-right-partial' );
+
+			} else {
+
+				get_sidebar( 'right' );
+
+			}
 
 		}
 
@@ -97,7 +108,18 @@ if ( ! class_exists( 'Amply_Frontpage_Sidebar_Component' ) ) {
 		 */
 		public function sidebar_left_view() {
 
-			get_sidebar( 'left' );
+			if ( 'template' === amply_option( 'amply_frontpage_sidebar_sidebar_left_type' ) ) {
+
+				$sidebar_left_id = amply_option( 'amply_frontpage_sidebar_sidebar_left_template' );
+				set_query_var( 'amply_sidebar_left_id_var', $sidebar_left_id );
+
+				get_template_part( 'views/sidebar/sidebarcpt/sidebar-left-partial' );
+
+			} else {
+
+				get_sidebar( 'left' );
+
+			}
 
 		}
 

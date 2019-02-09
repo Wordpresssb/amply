@@ -15,7 +15,11 @@ function amply_add_single_sidebar_defaults( $defaults ) {
 
 	$extra_defaults = array(
 
-		'amply_single_sidebar_type' => 'default',
+		'amply_single_sidebar_type'                   => 'default',
+		'amply_single_sidebar_sidebar_left_template'  => 'none',
+		'amply_single_sidebar_sidebar_left_type'      => 'widgets',
+		'amply_single_sidebar_sidebar_right_type'     => 'widgets',
+		'amply_single_sidebar_sidebar_right_template' => 'none',
 
 	);
 
@@ -85,3 +89,6 @@ Kirki::add_field(
 		),
 	)
 );
+
+require_once get_template_directory() . '/extra/single/sidebar/options/sidebar-left-options.php';
+require_once get_template_directory() . '/extra/single/sidebar/options/sidebar-right-options.php';

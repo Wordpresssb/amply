@@ -47,7 +47,11 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 			// add_action( 'init', array( $this, 'register_header_template' ) );
 			// // phpcs:enable
 
+			add_filter( 'allowed_block_types', array( $this, 'header_allowed_block_types' ), 10, 2 );
+
 			add_action( 'init', array( $this, 'sidebar_post_type' ) );
+
+			add_filter( 'allowed_block_types', array( $this, 'sidebar_allowed_block_types' ), 10, 2 );
 
 			if ( is_admin() ) {
 				add_action( 'admin_menu', array( $this, 'add_menu_page' ), 0 );
@@ -115,6 +119,44 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 		}
 
 		/**
+		 * Filter allowed blocks for the header cpt
+		 *
+		 * @param array  $allowed_block_types Array of allowed blocks.
+		 * @param string $post Post.
+		 */
+		public function header_allowed_block_types( $allowed_block_types, $post ) {
+
+			if ( 'amply_header_cpt' === $post->post_type ) {
+				return [
+					'core/audio',
+					'core/button',
+					'core/code',
+					'core/columns',
+					'core/cover-image',
+					'core/embed',
+					'core/file',
+					'core/gallery',
+					'core/image',
+					'core/paragraph',
+					'core/preformatted',
+					'core/pullquote',
+					'core/quote',
+					'core/separator',
+					'core/subhead',
+					'core/table',
+					'core/verse',
+
+					// 'core/archives',
+					// 'core/categories',
+					// 'core/latest-posts',
+					// 'core/latest-comments',
+					// 'core/shortcode',
+				];
+			}
+
+		}
+
+		/**
 		 * Register sidebar post type
 		 */
 		public function sidebar_post_type() {
@@ -150,6 +192,44 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 					'show_in_rest'        => true,
 				)
 			);
+
+		}
+
+		/**
+		 * Filter allowed blocks for the sidebar cpt
+		 *
+		 * @param array  $allowed_block_types Array of allowed blocks.
+		 * @param string $post Post.
+		 */
+		public function sidebar_allowed_block_types( $allowed_block_types, $post ) {
+
+			if ( 'amply_sidebar_cpt' === $post->post_type ) {
+				return [
+					'core/audio',
+					'core/button',
+					'core/code',
+					'core/columns',
+					'core/cover-image',
+					'core/embed',
+					'core/file',
+					'core/gallery',
+					'core/image',
+					'core/paragraph',
+					'core/preformatted',
+					'core/pullquote',
+					'core/quote',
+					'core/separator',
+					'core/subhead',
+					'core/table',
+					'core/verse',
+
+					// 'core/archives',
+					// 'core/categories',
+					// 'core/latest-posts',
+					// 'core/latest-comments',
+					// 'core/shortcode',
+				];
+			}
 
 		}
 
