@@ -47,15 +47,18 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 			// add_action( 'init', array( $this, 'register_header_template' ) );
 			// // phpcs:enable
 
+			add_action( 'init', array( $this, 'sidebar_post_type' ) );
+
 			if ( is_admin() ) {
 				add_action( 'admin_menu', array( $this, 'add_menu_page' ), 0 );
-				add_action( 'admin_menu', array( $this, 'add_submenu_page' ), 1 );
+				add_action( 'admin_menu', array( $this, 'add_header_submenu_page' ), 1 );
+				add_action( 'admin_menu', array( $this, 'add_sidebar_submenu_page' ), 1 );
 			}
 
 		}
 
 		/**
-		 * Register section templates post type
+		 * Register header post type
 		 */
 		public function header_post_type() {
 
@@ -112,6 +115,45 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 		}
 
 		/**
+		 * Register sidebar post type
+		 */
+		public function sidebar_post_type() {
+
+			// Register the post type.
+			register_post_type(
+				'amply_sidebar_cpt',
+				array(
+					'labels'              => array(
+						'name'               => __( 'sidebars' ),
+						'singular_name'      => __( 'sidebar' ),
+						'add_new'            => __( 'New Sidebar' ),
+						'add_new_item'       => __( 'Add New Sidebar' ),
+						'edit_item'          => __( 'Edit Sidebar' ),
+						'new_item'           => __( 'New Sidebar' ),
+						'view_item'          => __( 'View Sidebar' ),
+						'search_items'       => __( 'Search Sidebars' ),
+						'not_found'          => __( 'No Sidebars Found' ),
+						'not_found_in_trash' => __( 'No Sidebars found in Trash' ),
+					),
+					'menu_position'       => 30,
+					'public'              => true,
+					'has_archive'         => true,
+					'hierarchical'        => false,
+					'show_ui'             => true,
+					'show_in_menu'        => false,
+					'show_in_nav_menus'   => false,
+					'can_export'          => true,
+					'exclude_from_search' => true,
+					'capability_type'     => 'post',
+					'rewrite'             => false,
+					'supports'            => array( 'title', 'editor', 'custom-fields', 'author', 'elementor' ),
+					'show_in_rest'        => true,
+				)
+			);
+
+		}
+
+		/**
 		 * Register a new menu page for section templates panel
 		 */
 		public function add_menu_page() {
@@ -131,7 +173,7 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 		/**
 		 * Add sub menu page for header cpt
 		 */
-		public function add_submenu_page() {
+		public function add_header_submenu_page() {
 
 			add_submenu_page(
 				'amply-section-templates-panel',
@@ -139,6 +181,21 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 				esc_html__( 'Headers', 'amply' ),
 				'manage_options',
 				'edit.php?post_type=amply_header_cpt'
+			);
+
+		}
+
+		/**
+		 * Add sub menu page for sidebar cpt
+		 */
+		public function add_sidebar_submenu_page() {
+
+			add_submenu_page(
+				'amply-section-templates-panel',
+				esc_html__( 'Sidebars', 'amply' ),
+				esc_html__( 'Sidebars', 'amply' ),
+				'manage_options',
+				'edit.php?post_type=amply_sidebar_cpt'
 			);
 
 		}
