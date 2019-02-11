@@ -46,3 +46,7 @@ mix.sass( 'views/index-content/card1-entries/card1-entries.scss', 'views/index-c
 
 mix.sass( 'views/single-content/single-entry.scss', 'views/single-content/single-entry.css' );
 mix.sass( 'views/page-content/page-entry.scss', 'views/page-content/page-entry.css' );
+
+mix.sass( 'views/footer/footercpt/footercpt.scss', 'views/footer/footercpt/footercpt.css' );
+mix.sass( 'views/footer/footer1/footer1.scss', 'views/footer/footer1/footer1.css' );
+mix.sass( 'views/footer/footer2/footer2.scss', 'views/footer/footer2/footer2.css' );

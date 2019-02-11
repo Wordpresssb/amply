@@ -14,7 +14,7 @@ $unique_id = uniqid( 'search-form-' );
 		<span class="screen-reader-text"><?php esc_html_e( 'Search for:', 'amply' ); ?></span>
 	</label>
 
-	<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field" name="s" id="s" autocomplete="off" placeholder="<?php esc_attr_e( 'Search &hellip;', 'ubik' ); ?>" value="<?php echo get_search_query(); ?>" />
+	<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field" name="s" id="s" autocomplete="off" placeholder="<?php esc_attr_e( 'Search &hellip;', 'amply' ); ?>" value="<?php echo get_search_query(); ?>" />
 
 	<button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
 

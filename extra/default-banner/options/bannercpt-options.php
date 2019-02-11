@@ -258,9 +258,9 @@ Kirki::add_field(
 		'default'         => 'auto',
 		'choices'         => [
 			'default' => esc_html__( 'Default', 'amply' ),
-			'auto'    => esc_html__( 'Auto', 'ubik' ),
-			'cover'   => esc_html__( 'Cover', 'ubik' ),
-			'contain' => esc_html__( 'Contain', 'ubik' ),
+			'auto'    => esc_html__( 'Auto', 'amply' ),
+			'cover'   => esc_html__( 'Cover', 'amply' ),
+			'contain' => esc_html__( 'Contain', 'amply' ),
 		],
 		'output'          => [
 			[

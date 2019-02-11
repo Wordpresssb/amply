@@ -78,6 +78,9 @@ require_once get_parent_theme_file_path( 'extra/default-page-loop/class-amply-de
 // Default sidebar.
 require_once get_parent_theme_file_path( 'extra/default-sidebar/class-amply-default-sidebar.php' );
 
+// Default footer.
+require_once get_parent_theme_file_path( 'extra/default-footer/class-amply-default-footer.php' );
+
 // Frontpage.
 require_once get_parent_theme_file_path( 'extra/frontpage/frontpage-panel.php' );
 require_once get_parent_theme_file_path( 'extra/frontpage/header/class-amply-frontpage-header.php' );

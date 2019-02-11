@@ -51,6 +51,8 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 
 			add_action( 'init', array( $this, 'sidebar_post_type' ) );
 
+			add_action( 'init', array( $this, 'footer_post_type' ) );
+
 			// Filter the allowed blocks for section CPT.
 			add_filter( 'allowed_block_types', array( $this, 'section_allowed_block_types' ), 10, 2 );
 
@@ -59,6 +61,7 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 				add_action( 'admin_menu', array( $this, 'add_header_submenu_page' ), 1 );
 				add_action( 'admin_menu', array( $this, 'add_banner_submenu_page' ), 1 );
 				add_action( 'admin_menu', array( $this, 'add_sidebar_submenu_page' ), 1 );
+				add_action( 'admin_menu', array( $this, 'add_footer_submenu_page' ), 1 );
 			}
 
 		}
@@ -199,6 +202,45 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 		}
 
 		/**
+		 * Register footer post type
+		 */
+		public function footer_post_type() {
+
+			// Register the post type.
+			register_post_type(
+				'amply_footer_cpt',
+				array(
+					'labels'              => array(
+						'name'               => __( 'footers' ),
+						'singular_name'      => __( 'footer' ),
+						'add_new'            => __( 'New Footer' ),
+						'add_new_item'       => __( 'Add New Footer' ),
+						'edit_item'          => __( 'Edit Footer' ),
+						'new_item'           => __( 'New Footer' ),
+						'view_item'          => __( 'View Footer' ),
+						'search_items'       => __( 'Search Footers' ),
+						'not_found'          => __( 'No Footers Found' ),
+						'not_found_in_trash' => __( 'No Footers found in Trash' ),
+					),
+					'menu_position'       => 30,
+					'public'              => true,
+					'has_archive'         => true,
+					'hierarchical'        => false,
+					'show_ui'             => true,
+					'show_in_menu'        => false,
+					'show_in_nav_menus'   => false,
+					'can_export'          => true,
+					'exclude_from_search' => true,
+					'capability_type'     => 'post',
+					'rewrite'             => false,
+					'supports'            => array( 'title', 'editor', 'custom-fields', 'author', 'elementor' ),
+					'show_in_rest'        => true,
+				)
+			);
+
+		}
+
+		/**
 		 * Filter allowed blocks for the section cpt
 		 *
 		 * @param array  $allowed_block_types Array of allowed blocks.
@@ -294,6 +336,21 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 				esc_html__( 'Sidebars', 'amply' ),
 				'manage_options',
 				'edit.php?post_type=amply_sidebar_cpt'
+			);
+
+		}
+
+		/**
+		 * Add sub menu page for footer cpt
+		 */
+		public function add_footer_submenu_page() {
+
+			add_submenu_page(
+				'amply-section-templates-panel',
+				esc_html__( 'Footers', 'amply' ),
+				esc_html__( 'Footers', 'amply' ),
+				'manage_options',
+				'edit.php?post_type=amply_footer_cpt'
 			);
 
 		}

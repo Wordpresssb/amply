@@ -1,27 +1,27 @@
 <?php
 /**
- * Default Header options
+ * Default Footer options
  *
  * @package amply
  */
 
 /**
- * Header cpt options
+ * Footer cpt options
  */
 
 Kirki::add_field(
 	'amply_config',
 	array(
 		'type'            => 'custom',
-		'settings'        => 'amply_default_header_headercpt_title',
-		'section'         => 'amply_default_header_section',
-		'default'         => '<h1 class="title-custom-field">HEADER CPT</h1>',
+		'settings'        => 'amply_default_footer_footercpt_title',
+		'section'         => 'amply_default_footer_section',
+		'default'         => '<h1 class="title-custom-field">FOOTER CPT</h1>',
 		'priority'        => 10,
 		'active_callback' => array(
 			array(
-				'setting'  => 'amply_default_header_type',
+				'setting'  => 'amply_default_footer_type',
 				'operator' => '==',
-				'value'    => 'headercpt',
+				'value'    => 'footercpt',
 			),
 		),
 	)
@@ -31,26 +31,26 @@ Kirki::add_field(
 	'amply_config',
 	array(
 		'type'            => 'select',
-		'settings'        => 'amply_default_header_headercpt_template',
+		'settings'        => 'amply_default_footer_footercpt_template',
 		'label'           => esc_html__( 'Select Template', 'amply' ),
-		'description'     => esc_html__( 'Select a template in Admin > Section Templates > Headers', 'amply' ),
-		'section'         => 'amply_default_header_section',
+		'description'     => esc_html__( 'Select a template in Admin > Section Templates > Footers', 'amply' ),
+		'section'         => 'amply_default_footer_section',
 		'priority'        => 10,
 		'multiple'        => 1,
 		'choices'         => Kirki_Helper::get_posts(
 			[
 				'posts_per_page' => -1,
-				'post_type'      => 'amply_header_cpt',
+				'post_type'      => 'amply_footer_cpt',
 			]
 		) + [ 'none' => esc_html__( 'None', 'amply' ) ],
-		'default'         => amply_defaults( 'amply_default_header_headercpt_template' ),
-		'active_callback' => array(
-			array(
-				'setting'  => 'amply_default_header_type',
+		'default'         => amply_defaults( 'amply_default_footer_footercpt_template' ),
+		'active_callback' => [
+			[
+				'setting'  => 'amply_default_footer_type',
 				'operator' => '==',
-				'value'    => 'headercpt',
-			),
-		),
+				'value'    => 'footercpt',
+			],
+		],
 	)
 );
 
@@ -58,9 +58,9 @@ Kirki::add_field(
 	'amply_config',
 	[
 		'type'            => 'color',
-		'settings'        => 'amply_default_header_headercpt_bg_color',
+		'settings'        => 'amply_default_footer_footercpt_bg_color',
 		'label'           => esc_html__( 'Background Color', 'amply' ),
-		'section'         => 'amply_default_header_section',
+		'section'         => 'amply_default_footer_section',
 		'default'         => 'rgba(250,250,250,0)',
 		'priority'        => 10,
 		'choices'         => [
@@ -68,16 +68,16 @@ Kirki::add_field(
 		],
 		'output'          => [
 			[
-				'element'  => '#default-headercpt.site-header',
+				'element'  => '#default-footercpt.site-footer',
 				'property' => 'background-color',
 			],
 		],
 		'transport'       => 'auto',
 		'active_callback' => [
 			[
-				'setting'  => 'amply_default_header_type',
+				'setting'  => 'amply_default_footer_type',
 				'operator' => '==',
-				'value'    => 'headercpt',
+				'value'    => 'footercpt',
 			],
 		],
 	]
@@ -87,23 +87,23 @@ Kirki::add_field(
 	'amply_config',
 	[
 		'type'            => 'image',
-		'settings'        => 'amply_default_header_headercpt_bg_image',
+		'settings'        => 'amply_default_footer_footercpt_bg_image',
 		'label'           => esc_html__( 'Background Image', 'amply' ),
-		'section'         => 'amply_default_header_section',
+		'section'         => 'amply_default_footer_section',
 		'default'         => '',
 		'priority'        => 10,
 		'output'          => [
 			[
-				'element'  => '#default-headercpt.site-header',
+				'element'  => '#default-footercpt.site-footer',
 				'property' => 'background-image',
 			],
 		],
 		'transport'       => 'auto',
 		'active_callback' => [
 			[
-				'setting'  => 'amply_default_header_type',
+				'setting'  => 'amply_default_footer_type',
 				'operator' => '==',
-				'value'    => 'headercpt',
+				'value'    => 'footercpt',
 			],
 		],
 	]
@@ -113,9 +113,9 @@ Kirki::add_field(
 	'amply_config',
 	[
 		'type'            => 'select',
-		'settings'        => 'amply_default_header_headercpt_bg_image_position',
+		'settings'        => 'amply_default_footer_footercpt_bg_image_position',
 		'label'           => esc_html__( 'Background Image Position', 'amply' ),
-		'section'         => 'amply_default_header_section',
+		'section'         => 'amply_default_footer_section',
 		'priority'        => 10,
 		'default'         => 'center center',
 		'choices'         => [
@@ -132,7 +132,7 @@ Kirki::add_field(
 		],
 		'output'          => [
 			[
-				'element'           => '#default-headercpt.site-header',
+				'element'           => '#default-footercpt.site-footer',
 				'property'          => 'background-position',
 				'sanitize_callback' => function( $value ) {
 					if ( 'default' === $value ) {
@@ -146,12 +146,12 @@ Kirki::add_field(
 		'transport'       => 'auto',
 		'active_callback' => [
 			[
-				'setting'  => 'amply_default_header_type',
+				'setting'  => 'amply_default_footer_type',
 				'operator' => '==',
-				'value'    => 'headercpt',
+				'value'    => 'footercpt',
 			],
 			[
-				'setting'  => 'amply_default_header_headercpt_bg_image',
+				'setting'  => 'amply_default_footer_footercpt_bg_image',
 				'operator' => '!=',
 				'value'    => '',
 			],
@@ -163,9 +163,9 @@ Kirki::add_field(
 	'amply_config',
 	[
 		'type'            => 'select',
-		'settings'        => 'amply_default_header_headercpt_bg_image_repeat',
+		'settings'        => 'amply_default_footer_footercpt_bg_image_repeat',
 		'label'           => esc_html__( 'Background Image Repeat', 'amply' ),
-		'section'         => 'amply_default_header_section',
+		'section'         => 'amply_default_footer_section',
 		'priority'        => 10,
 		'default'         => 'repeat',
 		'choices'         => [
@@ -177,7 +177,7 @@ Kirki::add_field(
 		],
 		'output'          => [
 			[
-				'element'           => '#default-headercpt.site-header',
+				'element'           => '#default-footercpt.site-footer',
 				'property'          => 'background-repeat',
 				'sanitize_callback' => function( $value ) {
 					if ( 'default' === $value ) {
@@ -191,12 +191,12 @@ Kirki::add_field(
 		'transport'       => 'auto',
 		'active_callback' => [
 			[
-				'setting'  => 'amply_default_header_type',
+				'setting'  => 'amply_default_footer_type',
 				'operator' => '==',
-				'value'    => 'headercpt',
+				'value'    => 'footercpt',
 			],
 			[
-				'setting'  => 'amply_default_header_headercpt_bg_image',
+				'setting'  => 'amply_default_footer_footercpt_bg_image',
 				'operator' => '!=',
 				'value'    => '',
 			],
@@ -208,9 +208,9 @@ Kirki::add_field(
 	'amply_config',
 	[
 		'type'            => 'select',
-		'settings'        => 'amply_default_header_headercpt_bg_image_attachment',
+		'settings'        => 'amply_default_footer_footercpt_bg_image_attachment',
 		'label'           => esc_html__( 'Background Image Attachment', 'amply' ),
-		'section'         => 'amply_default_header_section',
+		'section'         => 'amply_default_footer_section',
 		'priority'        => 10,
 		'default'         => 'scroll',
 		'choices'         => [
@@ -220,7 +220,7 @@ Kirki::add_field(
 		],
 		'output'          => [
 			[
-				'element'           => '#default-headercpt.site-header',
+				'element'           => '#default-footercpt.site-footer',
 				'property'          => 'background-attachment',
 				'sanitize_callback' => function( $value ) {
 					if ( 'default' === $value ) {
@@ -234,12 +234,12 @@ Kirki::add_field(
 		'transport'       => 'auto',
 		'active_callback' => [
 			[
-				'setting'  => 'amply_default_header_type',
+				'setting'  => 'amply_default_footer_type',
 				'operator' => '==',
-				'value'    => 'headercpt',
+				'value'    => 'footercpt',
 			],
 			[
-				'setting'  => 'amply_default_header_headercpt_bg_image',
+				'setting'  => 'amply_default_footer_footercpt_bg_image',
 				'operator' => '!=',
 				'value'    => '',
 			],
@@ -251,9 +251,9 @@ Kirki::add_field(
 	'amply_config',
 	[
 		'type'            => 'select',
-		'settings'        => 'amply_default_header_headercpt_bg_image_size',
+		'settings'        => 'amply_default_footer_footercpt_bg_image_size',
 		'label'           => esc_html__( 'Background Image Size', 'amply' ),
-		'section'         => 'amply_default_header_section',
+		'section'         => 'amply_default_footer_section',
 		'priority'        => 10,
 		'default'         => 'auto',
 		'choices'         => [
@@ -264,7 +264,7 @@ Kirki::add_field(
 		],
 		'output'          => [
 			[
-				'element'           => '#default-headercpt.site-header',
+				'element'           => '#default-footercpt.site-footer',
 				'property'          => 'background-size',
 				'sanitize_callback' => function( $value ) {
 					if ( 'default' === $value ) {
@@ -278,12 +278,12 @@ Kirki::add_field(
 		'transport'       => 'auto',
 		'active_callback' => [
 			[
-				'setting'  => 'amply_default_header_type',
+				'setting'  => 'amply_default_footer_type',
 				'operator' => '==',
-				'value'    => 'headercpt',
+				'value'    => 'footercpt',
 			],
 			[
-				'setting'  => 'amply_default_header_headercpt_bg_image',
+				'setting'  => 'amply_default_footer_footercpt_bg_image',
 				'operator' => '!=',
 				'value'    => '',
 			],
