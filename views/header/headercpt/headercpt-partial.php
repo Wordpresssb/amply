@@ -5,9 +5,9 @@
  * @package amply
  */
 
-$header_name = get_query_var( 'amply_header_var' );
+$header_name = get_query_var( 'amply_header_var', '' );
 
-$header_id      = get_query_var( 'amply_header_id_var' );
+$header_id      = get_query_var( 'amply_header_id_var', '' );
 $header_content = '';
 
 if ( 'none' === $header_id ) {
@@ -15,27 +15,32 @@ if ( 'none' === $header_id ) {
 }
 
 if ( ! empty( $header_id ) ) {
-
 	$header_post_obj = get_post( $header_id );
-
-	if ( $header_post_obj && ! is_wp_error( $header_post_obj ) ) {
-		$header_content = $header_post_obj->post_content;
-	}
 }
 ?>
 
 <?php wp_print_styles( array( 'amply-headercpt' ) ); ?>
 
-	<header id="<?php echo esc_attr( $header_name ); ?>" class="site-header">
+<header id="<?php echo esc_attr( $header_name ); ?>" class="site-header">
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article id="post-<?php echo esc_attr( $header_id ); ?>" class="entry">
 
-			<div class="entry-content">
+		<div class="entry-content">
 
-				<?php echo do_shortcode( $header_content ); ?>
+			<?php
+			if ( $header_post_obj && ! is_wp_error( $header_post_obj ) ) {
 
-			</div><!-- .entry-content -->
+				setup_postdata( $header_post_obj );
+				the_content();
+				wp_reset_postdata();
 
-		</article><!-- #post-<?php the_ID(); ?> -->
+				// // Other way => widget block don'work.
+				// echo do_shortcode( $header_post_obj->post_content );
+			}
+			?>
 
-	</header>
+		</div><!-- .entry-content -->
+
+	</article><!-- #post-<?php echo esc_attr( $header_id ); ?> -->
+
+</header>

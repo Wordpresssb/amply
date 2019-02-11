@@ -5,7 +5,7 @@
  * @package amply
  */
 
-$sidebar_right_id      = get_query_var( 'amply_sidebar_right_id_var' );
+$sidebar_right_id      = get_query_var( 'amply_sidebar_right_id_var', '' );
 $sidebar_right_content = '';
 
 if ( 'none' === $sidebar_right_id ) {
@@ -13,26 +13,29 @@ if ( 'none' === $sidebar_right_id ) {
 }
 
 if ( ! empty( $sidebar_right_id ) ) {
-
 	$sidebar_right_obj = get_post( $sidebar_right_id );
-
-	if ( $sidebar_right_obj && ! is_wp_error( $sidebar_right_obj ) ) {
-		$sidebar_right_content = $sidebar_right_obj->post_content;
-	}
 }
 
 ?>
 
 <aside id="sidebar-right" class="site-sidebar-right">
 
-	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div id="post-<?php echo esc_attr( $sidebar_right_id_id ); ?>" class="entry">
 
 		<div class="entry-content">
 
-			<?php echo do_shortcode( $sidebar_right_content ); ?>
+			<?php
+			if ( $sidebar_right_obj && ! is_wp_error( $sidebar_right_obj ) ) {
+
+				setup_postdata( $sidebar_right_obj );
+				the_content();
+				wp_reset_postdata();
+
+			}
+			?>
 
 		</div><!-- .entry-content -->
 
-	</div><!-- #post-<?php the_ID(); ?> -->
+	</div><!-- #post-<?php echo esc_attr( $sidebar_right_id_id ); ?> -->
 
 </aside>

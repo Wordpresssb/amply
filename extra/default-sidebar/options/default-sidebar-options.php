@@ -37,7 +37,7 @@ Kirki::add_section(
 	'amply_default_sidebar_section',
 	array(
 		'title'    => esc_html__( 'Sidebars', 'amply' ),
-		'priority' => 304,
+		'priority' => 305,
 	)
 );
 

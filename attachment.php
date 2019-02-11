@@ -15,9 +15,7 @@ get_header();
 
 <div id="content-wrap" class="site-content-wrap">
 
-	<div class="site-banner">
-		<h1 style="background:#cacaca;margin:0;min-height:200px;">Site banner</h1>
-	</div>
+	<?php do_action( 'amply_banner' ); ?>
 
 	<div id="content" class="site-content">
 

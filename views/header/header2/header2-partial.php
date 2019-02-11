@@ -5,9 +5,9 @@
  * @package amply
  */
 
-$query_var = get_query_var( 'amply_header_var' );
+$query_var = get_query_var( 'amply_header_var', '' );
 
-$elements = get_query_var( 'amply_header_elements_var' );
+$elements = get_query_var( 'amply_header_elements_var', '' );
 ?>
 
 <?php wp_print_styles( array( 'amply-header2' ) ); ?>

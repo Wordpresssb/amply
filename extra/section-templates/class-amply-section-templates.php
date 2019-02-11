@@ -47,15 +47,17 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 			// add_action( 'init', array( $this, 'register_header_template' ) );
 			// // phpcs:enable
 
-			add_filter( 'allowed_block_types', array( $this, 'header_allowed_block_types' ), 10, 2 );
+			add_action( 'init', array( $this, 'banner_post_type' ) );
 
 			add_action( 'init', array( $this, 'sidebar_post_type' ) );
 
-			add_filter( 'allowed_block_types', array( $this, 'sidebar_allowed_block_types' ), 10, 2 );
+			// Filter the allowed blocks for section CPT.
+			add_filter( 'allowed_block_types', array( $this, 'section_allowed_block_types' ), 10, 2 );
 
 			if ( is_admin() ) {
 				add_action( 'admin_menu', array( $this, 'add_menu_page' ), 0 );
 				add_action( 'admin_menu', array( $this, 'add_header_submenu_page' ), 1 );
+				add_action( 'admin_menu', array( $this, 'add_banner_submenu_page' ), 1 );
 				add_action( 'admin_menu', array( $this, 'add_sidebar_submenu_page' ), 1 );
 			}
 
@@ -119,40 +121,41 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 		}
 
 		/**
-		 * Filter allowed blocks for the header cpt
-		 *
-		 * @param array  $allowed_block_types Array of allowed blocks.
-		 * @param string $post Post.
+		 * Register banner post type
 		 */
-		public function header_allowed_block_types( $allowed_block_types, $post ) {
+		public function banner_post_type() {
 
-			if ( 'amply_header_cpt' === $post->post_type ) {
-				return [
-					'core/audio',
-					'core/button',
-					'core/code',
-					'core/columns',
-					'core/cover-image',
-					'core/embed',
-					'core/file',
-					'core/gallery',
-					'core/image',
-					'core/paragraph',
-					'core/preformatted',
-					'core/pullquote',
-					'core/quote',
-					'core/separator',
-					'core/subhead',
-					'core/table',
-					'core/verse',
-
-					// 'core/archives',
-					// 'core/categories',
-					// 'core/latest-posts',
-					// 'core/latest-comments',
-					// 'core/shortcode',
-				];
-			}
+			// Register the post type.
+			register_post_type(
+				'amply_banner_cpt',
+				array(
+					'labels'              => array(
+						'name'               => __( 'banners' ),
+						'singular_name'      => __( 'banner' ),
+						'add_new'            => __( 'New Banner' ),
+						'add_new_item'       => __( 'Add New Banner' ),
+						'edit_item'          => __( 'Edit Banner' ),
+						'new_item'           => __( 'New Banner' ),
+						'view_item'          => __( 'View Banner' ),
+						'search_items'       => __( 'Search Banners' ),
+						'not_found'          => __( 'No Banners Found' ),
+						'not_found_in_trash' => __( 'No Banners found in Trash' ),
+					),
+					'menu_position'       => 30,
+					'public'              => true,
+					'has_archive'         => true,
+					'hierarchical'        => false,
+					'show_ui'             => true,
+					'show_in_menu'        => false,
+					'show_in_nav_menus'   => false,
+					'can_export'          => true,
+					'exclude_from_search' => true,
+					'capability_type'     => 'post',
+					'rewrite'             => false,
+					'supports'            => array( 'title', 'editor', 'custom-fields', 'author', 'elementor' ),
+					'show_in_rest'        => true,
+				)
+			);
 
 		}
 
@@ -196,14 +199,14 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 		}
 
 		/**
-		 * Filter allowed blocks for the sidebar cpt
+		 * Filter allowed blocks for the section cpt
 		 *
 		 * @param array  $allowed_block_types Array of allowed blocks.
 		 * @param string $post Post.
 		 */
-		public function sidebar_allowed_block_types( $allowed_block_types, $post ) {
+		public function section_allowed_block_types( $allowed_block_types, $post ) {
 
-			if ( 'amply_sidebar_cpt' === $post->post_type ) {
+			if ( 'amply_header_cpt' === $post->post_type || 'amply_banner_cpt' === $post->post_type || 'amply_sidebar_cpt' === $post->post_type ) {
 				return [
 					'core/audio',
 					'core/button',
@@ -223,11 +226,11 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 					'core/table',
 					'core/verse',
 
-					// 'core/archives',
-					// 'core/categories',
-					// 'core/latest-posts',
-					// 'core/latest-comments',
-					// 'core/shortcode',
+					'core/archives',
+					'core/categories',
+					'core/latest-posts',
+					'core/latest-comments',
+					'core/shortcode',
 				];
 			}
 
@@ -261,6 +264,21 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 				esc_html__( 'Headers', 'amply' ),
 				'manage_options',
 				'edit.php?post_type=amply_header_cpt'
+			);
+
+		}
+
+		/**
+		 * Add sub menu page for banner cpt
+		 */
+		public function add_banner_submenu_page() {
+
+			add_submenu_page(
+				'amply-section-templates-panel',
+				esc_html__( 'Banners', 'amply' ),
+				esc_html__( 'Banners', 'amply' ),
+				'manage_options',
+				'edit.php?post_type=amply_banner_cpt'
 			);
 
 		}

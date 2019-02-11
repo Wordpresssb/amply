@@ -33,7 +33,7 @@ Kirki::add_panel(
 	'amply_default_content_panel',
 	array(
 		'title'    => esc_html__( 'Content', 'amply' ),
-		'priority' => 303,
+		'priority' => 304,
 	)
 );
 

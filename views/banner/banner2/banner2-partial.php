@@ -1,26 +1,21 @@
 <?php
 /**
- * Header 1
+ * Banner 2
  *
  * @package amply
  */
 
-$query_var = get_query_var( 'amply_header_var', '' );
-
-$elements = get_query_var( 'amply_header_elements_var', '' );
+$banner_name = get_query_var( 'amply_banner_var', '' );
+$elements    = get_query_var( 'amply_banner_elements_var', '' );
 ?>
 
-<?php wp_print_styles( array( 'amply-header1' ) ); ?>
+<?php wp_print_styles( array( 'amply-banner2' ) ); ?>
 
-<header id="<?php echo esc_attr( $query_var ); ?>" class="site-header">
+<section id="<?php echo esc_attr( $banner_name ); ?>" class="site-banner">
 
-	<div class="site-header__brand">
+	<h1>Banner 2</h1>
 
-		<?php get_template_part( 'views/site/site-logo' ); ?>
-
-	</div>
-
-	<div class="site-header__elements">
+	<div class="site-banner__elements">
 
 		<?php
 		if ( $elements ) :
@@ -65,4 +60,4 @@ $elements = get_query_var( 'amply_header_elements_var', '' );
 
 	</div>
 
-</header>
+</section>

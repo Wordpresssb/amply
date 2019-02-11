@@ -1,0 +1,16 @@
+////
+/// Header CPT component
+////
+@import '../../../assets/scss/settings/_index';
+@import '../../../assets/scss/tools/_index';
+
+.site-header {
+
+	.entry-content > * {
+
+		// // Remove margins between blocks in the header cpt.
+		// margin: 0;
+
+	}
+
+}

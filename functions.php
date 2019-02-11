@@ -63,6 +63,9 @@ require_once get_parent_theme_file_path( 'extra/section-templates/class-amply-se
 // Default header.
 require_once get_parent_theme_file_path( 'extra/default-header/class-amply-default-header.php' );
 
+// Default banner.
+require_once get_parent_theme_file_path( 'extra/default-banner/class-amply-default-banner.php' );
+
 // Default index loop.
 require_once get_parent_theme_file_path( 'extra/default-index-loop/class-amply-default-index-loop.php' );
 
@@ -204,7 +207,6 @@ function tests() {
 	// echo '</pre>';
 
 	echo '<pre>';
-
 
 	echo '</pre>';
 
