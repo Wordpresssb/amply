@@ -81,11 +81,13 @@ require_once get_parent_theme_file_path( 'extra/default-sidebar/class-amply-defa
 // Frontpage.
 require_once get_parent_theme_file_path( 'extra/frontpage/frontpage-panel.php' );
 require_once get_parent_theme_file_path( 'extra/frontpage/header/class-amply-frontpage-header.php' );
+require_once get_parent_theme_file_path( 'extra/frontpage/banner/class-amply-frontpage-banner.php' );
 require_once get_parent_theme_file_path( 'extra/frontpage/sidebar/class-amply-frontpage-sidebar.php' );
 
 // Single.
 require_once get_parent_theme_file_path( 'extra/single/single-panel.php' );
 require_once get_parent_theme_file_path( 'extra/single/header/class-amply-single-header.php' );
+require_once get_parent_theme_file_path( 'extra/single/banner/class-amply-single-banner.php' );
 require_once get_parent_theme_file_path( 'extra/single/sidebar/class-amply-single-sidebar.php' );
 
 /**

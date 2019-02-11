@@ -37,7 +37,7 @@ Kirki::add_section(
 	'amply_single_sidebar_section',
 	array(
 		'title'    => esc_html__( 'Single Posts Sidebars', 'amply' ),
-		'priority' => 1,
+		'priority' => 3,
 		'panel'    => 'amply_single_panel',
 	)
 );

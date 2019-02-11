@@ -37,7 +37,7 @@ Kirki::add_section(
 	'amply_frontpage_sidebar_section',
 	array(
 		'title'    => esc_html__( 'Front Page Sidebars', 'amply' ),
-		'priority' => 1,
+		'priority' => 3,
 		'panel'    => 'amply_frontpage_panel',
 	)
 );

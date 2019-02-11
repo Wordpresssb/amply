@@ -1,6 +1,6 @@
 <?php
 /**
- * Default Banner options
+ * Frontpage Banner options
  *
  * @package amply
  */
@@ -13,17 +13,17 @@ Kirki::add_field(
 	'amply_config',
 	array(
 		'type'            => 'custom',
-		'settings'        => 'amply_default_banner_bannercpt_title',
-		'section'         => 'amply_default_banner_section',
+		'settings'        => 'amply_frontpage_banner_bannercpt_title',
+		'section'         => 'amply_frontpage_banner_section',
 		'default'         => '<h1 class="title-custom-field">BANNER CPT</h1>',
 		'priority'        => 10,
-		'active_callback' => array(
-			array(
-				'setting'  => 'amply_default_banner_type',
+		'active_callback' => [
+			[
+				'setting'  => 'amply_frontpage_banner_type',
 				'operator' => '==',
 				'value'    => 'bannercpt',
-			),
-		),
+			],
+		],
 	)
 );
 
@@ -31,10 +31,10 @@ Kirki::add_field(
 	'amply_config',
 	array(
 		'type'            => 'select',
-		'settings'        => 'amply_default_banner_bannercpt_template',
+		'settings'        => 'amply_frontpage_banner_bannercpt_template',
 		'label'           => esc_html__( 'Select Template', 'amply' ),
 		'description'     => esc_html__( 'Select a template in Admin > Section Templates > Banners', 'amply' ),
-		'section'         => 'amply_default_banner_section',
+		'section'         => 'amply_frontpage_banner_section',
 		'priority'        => 10,
 		'multiple'        => 1,
 		'choices'         => Kirki_Helper::get_posts(
@@ -43,14 +43,14 @@ Kirki::add_field(
 				'post_type'      => 'amply_banner_cpt',
 			]
 		) + [ 'none' => esc_html__( 'None', 'amply' ) ],
-		'default'         => amply_defaults( 'amply_default_banner_bannercpt_template' ),
-		'active_callback' => array(
-			array(
-				'setting'  => 'amply_default_banner_type',
+		'default'         => amply_defaults( 'amply_frontpage_banner_bannercpt_template' ),
+		'active_callback' => [
+			[
+				'setting'  => 'amply_frontpage_banner_type',
 				'operator' => '==',
 				'value'    => 'bannercpt',
-			),
-		),
+			],
+		],
 	)
 );
 
@@ -58,9 +58,9 @@ Kirki::add_field(
 	'amply_config',
 	[
 		'type'            => 'color',
-		'settings'        => 'amply_default_banner_bannercpt_bg_color',
+		'settings'        => 'amply_frontpage_banner_bannercpt_bg_color',
 		'label'           => esc_html__( 'Background Color', 'amply' ),
-		'section'         => 'amply_default_banner_section',
+		'section'         => 'amply_frontpage_banner_section',
 		'default'         => 'rgba(250,250,250,0)',
 		'priority'        => 10,
 		'choices'         => [
@@ -68,14 +68,14 @@ Kirki::add_field(
 		],
 		'output'          => [
 			[
-				'element'  => '#default-bannercpt.site-banner',
+				'element'  => '#frontpage-bannercpt.site-banner',
 				'property' => 'background-color',
 			],
 		],
 		'transport'       => 'auto',
 		'active_callback' => [
 			[
-				'setting'  => 'amply_default_banner_type',
+				'setting'  => 'amply_frontpage_banner_type',
 				'operator' => '==',
 				'value'    => 'bannercpt',
 			],
@@ -87,21 +87,21 @@ Kirki::add_field(
 	'amply_config',
 	[
 		'type'            => 'image',
-		'settings'        => 'amply_default_banner_bannercpt_bg_image',
+		'settings'        => 'amply_frontpage_banner_bannercpt_bg_image',
 		'label'           => esc_html__( 'Background Image', 'amply' ),
-		'section'         => 'amply_default_banner_section',
+		'section'         => 'amply_frontpage_banner_section',
 		'default'         => '',
 		'priority'        => 10,
 		'output'          => [
 			[
-				'element'  => '#default-bannercpt.site-banner',
+				'element'  => '#frontpage-bannercpt.site-banner',
 				'property' => 'background-image',
 			],
 		],
 		'transport'       => 'auto',
 		'active_callback' => [
 			[
-				'setting'  => 'amply_default_banner_type',
+				'setting'  => 'amply_frontpage_banner_type',
 				'operator' => '==',
 				'value'    => 'bannercpt',
 			],
@@ -113,9 +113,9 @@ Kirki::add_field(
 	'amply_config',
 	[
 		'type'            => 'select',
-		'settings'        => 'amply_default_banner_bannercpt_bg_image_position',
+		'settings'        => 'amply_frontpage_banner_bannercpt_bg_image_position',
 		'label'           => esc_html__( 'Background Image Position', 'amply' ),
-		'section'         => 'amply_default_banner_section',
+		'section'         => 'amply_frontpage_banner_section',
 		'priority'        => 10,
 		'default'         => 'center center',
 		'choices'         => [
@@ -132,7 +132,7 @@ Kirki::add_field(
 		],
 		'output'          => [
 			[
-				'element'           => '#default-bannercpt.site-banner',
+				'element'           => '#frontpage-bannercpt.site-banner',
 				'property'          => 'background-position',
 				'sanitize_callback' => function( $value ) {
 					if ( 'default' === $value ) {
@@ -146,12 +146,12 @@ Kirki::add_field(
 		'transport'       => 'auto',
 		'active_callback' => [
 			[
-				'setting'  => 'amply_default_banner_type',
+				'setting'  => 'amply_frontpage_banner_type',
 				'operator' => '==',
 				'value'    => 'bannercpt',
 			],
 			[
-				'setting'  => 'amply_default_banner_bannercpt_bg_image',
+				'setting'  => 'amply_frontpage_banner_bannercpt_bg_image',
 				'operator' => '!=',
 				'value'    => '',
 			],
@@ -163,9 +163,9 @@ Kirki::add_field(
 	'amply_config',
 	[
 		'type'            => 'select',
-		'settings'        => 'amply_default_banner_bannercpt_bg_image_repeat',
+		'settings'        => 'amply_frontpage_banner_bannercpt_bg_image_repeat',
 		'label'           => esc_html__( 'Background Image Repeat', 'amply' ),
-		'section'         => 'amply_default_banner_section',
+		'section'         => 'amply_frontpage_banner_section',
 		'priority'        => 10,
 		'default'         => 'repeat',
 		'choices'         => [
@@ -177,7 +177,7 @@ Kirki::add_field(
 		],
 		'output'          => [
 			[
-				'element'           => '#default-bannercpt.site-banner',
+				'element'           => '#frontpage-bannercpt.site-banner',
 				'property'          => 'background-repeat',
 				'sanitize_callback' => function( $value ) {
 					if ( 'default' === $value ) {
@@ -191,12 +191,12 @@ Kirki::add_field(
 		'transport'       => 'auto',
 		'active_callback' => [
 			[
-				'setting'  => 'amply_default_banner_type',
+				'setting'  => 'amply_frontpage_banner_type',
 				'operator' => '==',
 				'value'    => 'bannercpt',
 			],
 			[
-				'setting'  => 'amply_default_banner_bannercpt_bg_image',
+				'setting'  => 'amply_frontpage_banner_bannercpt_bg_image',
 				'operator' => '!=',
 				'value'    => '',
 			],
@@ -208,9 +208,9 @@ Kirki::add_field(
 	'amply_config',
 	[
 		'type'            => 'select',
-		'settings'        => 'amply_default_banner_bannercpt_bg_image_attachment',
+		'settings'        => 'amply_frontpage_banner_bannercpt_bg_image_attachment',
 		'label'           => esc_html__( 'Background Image Attachment', 'amply' ),
-		'section'         => 'amply_default_banner_section',
+		'section'         => 'amply_frontpage_banner_section',
 		'priority'        => 10,
 		'default'         => 'scroll',
 		'choices'         => [
@@ -220,7 +220,7 @@ Kirki::add_field(
 		],
 		'output'          => [
 			[
-				'element'           => '#default-bannercpt.site-banner',
+				'element'           => '#frontpage-bannercpt.site-banner',
 				'property'          => 'background-attachment',
 				'sanitize_callback' => function( $value ) {
 					if ( 'default' === $value ) {
@@ -234,12 +234,12 @@ Kirki::add_field(
 		'transport'       => 'auto',
 		'active_callback' => [
 			[
-				'setting'  => 'amply_default_banner_type',
+				'setting'  => 'amply_frontpage_banner_type',
 				'operator' => '==',
 				'value'    => 'bannercpt',
 			],
 			[
-				'setting'  => 'amply_default_banner_bannercpt_bg_image',
+				'setting'  => 'amply_frontpage_banner_bannercpt_bg_image',
 				'operator' => '!=',
 				'value'    => '',
 			],
@@ -251,9 +251,9 @@ Kirki::add_field(
 	'amply_config',
 	[
 		'type'            => 'select',
-		'settings'        => 'amply_default_banner_bannercpt_bg_image_size',
+		'settings'        => 'amply_frontpage_banner_bannercpt_bg_image_size',
 		'label'           => esc_html__( 'Background Image Size', 'amply' ),
-		'section'         => 'amply_default_banner_section',
+		'section'         => 'amply_frontpage_banner_section',
 		'priority'        => 10,
 		'default'         => 'auto',
 		'choices'         => [
@@ -264,7 +264,7 @@ Kirki::add_field(
 		],
 		'output'          => [
 			[
-				'element'           => '#default-bannercpt.site-banner',
+				'element'           => '#frontpage-bannercpt.site-banner',
 				'property'          => 'background-size',
 				'sanitize_callback' => function( $value ) {
 					if ( 'default' === $value ) {
@@ -278,12 +278,12 @@ Kirki::add_field(
 		'transport'       => 'auto',
 		'active_callback' => [
 			[
-				'setting'  => 'amply_default_banner_type',
+				'setting'  => 'amply_frontpage_banner_type',
 				'operator' => '==',
 				'value'    => 'bannercpt',
 			],
 			[
-				'setting'  => 'amply_default_banner_bannercpt_bg_image',
+				'setting'  => 'amply_frontpage_banner_bannercpt_bg_image',
 				'operator' => '!=',
 				'value'    => '',
 			],
