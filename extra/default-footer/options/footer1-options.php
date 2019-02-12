@@ -55,7 +55,7 @@ function amply_default_footer_footer1_elements_outer_section( $wp_customize ) {
 	$wp_customize->add_section(
 		'amply_default_footer_footer1_elements_outer_section',
 		array(
-			'title'    => esc_html__( 'Banner 1 Elements', 'amply' ),
+			'title'    => esc_html__( 'Footer 1 Elements', 'amply' ),
 			'priority' => 0,
 			'type'     => 'outer',
 		)

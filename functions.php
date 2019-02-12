@@ -86,12 +86,14 @@ require_once get_parent_theme_file_path( 'extra/frontpage/frontpage-panel.php' )
 require_once get_parent_theme_file_path( 'extra/frontpage/header/class-amply-frontpage-header.php' );
 require_once get_parent_theme_file_path( 'extra/frontpage/banner/class-amply-frontpage-banner.php' );
 require_once get_parent_theme_file_path( 'extra/frontpage/sidebar/class-amply-frontpage-sidebar.php' );
+require_once get_parent_theme_file_path( 'extra/frontpage/footer/class-amply-frontpage-footer.php' );
 
 // Single.
 require_once get_parent_theme_file_path( 'extra/single/single-panel.php' );
 require_once get_parent_theme_file_path( 'extra/single/header/class-amply-single-header.php' );
 require_once get_parent_theme_file_path( 'extra/single/banner/class-amply-single-banner.php' );
 require_once get_parent_theme_file_path( 'extra/single/sidebar/class-amply-single-sidebar.php' );
+require_once get_parent_theme_file_path( 'extra/single/footer/class-amply-single-footer.php' );
 
 /**
  * Compatibility
@@ -211,9 +213,9 @@ function tests() {
 	// var_dump( wp_styles()->registered[ 'amply-header2' ] );
 	// echo '</pre>';
 
-	echo '<pre>';
+	// echo '<pre>';
 
-	echo '</pre>';
+	// echo '</pre>';
 
 }
 add_action( 'wp_footer', 'tests' );
