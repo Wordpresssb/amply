@@ -1,0 +1,31 @@
+////
+/// Primary nav control customization
+////
+
+#customize-control-amply_default_header_header1_primary_nav_colors {
+
+	margin-bottom: 0;
+	background: #fff;
+	padding: 5px;
+
+	label {
+		display: flex;
+		justify-content: space-between;
+		
+		.customize-control-title {
+			margin-right: 10px;
+			margin-bottom: 0;
+			padding: 3px 0;
+		}
+
+		.select2-container {
+			max-width: 150px;
+		}
+	}
+
+}
+
+#customize-control-amply_default_header_header1_primary_nav_color {
+	background: #fff;
+	padding: 5px;
+}

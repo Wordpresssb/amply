@@ -5,6 +5,8 @@ let mix = require( 'laravel-mix' );
 mix.sass( 'assets/scss/customize-controls.scss', 'dist/css/customize-controls.css' );
 mix.js( 'assets/js/customize-controls.js', 'dist/js/customize-controls.js');
 
+mix.sass( 'extra/default-header/css/customize-controls.scss', 'extra/default-header/css/customize-controls.css' );
+
 // Editor styles
 mix.sass( 'assets/scss/editor-styles.scss', 'dist/css/editor-styles.css' );
 

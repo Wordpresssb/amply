@@ -289,8 +289,8 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 				apply_filters( 'amply_section_templates_capabilities', 'manage_options' ),
 				'amply-section-templates-panel',
 				'',
-				'dashicons-admin-generic',
-				null
+				AMPLY_THEME_URI . '/assets/images/sunset-icon.png',
+				110
 			);
 
 		}

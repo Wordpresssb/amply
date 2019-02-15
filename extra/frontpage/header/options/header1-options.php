@@ -1,12 +1,12 @@
 <?php
 /**
- * Front page header options
+ * Front page header 1 options
  *
  * @package amply
  */
 
 /**
- * Header 1 options
+ * General options
  */
 
 Kirki::add_field(
@@ -177,13 +177,17 @@ Kirki::add_field(
 	)
 );
 
+/**
+ * Primary navigation element
+ */
+
 Kirki::add_field(
 	'amply_config',
 	array(
 		'type'            => 'custom',
 		'settings'        => 'amply_frontpage_header_header1_primary_nav_title',
 		'section'         => 'amply_frontpage_header_section',
-		'default'         => '<h1 class="subtitle-custom-field">Primary Navivation</h1>',
+		'default'         => '<h3 class="subtitle-custom-field">Primary Navivation</h3>',
 		'priority'        => 10,
 		'active_callback' => array(
 			array(
@@ -232,13 +236,17 @@ Kirki::add_field(
 	)
 );
 
+/**
+ * Social navigation element
+ */
+
 Kirki::add_field(
 	'amply_config',
 	array(
 		'type'            => 'custom',
 		'settings'        => 'amply_frontpage_header_header1_social_nav_title',
 		'section'         => 'amply_frontpage_header_section',
-		'default'         => '<h1 class="subtitle-custom-field">Social Navivation</h1>',
+		'default'         => '<h3 class="subtitle-custom-field">Social Navivation</h3>',
 		'priority'        => 10,
 		'active_callback' => array(
 			array(
@@ -287,13 +295,17 @@ Kirki::add_field(
 	)
 );
 
+/**
+ * Search element
+ */
+
 Kirki::add_field(
 	'amply_config',
 	array(
 		'type'            => 'custom',
 		'settings'        => 'amply_frontpage_header_header1_search_form_title',
 		'section'         => 'amply_frontpage_header_section',
-		'default'         => '<h1 class="subtitle-custom-field">Search Form</h1>',
+		'default'         => '<h3 class="subtitle-custom-field">Search Form</h3>',
 		'priority'        => 10,
 		'active_callback' => array(
 			array(
@@ -342,13 +354,17 @@ Kirki::add_field(
 	)
 );
 
+/**
+ * Mobile menu trigger element
+ */
+
 Kirki::add_field(
 	'amply_config',
 	array(
 		'type'            => 'custom',
 		'settings'        => 'amply_frontpage_header_header1_mobile_menu_trigger_title',
 		'section'         => 'amply_frontpage_header_section',
-		'default'         => '<h1 class="subtitle-custom-field">Mobile Menu Trigger</h1>',
+		'default'         => '<h3 class="subtitle-custom-field">Mobile Menu Trigger</h3>',
 		'priority'        => 10,
 		'active_callback' => array(
 			array(

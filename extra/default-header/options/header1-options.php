@@ -1,12 +1,12 @@
 <?php
 /**
- * Default Header options
+ * Default Header 1 options
  *
  * @package amply
  */
 
 /**
- * Header 1 options
+ * General options
  */
 
 Kirki::add_field(
@@ -177,13 +177,17 @@ Kirki::add_field(
 	)
 );
 
+/**
+ * Primary navigation element
+ */
+
 Kirki::add_field(
 	'amply_config',
 	array(
 		'type'            => 'custom',
 		'settings'        => 'amply_default_header_header1_primary_nav_title',
 		'section'         => 'amply_default_header_section',
-		'default'         => '<h1 class="subtitle-custom-field">Primary Navivation</h1>',
+		'default'         => '<h3 class="subtitle-custom-field">Primary Navivation</h3>',
 		'priority'        => 10,
 		'active_callback' => array(
 			array(
@@ -199,6 +203,32 @@ Kirki::add_field(
 		),
 	)
 );
+
+// // phpcs:disable
+// // Test dropdown title
+// Kirki::add_field(
+// 	'amply_config',
+// 	array(
+// 		'type'            => 'custom',
+// 		'settings'        => 'amply_default_header_header1_primary_nav_title_test',
+// 		'section'         => 'amply_default_header_section',
+// 		'default'         => '<h3 class="custom-dropdown-section">Primary Navivation Test</h3>',
+// 		'priority'        => 10,
+// 		'active_callback' => array(
+// 			array(
+// 				'setting'  => 'amply_default_header_type',
+// 				'operator' => '==',
+// 				'value'    => 'header1',
+// 			),
+// 			array(
+// 				'setting'  => 'amply_default_header_header1_elements',
+// 				'operator' => 'contains',
+// 				'value'    => 'primary-nav',
+// 			),
+// 		),
+// 	)
+// );
+// // phpcs:enable
 
 Kirki::add_field(
 	'amply_config',
@@ -235,10 +265,90 @@ Kirki::add_field(
 Kirki::add_field(
 	'amply_config',
 	array(
+		'type'            => 'select',
+		'settings'        => 'amply_default_header_header1_primary_nav_colors',
+		'label'           => esc_html__( 'Colors', 'amply' ),
+		'section'         => 'amply_default_header_section',
+		'priority'        => 10,
+		'multiple'        => 1,
+		'choices'         => [
+			'default' => esc_html__( 'Default', 'amply' ),
+			'custom'  => esc_html__( 'Custom', 'amply' ),
+		],
+		'default'         => 'default',
+		'transport'       => 'refresh',
+		'active_callback' => [
+			[
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			],
+			[
+				'setting'  => 'amply_default_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'primary-nav',
+			],
+		],
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	[
+		'type'            => 'color',
+		'settings'        => 'amply_default_header_header1_primary_nav_color',
+		'description'     => esc_html__( 'Color', 'amply' ),
+		'section'         => 'amply_default_header_section',
+		'default'         => '',
+		'priority'        => 10,
+		'choices'         => [
+			'alpha' => true,
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			],
+			[
+				'setting'  => 'amply_default_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'primary-nav',
+			],
+			[
+				'setting'  => 'amply_default_header_header1_primary_nav_colors',
+				'operator' => '==',
+				'value'    => 'custom',
+			],
+		],
+		'transport'       => 'auto',
+		'output'          => [
+			[
+				'element'           => '#default-header1.site-header .primary-menu, #default-header1.site-header .primary-menu > li > a',
+				'property'          => 'color',
+				'sanitize_callback' => function( $value ) {
+					if ( '' === $value ) {
+						return;
+					} else {
+						return $value;
+					}
+				},
+			],
+		],
+	]
+);
+
+/**
+ * Social navigation element
+ */
+
+Kirki::add_field(
+	'amply_config',
+	array(
 		'type'            => 'custom',
 		'settings'        => 'amply_default_header_header1_social_nav_title',
 		'section'         => 'amply_default_header_section',
-		'default'         => '<h1 class="subtitle-custom-field">Social Navivation</h1>',
+		'default'         => '<h3 class="subtitle-custom-field">Social Navivation</h3>',
 		'priority'        => 10,
 		'active_callback' => array(
 			array(
@@ -287,13 +397,17 @@ Kirki::add_field(
 	)
 );
 
+/**
+ * Search element
+ */
+
 Kirki::add_field(
 	'amply_config',
 	array(
 		'type'            => 'custom',
 		'settings'        => 'amply_default_header_header1_search_form_title',
 		'section'         => 'amply_default_header_section',
-		'default'         => '<h1 class="subtitle-custom-field">Search Form</h1>',
+		'default'         => '<h3 class="subtitle-custom-field">Search Form</h3>',
 		'priority'        => 10,
 		'active_callback' => array(
 			array(
@@ -342,13 +456,17 @@ Kirki::add_field(
 	)
 );
 
+/**
+ * Mobile menu trigger element
+ */
+
 Kirki::add_field(
 	'amply_config',
 	array(
 		'type'            => 'custom',
 		'settings'        => 'amply_default_header_header1_mobile_menu_trigger_title',
 		'section'         => 'amply_default_header_section',
-		'default'         => '<h1 class="subtitle-custom-field">Mobile Menu Trigger</h1>',
+		'default'         => '<h3 class="subtitle-custom-field">Mobile Menu Trigger</h3>',
 		'priority'        => 10,
 		'active_callback' => array(
 			array(

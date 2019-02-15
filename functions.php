@@ -24,12 +24,17 @@ if ( version_compare( $GLOBALS['wp_version'], AMPLY_MINIMUM_WP_VERSION, '<' ) ||
 }
 
 /**
+ * Framework
+ * Functions used throughout the theme.
+ */
+require_once get_parent_theme_file_path( 'framework/functions-common.php' );
+require_once get_parent_theme_file_path( 'framework/functions-template.php' );
+
+
+/**
  * Core features
  */
 
-// Functions used throughout the theme.
-require_once get_parent_theme_file_path( 'inc/functions/functions-common.php' );
-require_once get_parent_theme_file_path( 'inc/functions/functions-template.php' );
 
 // Setup configurations.
 require_once get_parent_theme_file_path( 'inc/setup/class-amply-setup.php' );
@@ -133,55 +138,6 @@ require get_parent_theme_file_path( '/pluggable/mobile-sidebar/mobile-sidebar.ph
 
 // phpcs:disable
 
-/**
- * Pretty Printing
- *
- * @since 1.0.0
- * @author Chris Bratlien
- * @param mixed $obj
- * @param string $label
- * @return null
- */
-function ea_pp( $obj, $label = '' ) {
-	$data = json_encode( print_r( $obj,true ) );
-	?>
-	<style type="text/css">
-		#bsdLogger {
-		position: absolute;
-		top: 30px;
-		right: 0px;
-		border-left: 4px solid #bbb;
-		padding: 6px;
-		background: white;
-		color: #444;
-		z-index: 999;
-		font-size: 0.5em;
-		width: 400px;
-		height: 800px;
-		overflow: scroll;
-		}
-	</style>
-	<script type="text/javascript">
-		var doStuff = function(){
-			var obj = <?php echo $data; ?>;
-			var logger = document.getElementById('bsdLogger');
-			if (!logger) {
-				logger = document.createElement('div');
-				logger.id = 'bsdLogger';
-				document.body.appendChild(logger);
-			}
-			////console.log(obj);
-			var pre = document.createElement('pre');
-			var h2 = document.createElement('h2');
-			pre.innerHTML = obj;
-			h2.innerHTML = '<?php echo addslashes($label); ?>';
-			logger.appendChild(h2);
-			logger.appendChild(pre);
-		};
-		window.addEventListener ("DOMContentLoaded", doStuff, false);
-	</script>
-	<?php
-}
 
 /**
  * Tests
@@ -214,8 +170,18 @@ function tests() {
 	// echo '</pre>';
 
 	// echo '<pre>';
-
+	// print_r(wp_load_alloptions());
 	// echo '</pre>';
 
 }
 add_action( 'wp_footer', 'tests' );
+
+// function My_Test(){
+//     var_dump(microtime(true));
+//     for ($i=1; $i<100; $i++) { get_option('blogdescription'); }
+//     var_dump(microtime(true));
+//     for ($i=1; $i<100; $i++) { get_theme_mod('blogdescription'); }
+//     var_dump(microtime(true));
+//     exit;
+// } 
+// add_action('wp','My_Test');
