@@ -186,7 +186,7 @@ if ( ! class_exists( 'Amply_Setup' ) ) {
 			/**
 			 * Enqueue editor styles.
 			 *
-			 * @link https://wordpress.org/gutenberg/handbook/designers-developers/developers/themes/theme-support/#editor-styles
+			 * @link https://wordpress.org/gutenberg/handbook/designers-developers/developers/themes/theme-support/#enqueuing-the-editor-style
 			 */
 			add_editor_style( 'dist/css/editor-styles.css' );
 

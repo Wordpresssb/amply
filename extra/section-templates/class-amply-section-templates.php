@@ -57,11 +57,16 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 			add_filter( 'allowed_block_types', array( $this, 'section_allowed_block_types' ), 10, 2 );
 
 			if ( is_admin() ) {
+
 				add_action( 'admin_menu', array( $this, 'add_menu_page' ), 0 );
 				add_action( 'admin_menu', array( $this, 'add_header_submenu_page' ), 1 );
 				add_action( 'admin_menu', array( $this, 'add_banner_submenu_page' ), 1 );
 				add_action( 'admin_menu', array( $this, 'add_sidebar_submenu_page' ), 1 );
 				add_action( 'admin_menu', array( $this, 'add_footer_submenu_page' ), 1 );
+
+				// Custom block editor style for each section cpt.
+				add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_styles' ) );
+
 			}
 
 		}
@@ -352,6 +357,42 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 				'manage_options',
 				'edit.php?post_type=amply_footer_cpt'
 			);
+
+		}
+
+		/**
+		 * Enqueue cpt block editor styles.
+		 */
+		public function enqueue_block_editor_styles() {
+
+			$screen = get_current_screen();
+
+			if ( is_object( $screen ) ) {
+
+				switch ( $screen->post_type ) {
+
+					// Add header cpt style.
+					case 'amply_header_cpt':
+						wp_enqueue_style( 'amply-header-editor-style', get_theme_file_uri( '/extra/section-templates/css/header-editor-style.css' ), array(), AMPLY_THEME_VERSION );
+						break;
+
+					// Add banner cpt style.
+					case 'amply_banner_cpt':
+						wp_enqueue_style( 'amply-banner-editor-style', get_theme_file_uri( '/extra/section-templates/css/banner-editor-style.css' ), array(), AMPLY_THEME_VERSION );
+						break;
+
+					// Add sidebar cpt style.
+					case 'amply_sidebar_cpt':
+						wp_enqueue_style( 'amply-sidebar-editor-style', get_theme_file_uri( '/extra/section-templates/css/sidebar-editor-style.css' ), array(), AMPLY_THEME_VERSION );
+						break;
+
+					// Add footer cpt style.
+					case 'amply_footer_cpt':
+						wp_enqueue_style( 'amply-footer-editor-style', get_theme_file_uri( '/extra/section-templates/css/footer-editor-style.css' ), array(), AMPLY_THEME_VERSION );
+						break;
+
+				}
+			}
 
 		}
 
