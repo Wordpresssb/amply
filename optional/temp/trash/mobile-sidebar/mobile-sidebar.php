@@ -2,6 +2,9 @@
 /**
  * Menu sidebar
  *
+ * Description: Add a slide out panel triggered by element with id="mobile-toggle".
+ * Amp ready: on="tap:amply-sidebar-amp.toggle".
+ *
  * @package amply
  */
 

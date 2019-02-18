@@ -1,0 +1,79 @@
+.mobile-sidebar-amp {
+	width: 260px;
+	background-color: #ffffff;
+}
+
+.mobile-sidebar-amp .menu-header {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.mobile-sidebar-amp .close-menu {
+	display: block;
+	font-size: 1rem;
+	padding: 1em 2em;
+	background-color: transparent;
+	border: 0;
+	box-shadow: none;
+	color: #222;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 800;
+	line-height: 1.5;
+	margin: 1px auto 2px;
+}
+
+.mobile-sidebar-amp ul {
+	letter-spacing: 0.06rem;
+	text-transform: uppercase;
+	list-style: none;
+}
+
+.mobile-sidebar-amp > ul {
+	margin: 0;
+	padding: 1em 1.5em;
+}
+
+.mobile-sidebar-amp li {
+	margin: 0 0 1em;
+	border-bottom: 1px solid #eee;
+}
+
+.mobile-sidebar-amp ul ul {
+	margin: 0;
+	padding: 0 0 0 1em;
+}
+
+.mobile-sidebar-amp li li,
+.mobile-sidebar-amp li:last-child {
+	border: 0;
+}
+
+.mobile-sidebar-amp a > .icon {
+	display: none; /* hide php dropdown icons */
+}
+
+.mobile-sidebar-amp header {
+	margin: 0 0 1em;
+}
+
+.mobile-sidebar-amp header:focus {
+	outline: none;
+}
+
+.mobile-sidebar-amp header {
+	background-color: transparent;
+	border: 0;
+}
+
+.menu-item-has-children section > header:after {
+  content: "+";
+  padding: 0 1rem;
+  color: #003f93;
+  position: absolute;
+  right: 0;
+}
+.menu-item-has-children [expanded] > header:after {
+  content: "–";
+}

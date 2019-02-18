@@ -53,6 +53,8 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 
 			add_action( 'init', array( $this, 'footer_post_type' ) );
 
+			add_action( 'init', array( $this, 'mobile_post_type' ) );
+
 			// Filter the allowed blocks for section CPT.
 			add_filter( 'allowed_block_types', array( $this, 'section_allowed_block_types' ), 10, 2 );
 
@@ -63,6 +65,7 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 				add_action( 'admin_menu', array( $this, 'add_banner_submenu_page' ), 1 );
 				add_action( 'admin_menu', array( $this, 'add_sidebar_submenu_page' ), 1 );
 				add_action( 'admin_menu', array( $this, 'add_footer_submenu_page' ), 1 );
+				add_action( 'admin_menu', array( $this, 'add_mobile_submenu_page' ), 1 );
 
 				// Custom block editor style for each section cpt.
 				add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_styles' ) );
@@ -246,6 +249,45 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 		}
 
 		/**
+		 * Register mobile post type
+		 */
+		public function mobile_post_type() {
+
+			// Register the post type.
+			register_post_type(
+				'amply_mobile_cpt',
+				array(
+					'labels'              => array(
+						'name'               => __( 'mobile menus' ),
+						'singular_name'      => __( 'mobile menu' ),
+						'add_new'            => __( 'New Mobile Menu' ),
+						'add_new_item'       => __( 'Add New Mobile Menu' ),
+						'edit_item'          => __( 'Edit Mobile Menu' ),
+						'new_item'           => __( 'New Mobile Menu' ),
+						'view_item'          => __( 'View Mobile Menu' ),
+						'search_items'       => __( 'Search Mobile Menus' ),
+						'not_found'          => __( 'No Mobile Menus Found' ),
+						'not_found_in_trash' => __( 'No Mobile Menus found in Trash' ),
+					),
+					'menu_position'       => 30,
+					'public'              => true,
+					'has_archive'         => true,
+					'hierarchical'        => false,
+					'show_ui'             => true,
+					'show_in_menu'        => false,
+					'show_in_nav_menus'   => false,
+					'can_export'          => true,
+					'exclude_from_search' => true,
+					'capability_type'     => 'post',
+					'rewrite'             => false,
+					'supports'            => array( 'title', 'editor', 'custom-fields', 'author', 'elementor' ),
+					'show_in_rest'        => true,
+				)
+			);
+
+		}
+
+		/**
 		 * Filter allowed blocks for the section cpt
 		 *
 		 * @param array  $allowed_block_types Array of allowed blocks.
@@ -361,6 +403,21 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 		}
 
 		/**
+		 * Add sub menu page for mobile cpt
+		 */
+		public function add_mobile_submenu_page() {
+
+			add_submenu_page(
+				'amply-section-templates-panel',
+				esc_html__( 'Mobile Menus', 'amply' ),
+				esc_html__( 'Mobile Menus', 'amply' ),
+				'manage_options',
+				'edit.php?post_type=amply_mobile_cpt'
+			);
+
+		}
+
+		/**
 		 * Enqueue cpt block editor styles.
 		 */
 		public function enqueue_block_editor_styles() {
@@ -389,6 +446,11 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 					// Add footer cpt style.
 					case 'amply_footer_cpt':
 						wp_enqueue_style( 'amply-footer-editor-style', get_theme_file_uri( '/extra/section-templates/css/footer-editor-style.css' ), array(), AMPLY_THEME_VERSION );
+						break;
+
+					// Add mobile cpt style.
+					case 'amply_mobile_cpt':
+						wp_enqueue_style( 'amply-mobile-menu-editor-style', get_theme_file_uri( '/extra/section-templates/css/mobile-menu-editor-style.css' ), array(), AMPLY_THEME_VERSION );
 						break;
 
 				}

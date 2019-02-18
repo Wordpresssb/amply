@@ -86,6 +86,9 @@ require_once get_parent_theme_file_path( 'extra/default-sidebar/class-amply-defa
 // Default footer.
 require_once get_parent_theme_file_path( 'extra/default-footer/class-amply-default-footer.php' );
 
+// Default mobile menu.
+require_once get_parent_theme_file_path( 'extra/default-mobilemenu/class-amply-default-mobilemenu.php' );
+
 // Frontpage.
 require_once get_parent_theme_file_path( 'extra/frontpage/frontpage-panel.php' );
 require_once get_parent_theme_file_path( 'extra/frontpage/header/class-amply-frontpage-header.php' );
@@ -125,8 +128,6 @@ require_once get_parent_theme_file_path( 'pluggable/svg-icons/class-amply-svg-ic
 // Add social nav menu.
 require_once get_parent_theme_file_path( 'pluggable/social-nav-menu/class-amply-social-nav-menu.php' );
 
-// Add mobile sidebar.
-require get_parent_theme_file_path( '/pluggable/mobile-sidebar/mobile-sidebar.php' );
 
 
 

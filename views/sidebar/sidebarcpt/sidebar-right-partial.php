@@ -5,8 +5,7 @@
  * @package amply
  */
 
-$sidebar_right_id      = get_query_var( 'amply_sidebar_right_id_var', '' );
-$sidebar_right_content = '';
+$sidebar_right_id = get_query_var( 'amply_sidebar_right_id_var', '' );
 
 if ( 'none' === $sidebar_right_id ) {
 	return;
@@ -20,7 +19,7 @@ if ( ! empty( $sidebar_right_id ) ) {
 
 <aside id="sidebar-right" class="site-sidebar-right">
 
-	<div id="post-<?php echo esc_attr( $sidebar_right_id_id ); ?>" class="entry">
+	<div id="post-<?php echo esc_attr( $sidebar_right_id ); ?>" class="entry">
 
 		<div class="entry-content">
 
@@ -36,6 +35,6 @@ if ( ! empty( $sidebar_right_id ) ) {
 
 		</div><!-- .entry-content -->
 
-	</div><!-- #post-<?php echo esc_attr( $sidebar_right_id_id ); ?> -->
+	</div><!-- #post-<?php echo esc_attr( $sidebar_right_id ); ?> -->
 
 </aside>

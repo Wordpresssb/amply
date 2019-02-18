@@ -1,0 +1,88 @@
+.sidr-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#sidr-menu-container {
+	display: none;
+}
+
+#mobile-sidebar-sidr {
+	background: #ffffff;
+}
+
+#mobile-sidebar-sidr .menu-header {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#mobile-sidebar-sidr .close-menu {
+	display: block;
+	font-size: 1rem;
+	padding: 1em 2em;
+	background-color: transparent;
+	border: 0;
+	box-shadow: none;
+	color: #222;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 800;
+	line-height: 1.5;
+	margin: 1px auto 2px;
+}
+
+#mobile-sidebar-sidr ul {
+	letter-spacing: 0.06rem;
+	text-transform: uppercase;
+	list-style: none;
+}
+
+#mobile-sidebar-sidr .sidr-inner > ul {
+	margin: 0;
+	padding: 1em 1.5em;
+}
+
+#mobile-sidebar-sidr li {
+	margin: 0 0 1em;
+	border-bottom: 1px solid #eee;
+}
+
+#mobile-sidebar-sidr ul ul {
+	margin: 0;
+	padding: 0 0 0 1em;
+}
+
+#mobile-sidebar-sidr li li,
+#mobile-sidebar-sidr li:last-child {
+	border: 0;
+}
+
+#mobile-sidebar-sidr a > .icon {
+	display: none; /* hide php dropdown icons */
+}
+
+#mobile-sidebar-sidr .link-wrap {
+	position: relative;
+	margin: 0 0 1em;
+}
+
+#mobile-sidebar-sidr .dropdown-toggle {
+	position: absolute;
+	right: 0;
+	padding: 0 1rem;
+	right: 0;
+	cursor: pointer;
+}
+
+#mobile-sidebar-sidr .menu-item-has-children ul {
+	display: none;
+}
+
+#mobile-sidebar-sidr .menu-item-has-children ul.toggled-on {
+	display: block;
+}

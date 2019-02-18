@@ -7,8 +7,7 @@
 
 $banner_name = get_query_var( 'amply_banner_var', '' );
 
-$banner_id      = get_query_var( 'amply_banner_id_var', '' );
-$banner_content = '';
+$banner_id = get_query_var( 'amply_banner_id_var', '' );
 
 if ( 'none' === $banner_id ) {
 	return;
@@ -38,6 +37,6 @@ if ( ! empty( $banner_id ) ) {
 
 		</div><!-- .entry-content -->
 
-	</article><!-- #post-<?php echo esc_attr( $banner_name ); ?> -->
+	</article><!-- #post-<?php echo esc_attr( $banner_id ); ?> -->
 
 </section>
