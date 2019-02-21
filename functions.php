@@ -103,6 +103,9 @@ require_once get_parent_theme_file_path( 'extra/single/banner/class-amply-single
 require_once get_parent_theme_file_path( 'extra/single/sidebar/class-amply-single-sidebar.php' );
 require_once get_parent_theme_file_path( 'extra/single/footer/class-amply-single-footer.php' );
 
+// Global components.
+require_once get_parent_theme_file_path( 'extra/search-toggle/class-amply-search-toggle.php' );
+
 /**
  * Compatibility
  */

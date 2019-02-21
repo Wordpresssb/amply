@@ -52,3 +52,6 @@ mix.sass( 'views/page-content/page-entry.scss', 'views/page-content/page-entry.c
 mix.sass( 'views/footer/footercpt/footercpt.scss', 'views/footer/footercpt/footercpt.css' );
 mix.sass( 'views/footer/footer1/footer1.scss', 'views/footer/footer1/footer1.css' );
 mix.sass( 'views/footer/footer2/footer2.scss', 'views/footer/footer2/footer2.css' );
+
+mix.sass( 'views/site/search/search-overlay/css/search-overlay.scss', 'views/site/search/search-overlay/css/search-overlay.css' );
+mix.sass( 'views/site/search/search-overlay/css/search-overlay-amp.scss', 'views/site/search/search-overlay/css/search-overlay-amp.css' );

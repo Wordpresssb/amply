@@ -75,6 +75,7 @@ Kirki::add_field(
 			'primary-nav'         => esc_html__( 'Primary Navigation', 'amply' ),
 			'social-nav'          => esc_html__( 'Social Navigation', 'amply' ),
 			'search-form'         => esc_html__( 'Search Form', 'amply' ),
+			'search-toggle'       => esc_html__( 'Search Toggle', 'amply' ),
 			'mobile-menu-trigger' => esc_html__( 'Mobile Menu Trigger', 'amply' ),
 		),
 		'default'         => amply_defaults( 'amply_default_header_header1_elements' ),

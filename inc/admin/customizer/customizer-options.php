@@ -9,7 +9,15 @@ Kirki::add_panel(
 	'amply_general_panel',
 	array(
 		'title'    => esc_html__( 'General Options', 'amply' ),
-		'priority' => 300,
+		'priority' => 250,
+	)
+);
+
+Kirki::add_panel(
+	'amply_global_components_panel',
+	array(
+		'title'    => esc_html__( 'Global Components Options', 'amply' ),
+		'priority' => 251,
 	)
 );
 

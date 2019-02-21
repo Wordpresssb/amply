@@ -1,6 +1,6 @@
 <?php
 /**
- * Header 1
+ * Mobile menu trigger
  *
  * @package amply
  */

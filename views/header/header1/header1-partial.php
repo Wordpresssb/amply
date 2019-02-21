@@ -51,6 +51,13 @@ $elements = get_query_var( 'amply_header_elements_var', '' );
 				?>
 
 				<?php
+				// Search toggle.
+				if ( 'search-toggle' === $element ) {
+					do_action( 'amply_search_toggle' );
+				}
+				?>
+
+				<?php
 				// Mobile menu trigger.
 				if ( 'mobile-menu-trigger' === $element ) {
 					get_template_part( 'views/site/mobile-menu-trigger' );

@@ -132,12 +132,8 @@ if ( ! class_exists( 'Amply_Default_Mobilemenu_Component' ) ) {
 				return;
 			}
 
-			// Enqueue sidr script.
-			wp_enqueue_script( 'amply-sidr', get_theme_file_uri( 'extra/default-mobilemenu/js/jquery.sidr.min.js' ), array( 'jquery' ), '20180514', false );
-			wp_script_add_data( 'amply-sidr', 'defer', true );
-
 			// Enqueue sidr menu script.
-			wp_enqueue_script( 'amply-mobilemenucpt-sidr', get_theme_file_uri( 'views/mobilemenu/mobilemenucpt/js/mobilemenucpt-sidr.js' ), array( 'jquery' ), '20180514', false );
+			wp_enqueue_script( 'amply-mobilemenucpt-sidr', get_theme_file_uri( 'views/mobilemenu/mobilemenucpt/js/mobilemenucpt-sidr.js' ), array( 'jquery', 'amply-sidr' ), '20180514', false );
 			wp_script_add_data( 'amply-mobilemenucpt-sidr', 'defer', true );
 
 		}
@@ -152,12 +148,8 @@ if ( ! class_exists( 'Amply_Default_Mobilemenu_Component' ) ) {
 				return;
 			}
 
-			// Enqueue sidr script.
-			wp_enqueue_script( 'amply-sidr', get_theme_file_uri( 'extra/default-mobilemenu/js/jquery.sidr.min.js' ), array( 'jquery' ), '20180514', false );
-			wp_script_add_data( 'amply-sidr', 'defer', true );
-
 			// Enqueue sidr menu script.
-			wp_enqueue_script( 'amply-mobilemenu1-sidr', get_theme_file_uri( 'views/mobilemenu/mobilemenu1/js/mobilemenu1-sidr.js' ), array( 'jquery' ), '20180514', false );
+			wp_enqueue_script( 'amply-mobilemenu1-sidr', get_theme_file_uri( 'views/mobilemenu/mobilemenu1/js/mobilemenu1-sidr.js' ), array( 'jquery', 'amply-sidr' ), '20180514', false );
 			wp_script_add_data( 'amply-mobilemenu1-sidr', 'defer', true );
 
 		}
