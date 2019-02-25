@@ -93,6 +93,7 @@ Kirki::add_field(
 			'headercpt' => get_template_directory_uri() . '/extra/default-header/images/headercpt.png',
 			'header1'   => get_template_directory_uri() . '/extra/default-header/images/header1.png',
 			'header2'   => get_template_directory_uri() . '/extra/default-header/images/header2.png',
+			'header3'   => get_template_directory_uri() . '/extra/default-header/images/header3.png',
 		),
 	)
 );

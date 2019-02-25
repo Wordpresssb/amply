@@ -399,7 +399,7 @@ Kirki::add_field(
 );
 
 /**
- * Search element
+ * Search form element
  */
 
 Kirki::add_field(
@@ -450,6 +450,65 @@ Kirki::add_field(
 		'output'          => array(
 			array(
 				'element'           => '#default-header1 .site-search-form',
+				'property'          => 'display',
+				'sanitize_callback' => 'sanitize_visibility',
+			),
+		),
+	)
+);
+
+/**
+ * Search toggle element
+ */
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'custom',
+		'settings'        => 'amply_default_header_header1_search_toggle_title',
+		'section'         => 'amply_default_header_section',
+		'default'         => '<h3 class="subtitle-custom-field">Search Toggle</h3>',
+		'priority'        => 10,
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+			array(
+				'setting'  => 'amply_default_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'search-toggle',
+			),
+		),
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'switch',
+		'settings'        => 'amply_default_header_header1_search_toggle_visibility',
+		'label'           => esc_html__( 'Show on Mobile/Tablet', 'amply' ),
+		'section'         => 'amply_default_header_section',
+		'default'         => '0',
+		'priority'        => 10,
+		'transport'       => 'auto',
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_default_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+			array(
+				'setting'  => 'amply_default_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'search-toggle',
+			),
+		),
+		'output'          => array(
+			array(
+				'element'           => '#default-header1 .site-search-icon',
 				'property'          => 'display',
 				'sanitize_callback' => 'sanitize_visibility',
 			),

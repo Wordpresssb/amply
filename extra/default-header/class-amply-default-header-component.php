@@ -88,8 +88,6 @@ if ( ! class_exists( 'Amply_Default_Header_Component' ) ) {
 
 			get_template_part( 'views/header/' . $this->header . '/' . $this->header, 'partial' );
 
-			/* TO DO : Use remove_query_var() to remove the query var. */
-
 		}
 
 		/**

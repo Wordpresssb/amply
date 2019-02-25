@@ -75,6 +75,7 @@ Kirki::add_field(
 			'primary-nav'         => esc_html__( 'Primary Navigation', 'amply' ),
 			'social-nav'          => esc_html__( 'Social Navigation', 'amply' ),
 			'search-form'         => esc_html__( 'Search Form', 'amply' ),
+			'search-toggle'       => esc_html__( 'Search Toggle', 'amply' ),
 			'mobile-menu-trigger' => esc_html__( 'Mobile Menu Trigger', 'amply' ),
 		),
 		'default'         => amply_defaults( 'amply_single_header_header1_elements' ),
@@ -296,7 +297,7 @@ Kirki::add_field(
 );
 
 /**
- * Search element
+ * Search form element
  */
 
 Kirki::add_field(
@@ -347,6 +348,65 @@ Kirki::add_field(
 		'output'          => array(
 			array(
 				'element'           => '#single-header1 .site-search-form',
+				'property'          => 'display',
+				'sanitize_callback' => 'sanitize_visibility',
+			),
+		),
+	)
+);
+
+/**
+ * Search toggle element
+ */
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'custom',
+		'settings'        => 'amply_single_header_header1_search_toggle_title',
+		'section'         => 'amply_single_header_section',
+		'default'         => '<h3 class="subtitle-custom-field">Search Toggle</h3>',
+		'priority'        => 10,
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_single_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+			array(
+				'setting'  => 'amply_single_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'search-toggle',
+			),
+		),
+	)
+);
+
+Kirki::add_field(
+	'amply_config',
+	array(
+		'type'            => 'switch',
+		'settings'        => 'amply_single_header_header1_search_toggle_visibility',
+		'label'           => esc_html__( 'Show on Mobile/Tablet', 'amply' ),
+		'section'         => 'amply_single_header_section',
+		'default'         => '0',
+		'priority'        => 10,
+		'transport'       => 'auto',
+		'active_callback' => array(
+			array(
+				'setting'  => 'amply_single_header_type',
+				'operator' => '==',
+				'value'    => 'header1',
+			),
+			array(
+				'setting'  => 'amply_single_header_header1_elements',
+				'operator' => 'contains',
+				'value'    => 'search-toggle',
+			),
+		),
+		'output'          => array(
+			array(
+				'element'           => '#single-header1 .site-search-icon',
 				'property'          => 'display',
 				'sanitize_callback' => 'sanitize_visibility',
 			),

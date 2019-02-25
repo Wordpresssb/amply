@@ -64,6 +64,17 @@
 
 	}
 
+	.site-search-icon {
+
+		display: none;
+		align-items: center;
+		
+		@include media(desktop) {
+			display: flex;		
+		}
+
+	}
+
 }
 
 .mobile-menu-trigger {
