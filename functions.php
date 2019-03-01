@@ -105,6 +105,7 @@ require_once get_parent_theme_file_path( 'extra/single/footer/class-amply-single
 
 // Global components.
 require_once get_parent_theme_file_path( 'extra/search-toggle/class-amply-search-toggle.php' );
+require_once get_parent_theme_file_path( 'extra/slideout-panel/class-amply-slideout-panel.php' );
 
 /**
  * Compatibility

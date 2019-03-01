@@ -1,0 +1,88 @@
+.sidr-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#sidr-slideout-panel-container {
+	display: none;
+}
+
+#slideout-panel-sidr {
+	background: #ffffff;
+}
+
+#slideout-panel-sidr .slideout-header {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#slideout-panel-sidr .close-slideout {
+	display: block;
+	font-size: 1rem;
+	padding: 1em 2em;
+	background-color: transparent;
+	border: 0;
+	box-shadow: none;
+	color: #222;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 800;
+	line-height: 1.5;
+	margin: 1px auto 2px;
+}
+
+#slideout-panel-sidr ul {
+	letter-spacing: 0.06rem;
+	text-transform: uppercase;
+	list-style: none;
+}
+
+#slideout-panel-sidr .sidr-inner > ul {
+	margin: 0;
+	padding: 1em 1.5em;
+}
+
+#slideout-panel-sidr li {
+	margin: 0 0 1em;
+	border-bottom: 1px solid #eee;
+}
+
+#slideout-panel-sidr ul ul {
+	margin: 0;
+	padding: 0 0 0 1em;
+}
+
+#slideout-panel-sidr li li,
+#slideout-panel-sidr li:last-child {
+	border: 0;
+}
+
+#slideout-panel-sidr a > .icon {
+	display: none; /* hide php dropdown icons */
+}
+
+#slideout-panel-sidr .link-wrap {
+	position: relative;
+	margin: 0 0 1em;
+}
+
+#slideout-panel-sidr .dropdown-toggle {
+	position: absolute;
+	right: 0;
+	padding: 0 1rem;
+	right: 0;
+	cursor: pointer;
+}
+
+#slideout-panel-sidr .menu-item-has-children ul {
+	display: none;
+}
+
+#slideout-panel-sidr .menu-item-has-children ul.toggled-on {
+	display: block;
+}

@@ -220,6 +220,9 @@ if ( ! class_exists( 'Amply_Assets' ) ) {
 			// Register sidr script.
 			wp_register_script( 'amply-sidr', get_theme_file_uri( 'assets/js/jquery.sidr.min.js' ), array(), '3.0.0' );
 
+			// Register slideout.js script.
+			wp_register_script( 'amply-slideout', get_theme_file_uri( 'assets/js/slideout.min.js' ), array(), '1.0.1' );
+
 			// Enqueue skip-link-focus script.
 			wp_enqueue_script( 'amply-skip-link-focus-fix', get_theme_file_uri( 'dist/js/skip-link-focus-fix.js' ), array(), '20151215', false );
 			wp_script_add_data( 'amply-skip-link-focus-fix', 'defer', true );

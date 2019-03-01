@@ -26,8 +26,17 @@ if ( ! empty( $sidebar_right_id ) ) {
 			<?php
 			if ( $sidebar_right_obj && ! is_wp_error( $sidebar_right_obj ) ) {
 
-				setup_postdata( $sidebar_right_obj );
+				global $post;
+
+				// Set $post global variable to the right post object.
+				$post = $sidebar_right_obj; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
+
+				// Set up "environment" for template tags.
+				setup_postdata( $post );
+
 				the_content();
+
+				// point $post back to wherever it was pointing before we got involved.
 				wp_reset_postdata();
 
 			}

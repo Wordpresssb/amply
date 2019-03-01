@@ -33,8 +33,17 @@ if ( ! empty( $mobilemenu_id ) && 'none' !== $mobilemenu_id ) {
 
 					if ( $mobilemenu_post_obj && ! is_wp_error( $mobilemenu_post_obj ) ) {
 
-						setup_postdata( $mobilemenu_post_obj );
+						global $post;
+
+						// Set $post global variable to the right post object.
+						$post = $mobilemenu_post_obj; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
+
+						// Set up "environment" for template tags.
+						setup_postdata( $post );
+
 						the_content();
+
+						// point $post back to wherever it was pointing before we got involved.
 						wp_reset_postdata();
 					}
 				}
@@ -65,8 +74,17 @@ if ( ! empty( $mobilemenu_id ) && 'none' !== $mobilemenu_id ) {
 
 					if ( $mobilemenu_post_obj && ! is_wp_error( $mobilemenu_post_obj ) ) {
 
-						setup_postdata( $mobilemenu_post_obj );
+						global $post;
+
+						// Set $post global variable to the right post object.
+						$post = $mobilemenu_post_obj; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
+
+						// Set up "environment" for template tags.
+						setup_postdata( $post );
+
 						the_content();
+
+						// point $post back to wherever it was pointing before we got involved.
 						wp_reset_postdata();
 					}
 				}

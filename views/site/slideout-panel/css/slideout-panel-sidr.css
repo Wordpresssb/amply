@@ -1,0 +1,28 @@
+body {
+	position: relative;
+}
+
+.sidr {
+	display: block;
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: 260px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 99999;
+}
+.sidr.sidr-right {
+	left: auto;
+	right: -260px;
+}
+.sidr.sidr-left {
+	left: -260px;
+	right: auto;
+}
+
+#slideout-panel-toggle {
+	position: absolute;
+	top: 100px;
+	left: 0;
+}

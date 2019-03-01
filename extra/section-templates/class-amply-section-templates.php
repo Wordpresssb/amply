@@ -55,6 +55,8 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 
 			add_action( 'init', array( $this, 'mobile_post_type' ) );
 
+			add_action( 'init', array( $this, 'slideout_post_type' ) );
+
 			// Filter the allowed blocks for section CPT.
 			add_filter( 'allowed_block_types', array( $this, 'section_allowed_block_types' ), 10, 2 );
 
@@ -66,6 +68,7 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 				add_action( 'admin_menu', array( $this, 'add_sidebar_submenu_page' ), 1 );
 				add_action( 'admin_menu', array( $this, 'add_footer_submenu_page' ), 1 );
 				add_action( 'admin_menu', array( $this, 'add_mobile_submenu_page' ), 1 );
+				add_action( 'admin_menu', array( $this, 'add_slideout_submenu_page' ), 1 );
 
 				// Custom block editor style for each section cpt.
 				add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_styles' ) );
@@ -288,6 +291,45 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 		}
 
 		/**
+		 * Register slideout panel post type
+		 */
+		public function slideout_post_type() {
+
+			// Register the post type.
+			register_post_type(
+				'amply_slideout_cpt',
+				array(
+					'labels'              => array(
+						'name'               => __( 'slide-out panels' ),
+						'singular_name'      => __( 'slide-out panel' ),
+						'add_new'            => __( 'New Slide-out Panel' ),
+						'add_new_item'       => __( 'Add New Slide-out Panel' ),
+						'edit_item'          => __( 'Edit Slide-out Panel' ),
+						'new_item'           => __( 'New Slide-out Panel' ),
+						'view_item'          => __( 'View Slide-out Panel' ),
+						'search_items'       => __( 'Search Slide-out Panels' ),
+						'not_found'          => __( 'No Slide-out Panels Found' ),
+						'not_found_in_trash' => __( 'No Slide-out Panels found in Trash' ),
+					),
+					'menu_position'       => 30,
+					'public'              => true,
+					'has_archive'         => true,
+					'hierarchical'        => false,
+					'show_ui'             => true,
+					'show_in_menu'        => false,
+					'show_in_nav_menus'   => false,
+					'can_export'          => true,
+					'exclude_from_search' => true,
+					'capability_type'     => 'post',
+					'rewrite'             => false,
+					'supports'            => array( 'title', 'editor', 'custom-fields', 'author', 'elementor' ),
+					'show_in_rest'        => true,
+				)
+			);
+
+		}
+
+		/**
 		 * Filter allowed blocks for the section cpt
 		 *
 		 * @param array  $allowed_block_types Array of allowed blocks.
@@ -295,7 +337,12 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 		 */
 		public function section_allowed_block_types( $allowed_block_types, $post ) {
 
-			if ( 'amply_header_cpt' === $post->post_type || 'amply_banner_cpt' === $post->post_type || 'amply_sidebar_cpt' === $post->post_type ) {
+			if ( 'amply_header_cpt' === $post->post_type
+			|| 'amply_banner_cpt' === $post->post_type
+			|| 'amply_sidebar_cpt' === $post->post_type
+			|| 'amply_footer_cpt' === $post->post_type
+			|| 'amply_mobile_cpt' === $post->post_type
+			|| 'amply_slideout_cpt' === $post->post_type ) {
 				return [
 					'core/audio',
 					'core/button',
@@ -418,6 +465,21 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 		}
 
 		/**
+		 * Add sub menu page for slideout cpt
+		 */
+		public function add_slideout_submenu_page() {
+
+			add_submenu_page(
+				'amply-section-templates-panel',
+				esc_html__( 'Slide-out Panels', 'amply' ),
+				esc_html__( 'Slide-out Panels', 'amply' ),
+				'manage_options',
+				'edit.php?post_type=amply_slideout_cpt'
+			);
+
+		}
+
+		/**
 		 * Enqueue cpt block editor styles.
 		 */
 		public function enqueue_block_editor_styles() {
@@ -451,6 +513,11 @@ if ( ! class_exists( 'Amply_Section_Templates' ) ) {
 					// Add mobile cpt style.
 					case 'amply_mobile_cpt':
 						wp_enqueue_style( 'amply-mobile-menu-editor-style', get_theme_file_uri( '/extra/section-templates/css/mobile-menu-editor-style.css' ), array(), AMPLY_THEME_VERSION );
+						break;
+
+					// Add slideout cpt style.
+					case 'amply_slideout_cpt':
+						wp_enqueue_style( 'amply-slideout-panel-editor-style', get_theme_file_uri( '/extra/section-templates/css/slideout-panel-editor-style.css' ), array(), AMPLY_THEME_VERSION );
 						break;
 
 				}

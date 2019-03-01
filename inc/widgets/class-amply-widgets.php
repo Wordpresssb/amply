@@ -77,6 +77,19 @@ if ( ! class_exists( 'Amply_Widgets' ) ) {
 					'after_title'   => '</h2>',
 				)
 			);
+
+			// Slide out panel widget area.
+			register_sidebar(
+				array(
+					'name'          => esc_html__( 'Slide-out Panel', 'amply' ),
+					'id'            => 'slideout-panel',
+					'description'   => esc_html__( 'Add widgets here.', 'amply' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				)
+			);
 		}
 
 	}

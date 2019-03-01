@@ -1,0 +1,35 @@
+body {
+	position: relative;
+}
+
+.slideout-panel-amp {
+	width: 260px;
+	background-color: #ffffff;
+}
+
+.slideout-panel-amp .slideout-header {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.slideout-panel-amp .close-slideout {
+	display: block;
+	font-size: 1rem;
+	padding: 1em 2em;
+	background-color: transparent;
+	border: 0;
+	box-shadow: none;
+	color: #222;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 800;
+	line-height: 1.5;
+	margin: 1px auto 2px;
+}
+
+#slideout-panel-toggle {
+	position: absolute;
+	top: 100px;
+	left: 0;
+}

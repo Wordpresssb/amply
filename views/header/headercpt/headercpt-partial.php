@@ -29,12 +29,18 @@ if ( ! empty( $header_id ) ) {
 			<?php
 			if ( $header_post_obj && ! is_wp_error( $header_post_obj ) ) {
 
-				setup_postdata( $header_post_obj );
-				the_content();
-				wp_reset_postdata();
+				global $post;
 
-				// // Other way => widget block don'work.
-				// echo do_shortcode( $header_post_obj->post_content );
+				// Set $post global variable to the right post object.
+				$post = $header_post_obj; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
+
+				// Set up "environment" for template tags.
+				setup_postdata( $post );
+
+				the_content();
+
+				// point $post back to wherever it was pointing before we got involved.
+				wp_reset_postdata();
 			}
 			?>
 
