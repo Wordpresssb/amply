@@ -56,6 +56,30 @@ function amply_minify_css( $css = '' ) {
 }
 
 /**
+ * Displays attributes for the body element.
+ */
+function amply_body_attr() {
+
+	echo join( ' ', amply_get_body_attr() ); // wpcs: xss ok.
+
+}
+
+/**
+ * Retrieves array of attributes for the body element.
+ */
+function amply_get_body_attr() {
+
+	$attr = array();
+
+	$attr = apply_filters( 'amply_body_attr', $attr );
+
+	$attr = array_map( 'esc_attr', $attr );
+
+	return array_unique( $attr );
+
+}
+
+/**
  * Get default theme options
  *
  * @param string $option Option key.

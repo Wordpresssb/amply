@@ -24,7 +24,25 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?><?php amply_body_attr(); ?>
+	<?php if ( amply_is_amp() ) : ?>
+		[class]="bodyState.bodyClasses.concat( bodyState.panelOpened ? 'sp-opened' : '' ).concat( bodyState.myTest ? 'test' : '' )"
+	<?php endif; ?>
+>
+
+<?php if ( amply_is_amp() ) : ?>
+	<amp-state id="bodyState">
+		<?php
+		$state = [
+			'bodyClasses' => get_body_class(),
+			'panelOpened' => false,
+			'myTest'      => false,
+		]
+		?>
+		<script type="application/json"><?php echo wp_json_encode( $state ); ?></script>
+	</amp-state>
+<?php endif; ?>
+
 <div id="page" class="site">
 
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'amply' ); ?></a>

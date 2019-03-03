@@ -5,7 +5,7 @@
  * @package amply
  */
 
-$slideout_id = amply_option( 'amply_slideout_panel_content_template' );
+$slideout_id = amply_option( 'amply_default_slideout_panel_content_template' );
 
 if ( ! empty( $slideout_id ) && 'none' !== $slideout_id ) {
 	$slideout_post_obj = get_post( $slideout_id );
@@ -98,4 +98,3 @@ if ( ! empty( $slideout_id ) && 'none' !== $slideout_id ) {
 
 	<?php
 }
-

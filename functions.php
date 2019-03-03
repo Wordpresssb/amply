@@ -89,6 +89,9 @@ require_once get_parent_theme_file_path( 'extra/default-footer/class-amply-defau
 // Default mobile menu.
 require_once get_parent_theme_file_path( 'extra/default-mobilemenu/class-amply-default-mobilemenu.php' );
 
+// Default slide-out panel
+require_once get_parent_theme_file_path( 'extra/default-slideout-panel/class-amply-default-slideout-panel.php' );
+
 // Frontpage.
 require_once get_parent_theme_file_path( 'extra/frontpage/frontpage-panel.php' );
 require_once get_parent_theme_file_path( 'extra/frontpage/header/class-amply-frontpage-header.php' );
@@ -105,7 +108,6 @@ require_once get_parent_theme_file_path( 'extra/single/footer/class-amply-single
 
 // Global components.
 require_once get_parent_theme_file_path( 'extra/search-toggle/class-amply-search-toggle.php' );
-require_once get_parent_theme_file_path( 'extra/slideout-panel/class-amply-slideout-panel.php' );
 
 /**
  * Compatibility
@@ -175,7 +177,7 @@ function tests() {
 	// echo '</pre>';
 
 	// echo '<pre>';
-	// print_r(wp_load_alloptions());
+	// print_r( get_body_class() );
 	// echo '</pre>';
 
 }
