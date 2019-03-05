@@ -24,11 +24,19 @@ if ( version_compare( $GLOBALS['wp_version'], AMPLY_MINIMUM_WP_VERSION, '<' ) ||
 }
 
 /**
+ * TGM
+ */
+if ( is_admin() ) {
+	require get_parent_theme_file_path( 'tgm/plugin-list.php' );
+}
+
+/**
  * Framework
  * Functions used throughout the theme.
  */
 require_once get_parent_theme_file_path( 'framework/functions-common.php' );
 require_once get_parent_theme_file_path( 'framework/functions-template.php' );
+require_once get_parent_theme_file_path( 'framework/extended-template-parts/extended-template-parts.php' );
 
 
 /**
@@ -89,7 +97,7 @@ require_once get_parent_theme_file_path( 'extra/default-footer/class-amply-defau
 // Default mobile menu.
 require_once get_parent_theme_file_path( 'extra/default-mobilemenu/class-amply-default-mobilemenu.php' );
 
-// Default slide-out panel
+// Default slide-out panel.
 require_once get_parent_theme_file_path( 'extra/default-slideout-panel/class-amply-default-slideout-panel.php' );
 
 // Frontpage.

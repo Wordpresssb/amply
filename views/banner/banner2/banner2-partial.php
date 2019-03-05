@@ -5,8 +5,8 @@
  * @package amply
  */
 
-$banner_name = get_query_var( 'amply_banner_var', '' );
-$elements    = get_query_var( 'amply_banner_elements_var', '' );
+$banner_name = $this->vars['amply_banner_var'];
+$elements    = $this->vars['amply_banner_elements_var'];
 ?>
 
 <?php wp_print_styles( array( 'amply-banner2' ) ); ?>

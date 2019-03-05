@@ -75,22 +75,22 @@ if ( ! class_exists( 'Amply_Frontpage_Footer_Component' ) ) {
 				return;
 			}
 
-			$data = 'frontpage-' . $this->footer;
-			set_query_var( 'amply_footer_var', $data );
+			$footer_name     = 'frontpage-' . $this->footer;
+			$footer_id       = amply_option( 'amply_frontpage_footer_' . $this->footer . '_template' );
+			$footer_elements = amply_option( 'amply_frontpage_footer_' . $this->footer . '_elements' );
 
-			if ( 'footercpt' === $this->footer ) {
-
-				$footer_id = amply_option( 'amply_frontpage_footer_' . $this->footer . '_template' );
-				set_query_var( 'amply_footer_id_var', $footer_id );
-
-			} else {
-
-				$elements = amply_option( 'amply_frontpage_footer_' . $this->footer . '_elements' );
-				set_query_var( 'amply_footer_elements_var', $elements );
-
-			}
-
-			get_template_part( 'views/footer/' . $this->footer . '/' . $this->footer, 'partial' );
+			get_extended_template_part(
+				'footer/' . $this->footer . '/' . $this->footer,
+				'partial',
+				[
+					'amply_footer_var'          => $footer_name,
+					'amply_footer_id_var'       => $footer_id,
+					'amply_footer_elements_var' => $footer_elements,
+				],
+				[
+					'dir' => 'views',
+				]
+			);
 
 		}
 

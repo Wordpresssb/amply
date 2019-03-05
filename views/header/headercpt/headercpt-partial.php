@@ -5,9 +5,8 @@
  * @package amply
  */
 
-$header_name = get_query_var( 'amply_header_var', '' );
-
-$header_id      = get_query_var( 'amply_header_id_var', '' );
+$header_name = $this->vars['amply_header_var'];
+$header_id   = $this->vars['amply_header_id_var'];
 
 if ( 'none' === $header_id ) {
 	return;

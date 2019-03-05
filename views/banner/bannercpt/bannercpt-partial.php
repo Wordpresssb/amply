@@ -5,9 +5,8 @@
  * @package amply
  */
 
-$banner_name = get_query_var( 'amply_banner_var', '' );
-
-$banner_id = get_query_var( 'amply_banner_id_var', '' );
+$banner_name = $this->vars['amply_banner_var'];
+$banner_id   = $this->vars['amply_banner_id_var'];
 
 if ( 'none' === $banner_id ) {
 	return;

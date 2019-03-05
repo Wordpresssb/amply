@@ -5,9 +5,8 @@
  * @package amply
  */
 
-$footer_name = get_query_var( 'amply_footer_var', '' );
-
-$footer_id      = get_query_var( 'amply_footer_id_var', '' );
+$footer_name = $this->vars['amply_footer_var'];
+$footer_id   = $this->vars['amply_footer_id_var'];
 
 if ( 'none' === $footer_id ) {
 	return;

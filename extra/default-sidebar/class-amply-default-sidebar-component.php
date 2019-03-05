@@ -91,9 +91,17 @@ if ( ! class_exists( 'Amply_Default_Sidebar_Component' ) ) {
 			if ( 'template' === amply_option( 'amply_default_sidebar_sidebar_right_type' ) ) {
 
 				$sidebar_right_id = amply_option( 'amply_default_sidebar_sidebar_right_template' );
-				set_query_var( 'amply_sidebar_right_id_var', $sidebar_right_id );
 
-				get_template_part( 'views/sidebar/sidebarcpt/sidebar-right-partial' );
+				get_extended_template_part(
+					'sidebar/sidebarcpt/sidebar-right',
+					'partial',
+					[
+						'amply_sidebar_right_id_var' => $sidebar_right_id,
+					],
+					[
+						'dir' => 'views',
+					]
+				);
 
 			} else {
 
@@ -111,9 +119,17 @@ if ( ! class_exists( 'Amply_Default_Sidebar_Component' ) ) {
 			if ( 'template' === amply_option( 'amply_default_sidebar_sidebar_left_type' ) ) {
 
 				$sidebar_left_id = amply_option( 'amply_default_sidebar_sidebar_left_template' );
-				set_query_var( 'amply_sidebar_left_id_var', $sidebar_left_id );
 
-				get_template_part( 'views/sidebar/sidebarcpt/sidebar-left-partial' );
+				get_extended_template_part(
+					'sidebar/sidebarcpt/sidebar-left',
+					'partial',
+					[
+						'amply_sidebar_left_id_var' => $sidebar_left_id,
+					],
+					[
+						'dir' => 'views',
+					]
+				);
 
 			} else {
 

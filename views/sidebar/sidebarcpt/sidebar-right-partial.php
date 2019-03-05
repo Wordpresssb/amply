@@ -5,7 +5,7 @@
  * @package amply
  */
 
-$sidebar_right_id = get_query_var( 'amply_sidebar_right_id_var', '' );
+$sidebar_right_id = $this->vars['amply_sidebar_right_id_var'];
 
 if ( 'none' === $sidebar_right_id ) {
 	return;

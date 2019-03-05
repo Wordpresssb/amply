@@ -75,22 +75,22 @@ if ( ! class_exists( 'Amply_Default_Banner_Component' ) ) {
 				return;
 			}
 
-			$name = 'default-' . $this->banner;
-			set_query_var( 'amply_banner_var', $name );
+			$banner_name     = 'default-' . $this->banner;
+			$banner_id       = amply_option( 'amply_default_banner_' . $this->banner . '_template' );
+			$banner_elements = amply_option( 'amply_default_banner_' . $this->banner . '_elements' );
 
-			if ( 'bannercpt' === $this->banner ) {
-
-				$banner_id = amply_option( 'amply_default_banner_' . $this->banner . '_template' );
-				set_query_var( 'amply_banner_id_var', $banner_id );
-
-			} else {
-
-				$elements = amply_option( 'amply_default_banner_' . $this->banner . '_elements' );
-				set_query_var( 'amply_banner_elements_var', $elements );
-
-			}
-
-			get_template_part( 'views/banner/' . $this->banner . '/' . $this->banner, 'partial' );
+			get_extended_template_part(
+				'banner/' . $this->banner . '/' . $this->banner,
+				'partial',
+				[
+					'amply_banner_var'          => $banner_name,
+					'amply_banner_id_var'       => $banner_id,
+					'amply_banner_elements_var' => $banner_elements,
+				],
+				[
+					'dir' => 'views',
+				]
+			);
 
 		}
 

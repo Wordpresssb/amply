@@ -5,8 +5,8 @@
  * @package amply
  */
 
-$footer_name = get_query_var( 'amply_footer_var', '' );
-$elements    = get_query_var( 'amply_footer_elements_var', '' );
+$footer_name = $this->vars['amply_footer_var'];
+$elements    = $this->vars['amply_footer_elements_var'];
 ?>
 
 <?php wp_print_styles( array( 'amply-footer1' ) ); ?>
