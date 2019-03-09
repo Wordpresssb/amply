@@ -27,7 +27,7 @@ if ( version_compare( $GLOBALS['wp_version'], AMPLY_MINIMUM_WP_VERSION, '<' ) ||
  * TGM
  */
 if ( is_admin() ) {
-	require get_parent_theme_file_path( 'tgm/plugin-list.php' );
+	require get_parent_theme_file_path( 'tgm/tgm-plugin-activation.php' );
 }
 
 /**
