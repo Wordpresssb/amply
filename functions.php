@@ -70,9 +70,6 @@ require_once get_parent_theme_file_path( 'inc/color-patterns/class-amply-color-p
 // Sanitize callbacks.
 require_once get_parent_theme_file_path( 'extra/sanitize-callbacks/functions-sanitize-callbacks.php' );
 
-// Add section templates.
-require_once get_parent_theme_file_path( 'extra/section-templates/class-amply-section-templates.php' );
-
 // Default header.
 require_once get_parent_theme_file_path( 'extra/default-header/class-amply-default-header.php' );
 
@@ -185,7 +182,8 @@ function tests() {
 	// echo '</pre>';
 
 	// echo '<pre>';
-	// print_r( get_body_class() );
+	// $theme = wp_get_theme();
+	// print_r( $theme );
 	// echo '</pre>';
 
 }
